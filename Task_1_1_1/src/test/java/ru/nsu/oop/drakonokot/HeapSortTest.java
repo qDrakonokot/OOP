@@ -2,6 +2,7 @@ package ru.nsu.oop.drakonokot;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -77,6 +78,12 @@ public class HeapSortTest {
             double ms = (end - start) / 1_000_000.0;
             System.out.printf("%d\t\t%.2f\n", n, ms);
         }
+    }
+
+    @Test
+    void testMainMethod() {
+        // Проверяем, что main отрабатывает без исключений, иначе Якоко шлет на...
+        assertDoesNotThrow(() -> Main.main(new String[]{}));
     }
 
 }
