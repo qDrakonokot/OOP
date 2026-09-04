@@ -1,8 +1,22 @@
 package ru.nsu.oop.drakonokot;
 import java.util.Arrays;
 
+/**
+ * Класс реализует пирамидальную сортировку для массива целых чисел.
+ * Используется минимальная куча
+ * Ассимпотика времени O(n log n)
+ * Ассимптотика памяти O(n)
+ * @author drakonokot
+ * @see #heapSort(int[])
+ */
 public class Main {
 
+    /**
+     * Добавляет элемент в минимальную кучу и просеивает его вниз
+     * @param heap      сама куча
+     * @param el        элемент на добавление
+     * @param heapEnd   индекс конца кучи
+     */
     private static void addEl(int[] heap, int el, int heapEnd) {
         heap[heapEnd] = el;
         int curr = heapEnd;
@@ -24,6 +38,13 @@ public class Main {
         }
     }
 
+    /**
+     * Извлекает минимальный элемент из кучи и восстанавливает ее структуру, путем
+     * просеивание вниз крайнего элемента в плоском массиве кучи
+     * @param heap      сама куча
+     * @param heapEnd   индекс конца кучи
+     * @return          минимальный элемент
+     */
     private static int extractMin(int[] heap, int heapEnd) {
         heapEnd--;
         int min = heap[0];
@@ -60,6 +81,12 @@ public class Main {
         return min;
     }
 
+    /**
+     * Непосредственно сортировка:
+     * 1) Заполняем кучу
+     * 2) переписываем изначальный массив доставая минимальные элементы из кучи
+     * @param arr   входной массив
+     */
     private static void heapSort(int[] arr) {
         int heapEnd = 0;
         int[] heap = new int[arr.length];
@@ -75,6 +102,10 @@ public class Main {
         }
     }
 
+    /**
+     * Демонстроция работы на заданном массиве (как я понимаю, что и требует условие задачи)
+     * @param args  Аргументы запуска программы?
+     */
     public static void main(String[] args) {
 
         int[] a = {0, 9, 8, 7, 6, 5, 4, 3, 2, 1, 67, 3245, 6,1 ,456 ,71, 34,5 ,1 ,324};
