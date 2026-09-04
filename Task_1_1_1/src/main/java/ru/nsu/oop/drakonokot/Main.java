@@ -32,7 +32,7 @@ public class Main {
         // sieve DOWN
         int curr = 0;
         while (curr < heapEnd) {
-            int minChild = 0;
+            int minChild;
             if (2 * curr + 2 >= heapEnd) {
                 if (2 * curr + 1 >= heapEnd) {
                     break;
