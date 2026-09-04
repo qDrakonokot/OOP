@@ -4,16 +4,18 @@ import java.util.Arrays;
 
 /**
  * Класс реализует пирамидальную сортировку для массива целых чисел.
- * Используется минимальная куча
- * Асимптотика времени O(n log n)
- * Асимптотика памяти O(n)
+ * Используется минимальная куча.
+ * Асимптотика времени O(n log n).
+ * Асимптотика памяти O(n).
+ *
  * @author drakonokot
  * @see #heapSort(int[])
  */
 public class Main {
 
     /**
-     * Добавляет элемент в минимальную кучу и просеивает его вниз
+     * Добавляет элемент в минимальную кучу и просеивает его вниз.
+     *
      * @param heap      сама куча
      * @param el        элемент на добавление
      * @param heapEnd   индекс конца кучи
@@ -28,8 +30,7 @@ public class Main {
 
             if (heap[curr] >= heap[older]) {
                 break;
-            }
-            else if (heap[curr] < heap[older]) {
+            } else if (heap[curr] < heap[older]) {
                 int tmp = heap[curr];
                 heap[curr] = heap[older];
                 heap[older] = tmp;
@@ -40,8 +41,9 @@ public class Main {
     }
 
     /**
-     * Извлекает минимальный элемент из кучи и восстанавливает ее структуру, путем
-     * просеивание вниз крайнего элемента в плоском массиве кучи
+     * Извлекает минимальный элемент из кучи и восстанавливает ее структуру,
+     * путем просеивание вниз крайнего элемента в плоском массиве кучи.
+     *
      * @param heap      сама куча
      * @param heapEnd   индекс конца кучи
      * @return          минимальный элемент
@@ -58,19 +60,16 @@ public class Main {
             if (2 * curr + 2 >= heapEnd) {
                 if (2 * curr + 1 >= heapEnd) {
                     break;
-                }
-                else {
+                } else {
                     minChild = 2 * curr + 1;
                 }
-            }
-            else {
+            } else {
                 minChild = heap[2 * curr + 1] < heap[2 * curr + 2] ? (2 * curr + 1) : (2 * curr + 2);
             }
 
             if (heap[curr] <= heap[minChild]) {
                 break;
-            }
-            else if (heap[curr] > heap[minChild]) {
+            } else if (heap[curr] > heap[minChild]) {
                 int tmp = heap[curr];
                 heap[curr] = heap[minChild];
                 heap[minChild] = tmp;
@@ -84,8 +83,9 @@ public class Main {
 
     /**
      * Непосредственно сортировка:
-     * 1) Заполняем кучу
-     * 2) переписываем изначальный массив доставая минимальные элементы из кучи
+     * 1) Заполняем кучу.
+     * 2) переписываем изначальный массив доставая минимальные элементы из кучи.
+     *
      * @param arr   входной массив
      */
     public static void heapSort(int[] arr) {
@@ -104,7 +104,8 @@ public class Main {
     }
 
     /**
-     * Демонстрация работы на заданном массиве (как я понимаю, что и требует условие задачи)
+     * Демонстрация работы на заданном массиве (как я понимаю, что и требует условие задачи).
+     *
      * @param args  Аргументы запуска программы?
      */
     public static void main(String[] args) {
