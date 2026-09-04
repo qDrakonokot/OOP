@@ -1,8 +1,13 @@
 package ru.nsu.oop.drakonokot;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Класс для тестирования сортировки.
+ * Содержит минимальный набор тестов, покрывающий граничные случаи.
+ */
 public class HeapSortTest {
 
     @Test
