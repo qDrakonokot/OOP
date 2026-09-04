@@ -87,7 +87,7 @@ public class Main {
      * 2) переписываем изначальный массив доставая минимальные элементы из кучи
      * @param arr   входной массив
      */
-    private static void heapSort(int[] arr) {
+    public static void heapSort(int[] arr) {
         int heapEnd = 0;
         int[] heap = new int[arr.length];
 
