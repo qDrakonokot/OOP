@@ -64,7 +64,9 @@ public class Main {
                     minChild = 2 * curr + 1;
                 }
             } else {
-                minChild = heap[2 * curr + 1] < heap[2 * curr + 2] ? (2 * curr + 1) : (2 * curr + 2);
+                minChild = heap[2 * curr + 1] < heap[2 * curr + 2]
+                        ? (2 * curr + 1)
+                        : (2 * curr + 2);
             }
 
             if (heap[curr] <= heap[minChild]) {
@@ -110,7 +112,7 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        int[] a = {0, 9, 8, 7, 6, 5, 4, 3, 2, 1, 67, 3245, 6,1 ,456 ,71, 34,5 ,1 ,324};
+        int[] a = {0, 9, 8, 7, 6, 5, 4, 3, 2, 1, 67, 3245, 6, 1, 456, 71, 34, 5, 1, 324};
 
         heapSort(a);
 
