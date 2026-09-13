@@ -1,17 +1,41 @@
 package ru.nsu.oop;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import ru.nsu.oop.game.GameEngine;
+import ru.nsu.oop.game.RoundResult;
+import ru.nsu.oop.view.ConsoleView;
+import ru.nsu.oop.view.GameView;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class Main {
+
+    public static void main(String[] args) {
+        GameView view = new ConsoleView();
+        GameEngine engine = new GameEngine(view);
+        view.showMessage("Добро пожаловать в Блэкджек!");
+
+        int round = 1;
+        int playerWins = 0;
+        int dealerWins = 0;
+
+        while (true) {
+            view.showMessage("\nРаунд " + round);
+
+            RoundResult result = engine.startRound();
+
+            if (result == RoundResult.PLAYER_WINS) {
+                playerWins += 1;
+            } else if (result == RoundResult.DEALER_WINS) {
+                dealerWins += 1;
+            }
+
+            System.out.printf("Счет %d:%d в %s пользу.\n",
+                playerWins, dealerWins,
+                (playerWins >= dealerWins ? "вашу" : "пользу дилера"));
+
+            if (!view.askPlayAgain()) {
+                view.showMessage("Игра окончена. Итоговый счет " + playerWins + ":" + dealerWins);
+                break;
+            }
+            round += 1;
         }
     }
 }
