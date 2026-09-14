@@ -6,16 +6,15 @@ import ru.nsu.oop.view.ConsoleView;
 import ru.nsu.oop.view.GameView;
 
 /**
- * Точка входа в приложение Блэкджек.
- * Управляет глобальным циклом раундов и сохраняет общий счет.
+ * Точка входа в приложение Блэкджек. Управляет глобальным циклом раундов и сохраняет общий счет.
  */
 public class Main {
 
     /**
-     * Запускает приложение.
-     * Инициализирует консольный интерфейс, движок и запускает бесконечный цикл.
+     * Запускает приложение. Инициализирует консольный интерфейс, движок и запускает бесконечный
+     * цикл.
      */
-    public static void main(String[] args) {
+    static void main(String[] args) {
         GameView view = new ConsoleView();
         GameEngine engine = new GameEngine(view);
         view.showMessage("Добро пожаловать в Блэкджек!");

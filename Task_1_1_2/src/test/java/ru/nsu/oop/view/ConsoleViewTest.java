@@ -1,15 +1,17 @@
 package ru.nsu.oop.view;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import ru.nsu.oop.model.Hand;
 
 class ConsoleViewTest {
 
@@ -59,5 +61,34 @@ class ConsoleViewTest {
 
         // Метод должен вернуть false при вводе 0
         assertFalse(view.askPlayAgain());
+    }
+
+    @Test
+    void testShowCards() {
+        System.setIn(new ByteArrayInputStream("".getBytes()));
+        ConsoleView view = new ConsoleView();
+        Hand hand = new Hand();
+
+        // Метод не должен падать при вызове
+        view.showCards("Игрок", hand);
+        assertTrue(outContent.toString().contains("Игрок:"));
+    }
+
+    @Test
+    void testAskPlayerMoveStops() {
+        // Имитируем ввод "0"
+        System.setIn(new ByteArrayInputStream("0\n".getBytes()));
+        ConsoleView view = new ConsoleView();
+
+        assertFalse(view.askPlayerMove());
+    }
+
+    @Test
+    void testAskPlayAgainYes() {
+        // Имитируем ввод "1"
+        System.setIn(new ByteArrayInputStream("1\n".getBytes()));
+        ConsoleView view = new ConsoleView();
+
+        assertTrue(view.askPlayAgain());
     }
 }

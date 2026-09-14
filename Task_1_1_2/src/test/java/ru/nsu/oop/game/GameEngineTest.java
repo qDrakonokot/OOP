@@ -1,33 +1,42 @@
 package ru.nsu.oop.game;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import org.junit.jupiter.api.Test;
 import ru.nsu.oop.model.Hand;
 import ru.nsu.oop.view.GameView;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class GameEngineTest {
 
     @Test
-    void testStartRoundCompletesSuccessfully() {
-        // Заглушка, которая имитирует пассивного игрока (сразу останавливается)
-        GameView dummyView = new GameView() {
-            @Override public void showMessage(String message) {}
-            @Override public void showCards(String ownerName, Hand hand) {}
-            @Override public boolean askPlayerMove() {
-                return false; // Игрок не берет дополнительные карты
-            }
-            @Override public boolean askPlayAgain() { return false; }
-        };
+    void testStartRoundFullCoverage() {
+        // Играем 2000 раз, чтобы гарантированно поймать блэкджеки, переборы и ничьи
+        for (int i = 0; i < 2000; i++) {
+            GameView dummyView = new GameView() {
+                private int moveCount = 0;
 
-        GameEngine engine = new GameEngine(dummyView);
-        RoundResult result = engine.startRound();
+                @Override
+                public void showMessage(String message) {
+                }
 
-        // Так как колода перемешивается случайно, мы не знаем точного победителя,
-        // но гарантируем, что результат не null и принадлежит нашему enum
-        assertNotNull(result);
-        assertTrue(result == RoundResult.PLAYER_WINS ||
-                result == RoundResult.DEALER_WINS ||
-                result == RoundResult.DRAW);
+                @Override
+                public void showCards(String ownerName, Hand hand) {
+                }
+
+                @Override
+                public boolean askPlayerMove() {
+                    // Игрок берет ровно одну карту и всегда останавливается
+                    return moveCount++ == 0;
+                }
+
+                @Override
+                public boolean askPlayAgain() {
+                    return false;
+                }
+            };
+
+            GameEngine engine = new GameEngine(dummyView);
+            assertNotNull(engine.startRound());
+        }
     }
 }

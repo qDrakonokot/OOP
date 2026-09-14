@@ -7,12 +7,12 @@ import ru.nsu.oop.model.Deck;
 import ru.nsu.oop.view.GameView;
 
 /**
- * Движок игры. Управляет жизненным циклом одного раунда,
- * очередностью ходов и определяет победителя.
+ * Движок игры. Управляет жизненным циклом одного раунда, очередностью ходов и определяет
+ * победителя.
  */
 public class GameEngine {
 
-    private GameView view;
+    private final GameView view;
     private Deck deck;
     private Player player;
     private Dealer dealer;

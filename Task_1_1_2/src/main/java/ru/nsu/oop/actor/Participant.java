@@ -9,8 +9,8 @@ import ru.nsu.oop.view.GameView;
  */
 public abstract class Participant {
 
-    private String name;
-    private Hand hand = new Hand();
+    private final String name;
+    private final Hand hand = new Hand();
 
     /**
      * @param name Имя участника.
@@ -19,17 +19,23 @@ public abstract class Participant {
         this.name = name;
     }
 
-    /** @return Имя участника. */
+    /**
+     * @return Имя участника.
+     */
     public String getName() {
         return name;
     }
 
-    /** @return Объект руки, содержащий текущие карты. */
+    /**
+     * @return Объект руки, содержащий текущие карты.
+     */
     public Hand getHand() {
         return hand;
     }
 
-    /** @return Текущий счет участника. */
+    /**
+     * @return Текущий счет участника.
+     */
     public int getScore() {
         return hand.calculateScore();
     }
