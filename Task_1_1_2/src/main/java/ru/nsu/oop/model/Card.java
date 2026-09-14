@@ -20,6 +20,8 @@ public class Card {
     }
 
     /**
+     * Количество очков карты.
+     *
      * @return Количество очков карты.
      */
     public int getValue() {

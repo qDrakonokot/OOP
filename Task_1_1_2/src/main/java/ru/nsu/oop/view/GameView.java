@@ -19,11 +19,15 @@ public interface GameView {
     void showCards(String ownerName, Hand hand);
 
     /**
+     * Решение пользователя о взятии дополнительной карты.
+     *
      * @return Решение пользователя о взятии дополнительной карты.
      */
     boolean askPlayerMove();
 
     /**
+     * Решение пользователя о начале нового раунда.
+     *
      * @return Решение пользователя о начале нового раунда.
      */
     boolean askPlayAgain();

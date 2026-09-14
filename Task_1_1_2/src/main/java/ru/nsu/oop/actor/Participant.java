@@ -13,6 +13,8 @@ public abstract class Participant {
     private final Hand hand = new Hand();
 
     /**
+     * Имя участника.
+     *
      * @param name Имя участника.
      */
     Participant(String name) {
@@ -20,6 +22,8 @@ public abstract class Participant {
     }
 
     /**
+     * Имя участника.
+     *
      * @return Имя участника.
      */
     public String getName() {
@@ -27,6 +31,8 @@ public abstract class Participant {
     }
 
     /**
+     * Объект руки, содержащий текущие карты.
+     *
      * @return Объект руки, содержащий текущие карты.
      */
     public Hand getHand() {
@@ -34,6 +40,8 @@ public abstract class Participant {
     }
 
     /**
+     * Текущий счет участника.
+     *
      * @return Текущий счет участника.
      */
     public int getScore() {

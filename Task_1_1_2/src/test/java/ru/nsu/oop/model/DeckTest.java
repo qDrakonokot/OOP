@@ -16,7 +16,8 @@ class DeckTest {
             assertNotNull(deck.draw());
         }
 
-        // На 53-й карте коллекция должна выбросить исключение (NoSuchElementException или IndexOutOfBoundsException)
+        // На 53-й карте коллекция должна выбросить исключение
+        // (NoSuchElementException или IndexOutOfBoundsException)
         assertThrows(RuntimeException.class, deck::draw);
     }
 }
