@@ -6,6 +6,10 @@ import ru.nsu.oop.model.Card;
 import ru.nsu.oop.model.Deck;
 import ru.nsu.oop.view.GameView;
 
+/**
+ * Движок игры. Управляет жизненным циклом одного раунда,
+ * очередностью ходов и определяет победителя.
+ */
 public class GameEngine {
 
     private GameView view;
@@ -13,10 +17,20 @@ public class GameEngine {
     private Player player;
     private Dealer dealer;
 
+    /**
+     * Создает движок с привязкой к конкретному интерфейсу.
+     *
+     * @param view Объект пользовательского интерфейса.
+     */
     public GameEngine(GameView view) {
         this.view = view;
     }
 
+    /**
+     * Запускает полный цикл одного раунда: раздачу, ходы участников и подсчет итогов.
+     *
+     * @return Результат завершенного раунда.
+     */
     public RoundResult startRound() {
         deck = new Deck();
         player = new Player();

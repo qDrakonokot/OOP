@@ -1,5 +1,9 @@
 package ru.nsu.oop.model;
 
+/**
+ * Перечисление достоинств игральных карт.
+ * Хранит базовую стоимость карты в очках и ее русское название.
+ */
 public enum Rank {
     TWO(2, "Двойка"),
     THREE(3, "Тройка"),
@@ -22,11 +26,16 @@ public enum Rank {
         this.value = value;
         this.label = label;
     }
-
+    /**
+     * @return Базовое количество очков, которое дает карта.
+     */
     public int getValue() {
         return value;
     }
 
+    /**
+     * @return Русское название достоинства карты.
+     */
     public String getLabel() {
         return label;
     }

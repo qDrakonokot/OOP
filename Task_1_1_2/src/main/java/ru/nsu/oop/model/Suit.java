@@ -1,5 +1,8 @@
 package ru.nsu.oop.model;
 
+/**
+ * Перечисление мастей игральных карт.
+ */
 public enum Suit {
     SPADES("Пики"),
     HEARTS("Червы"),
@@ -12,6 +15,9 @@ public enum Suit {
         this.label = label;
     }
 
+    /**
+     * @return Русское название масти для вывода в консоль.
+     */
     public String getLabel() {
         return label;
     }

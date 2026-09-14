@@ -3,6 +3,10 @@ package ru.nsu.oop.view;
 import java.util.Scanner;
 import ru.nsu.oop.model.Hand;
 
+/**
+ * Реализация GameView для работы с системной консолью через стандартные потоки (System.in /
+ * System.out).
+ */
 public class ConsoleView implements GameView {
 
     private final Scanner sc = new Scanner(System.in);
