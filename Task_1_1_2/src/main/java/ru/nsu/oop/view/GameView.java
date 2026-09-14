@@ -10,11 +10,16 @@ public interface GameView {
 
     /**
      * Выводит текстовое сообщение.
+     *
+     * @param message Текст сообщения для вывода.
      */
     void showMessage(String message);
 
     /**
      * Выводит текущие карты участника.
+     *
+     * @param ownerName Имя владельца карт (например, "Ваши карты").
+     * @param hand Объект руки, содержащий карты.
      */
     void showCards(String ownerName, Hand hand);
 

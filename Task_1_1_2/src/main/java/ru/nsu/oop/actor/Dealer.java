@@ -15,7 +15,7 @@ public class Dealer extends Participant {
      * Принимает решение по правилам казино: дилер берет карту, пока счет меньше 17.
      *
      * @param view Игнорируется (дилеру не нужен интерфейс).
-     * @return true, если счет < 17, иначе false.
+     * @return true, если счет {@code <} 17, иначе false.
      */
     @Override
     public boolean makeDecision(GameView view) {
