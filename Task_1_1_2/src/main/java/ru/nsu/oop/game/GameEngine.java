@@ -43,7 +43,7 @@ public class GameEngine {
 
         view.showCards("Ваши карты", player.getHand());
         view.showMessage(
-            "Карты дилера: [" + dealer.getHand().getCards().getFirst() + ", <закрытая карта>]");
+            "Карты дилера: [" + dealer.getHand().getCards().get(0) + ", <закрытая карта>]");
 
         if (player.getScore() == 21) {
             view.showMessage("Блэкджек! Вы выиграли раунд!");

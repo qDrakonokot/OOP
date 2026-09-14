@@ -29,7 +29,7 @@ public class Deck {
      * @return Удаленная из колоды карта.
      */
     public Card draw() {
-        return cards.removeFirst();
+        return cards.remove(0);
     }
 
 }
