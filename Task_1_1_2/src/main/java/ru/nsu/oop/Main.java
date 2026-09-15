@@ -34,9 +34,8 @@ public class Main {
                 dealerWins += 1;
             }
 
-            System.out.printf("Счет %d:%d в %s пользу.\n",
-                playerWins, dealerWins,
-                (playerWins >= dealerWins ? "вашу" : "пользу дилера"));
+            view.showMessage("Счет " + playerWins + ":" + dealerWins + " в " +
+                (playerWins >= dealerWins ? "вашу пользу" : "пользу дилера"));
 
             if (!view.askPlayAgain()) {
                 view.showMessage("Игра окончена. Итоговый счет " + playerWins + ":" + dealerWins);
