@@ -41,14 +41,14 @@ public class Hand {
 
         for (Card el : cards) {
             score += el.getValue();
-            if (el.getValue() == 11) {
+            if (el.getValue() == GameConstants.ACE_VALUE) {
                 aceCount += 1;
             }
         }
 
-        if (score > 21) {
-            while (score > 21 && aceCount > 0) {
-                score -= 10;
+        if (score > GameConstants.BLACK_JACK) {
+            while (score > GameConstants.BLACK_JACK && aceCount > 0) {
+                score -= GameConstants.ACE_VALUE_FOR_REBALANCE_OVERSCORE;
                 aceCount -= 1;
             }
         }

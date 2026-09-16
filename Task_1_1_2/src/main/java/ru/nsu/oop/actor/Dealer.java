@@ -19,6 +19,7 @@ public class Dealer extends Participant {
      */
     @Override
     public boolean makeDecision(GameView view) {
-        return getScore() < 17;
+        final int DEALER_SCORE_LIMIT = 17;
+        return getScore() < DEALER_SCORE_LIMIT;
     }
 }

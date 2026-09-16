@@ -1,113 +1,44 @@
 package ru.nsu.oop.game;
 
-import ru.nsu.oop.actor.Dealer;
-import ru.nsu.oop.actor.Player;
-import ru.nsu.oop.model.Card;
-import ru.nsu.oop.model.Deck;
 import ru.nsu.oop.view.GameView;
 
 /**
- * Движок игры. Управляет жизненным циклом одного раунда, очередностью ходов и определяет
- * победителя.
+ * Класс реализующий основной движок игры.
  */
 public class GameEngine {
 
-    private final GameView view;
-    private Deck deck;
-    private Player player;
-    private Dealer dealer;
-
     /**
-     * Создает движок с привязкой к конкретному интерфейсу.
+     * Запускает бесконечный цикл игры. Управляет очками и текущим раундом.
      *
-     * @param view Объект пользовательского интерфейса.
+     * @param view      Объект пользовательского интерфейса.
+     * @param gameRound Объект одного раунда.
      */
-    public GameEngine(GameView view) {
-        this.view = view;
-    }
+    public static void gameStart(GameView view, GameRound gameRound) {
+        view.showMessage("Добро пожаловать в Блэкджек!");
 
-    /**
-     * Запускает полный цикл одного раунда: раздачу, ходы участников и подсчет итогов.
-     *
-     * @return Результат завершенного раунда.
-     */
-    public RoundResult startRound() {
-        deck = new Deck();
-        player = new Player();
-        dealer = new Dealer();
+        int round = 1;
+        int playerWins = 0;
+        int dealerWins = 0;
 
-        for (int i = 0; i < 2; i++) {
-            player.receiveCard(deck.draw());
-            dealer.receiveCard(deck.draw());
-        }
+        while (true) {
+            view.showMessage("\nРаунд " + round);
 
-        view.showCards("Ваши карты", player.getHand());
-        view.showMessage(
-            "Карты дилера: [" + dealer.getHand().getCards().get(0) + ", <закрытая карта>]");
+            RoundResult result = gameRound.startRound();
 
-        if (player.getScore() == 21) {
-            view.showMessage("Блэкджек! Вы выиграли раунд!");
-            return RoundResult.PLAYER_WINS;
-        }
-        if (dealer.getScore() == 21) {
-            view.showMessage("У Дилера блэкджек! Вы проиграли.");
-            return RoundResult.DEALER_WINS;
-        }
-
-        while (player.getScore() < 21 && player.makeDecision(view)) {
-            Card drawn = deck.draw();
-            player.receiveCard(drawn);
-            view.showMessage("Вы открыли карту: " + drawn);
-            view.showCards("Ваши карты", player.getHand());
-
-            if (player.getScore() > 21) {
-                view.showMessage("Перебор! Вы проиграли раунд.");
-                return RoundResult.DEALER_WINS;
+            if (result == RoundResult.PLAYER_WINS) {
+                playerWins += 1;
+            } else if (result == RoundResult.DEALER_WINS) {
+                dealerWins += 1;
             }
-        }
 
-        view.showCards("Ход дилера. Карты дилера", dealer.getHand());
-        while (dealer.makeDecision(view)) {
-            Card drawn = deck.draw();
-            dealer.receiveCard(drawn);
-            view.showMessage("Дилер открывает карту: " + drawn);
-            view.showCards("Карты дилера", dealer.getHand());
+            view.showMessage("Счет " + playerWins + ":" + dealerWins + " в " +
+                (playerWins >= dealerWins ? "вашу пользу" : "пользу дилера"));
 
-            if (dealer.getScore() > 21) {
-                view.showMessage("У Дилера перебор! Вы выиграли раунд.");
-                return RoundResult.PLAYER_WINS;
+            if (!view.askPlayAgain()) {
+                view.showMessage("Игра окончена. Итоговый счет " + playerWins + ":" + dealerWins);
+                break;
             }
-        }
-
-        if (dealer.getScore() > player.getScore()) {
-            view.showMessage("Победил дилер!");
-            return RoundResult.DEALER_WINS;
-        } else if (player.getScore() > dealer.getScore()) {
-            view.showMessage("Вы выиграли раунд!");
-            return RoundResult.PLAYER_WINS;
-        } else {
-            view.showMessage("Ничья!");
-            return RoundResult.DRAW;
+            round += 1;
         }
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
