@@ -1,12 +1,12 @@
 package ru.nsu.oop.actor;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
 import ru.nsu.oop.model.Card;
 import ru.nsu.oop.model.Rank;
 import ru.nsu.oop.model.Suit;
 import ru.nsu.oop.view.GameView;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParticipantTest {
 

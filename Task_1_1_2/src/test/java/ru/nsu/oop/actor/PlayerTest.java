@@ -1,12 +1,10 @@
 package ru.nsu.oop.actor;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
 import ru.nsu.oop.model.Hand;
 import ru.nsu.oop.view.GameView;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
 

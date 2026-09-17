@@ -15,9 +15,6 @@ import ru.nsu.oop.view.GameView;
 public class GameRound {
 
     private final GameView view;
-    private Deck deck;
-    private Participant player;
-    private Participant dealer;
 
     /**
      * Создает объект раунда с привязкой к конкретному интерфейсу.
@@ -35,10 +32,9 @@ public class GameRound {
      */
     public RoundResult startRound() {
         final int PLAYERS_CARDS_COUNT_TO_PICK_UP = 2;
-
-        deck = new Deck();
-        player = new Player();
-        dealer = new Dealer();
+        Deck deck = new Deck();
+        Participant player = new Player();
+        Participant dealer = new Dealer();
 
         for (int i = 0; i < PLAYERS_CARDS_COUNT_TO_PICK_UP; i++) {
             player.receiveCard(deck.draw());
@@ -47,7 +43,7 @@ public class GameRound {
 
         view.showCards("Ваши карты", player.getHand());
         view.showMessage(
-            "Карты дилера: [" + dealer.getHand().getCards().get(0) + ", <закрытая карта>]");
+                "Карты дилера: [" + dealer.getHand().getCards().get(0) + ", <закрытая карта>]");
 
         if (player.getScore() == GameConstants.BLACK_JACK) {
             view.showMessage("Блэкджек! Вы выиграли раунд!");
