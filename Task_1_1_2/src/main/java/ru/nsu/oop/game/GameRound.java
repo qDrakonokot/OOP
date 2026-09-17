@@ -43,7 +43,7 @@ public class GameRound {
 
         view.showCards("Ваши карты", player.getHand());
         view.showMessage(
-                "Карты дилера: [" + dealer.getHand().getCards().get(0) + ", <закрытая карта>]");
+            "Карты дилера: [" + dealer.getHand().getCards().get(0) + ", <закрытая карта>]");
 
         if (player.getScore() == GameConstants.BLACK_JACK) {
             view.showMessage("Блэкджек! Вы выиграли раунд!");

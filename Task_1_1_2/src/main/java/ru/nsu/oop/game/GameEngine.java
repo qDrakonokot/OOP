@@ -32,7 +32,7 @@ public class GameEngine {
             }
 
             view.showMessage("Счет " + playerWins + ":" + dealerWins + " в " +
-                    (playerWins >= dealerWins ? "вашу пользу" : "пользу дилера"));
+                (playerWins >= dealerWins ? "вашу пользу" : "пользу дилера"));
 
             if (!view.askPlayAgain()) {
                 view.showMessage("Игра окончена. Итоговый счет " + playerWins + ":" + dealerWins);

@@ -1,13 +1,12 @@
 package ru.nsu.oop.game;
 
-import org.junit.jupiter.api.Test;
-import ru.nsu.oop.model.Hand;
-import ru.nsu.oop.view.GameView;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+import ru.nsu.oop.model.Hand;
+import ru.nsu.oop.view.GameView;
 
 class GameEngineTest {
 

@@ -1,8 +1,7 @@
 package ru.nsu.oop.view;
 
-import ru.nsu.oop.model.Hand;
-
 import java.util.Scanner;
+import ru.nsu.oop.model.Hand;
 
 /**
  * Реализация GameView для работы с системной консолью через стандартные потоки (System.in /

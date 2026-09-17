@@ -1,10 +1,11 @@
 package ru.nsu.oop.model;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class HandTest {
 
@@ -33,7 +34,7 @@ class HandTest {
 
         // Проверяем инкапсуляцию: попытка изменить полученный список должна вызвать ошибку
         assertThrows(UnsupportedOperationException.class,
-                () -> cards.add(new Card(Rank.FIVE, Suit.DIAMONDS)));
+            () -> cards.add(new Card(Rank.FIVE, Suit.DIAMONDS)));
     }
 
     @Test

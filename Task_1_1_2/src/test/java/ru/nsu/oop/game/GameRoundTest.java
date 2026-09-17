@@ -1,10 +1,10 @@
 package ru.nsu.oop.game;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import org.junit.jupiter.api.Test;
 import ru.nsu.oop.model.Hand;
 import ru.nsu.oop.view.GameView;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class GameRoundTest {
 
