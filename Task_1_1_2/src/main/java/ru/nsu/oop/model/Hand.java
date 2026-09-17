@@ -30,40 +30,13 @@ public class Hand {
     }
 
     /**
-     * Вычисляет итоговую сумму очков, динамически обрабатывая Тузы (превращает 11 очков в 1 при
-     * переборе за 21).
-     *
-     * @return Сумма очков комбинации.
-     */
-    public int calculateScore() {
-        int score = 0;
-        int aceCount = 0;
-
-        for (Card el : cards) {
-            score += el.getValue();
-            if (el.getValue() == GameConstants.ACE_VALUE) {
-                aceCount += 1;
-            }
-        }
-
-        if (score > GameConstants.BLACK_JACK) {
-            while (score > GameConstants.BLACK_JACK && aceCount > 0) {
-                score -= GameConstants.ACE_VALUE_FOR_REBALANCE_OVERSCORE;
-                aceCount -= 1;
-            }
-        }
-
-        return score;
-    }
-
-    /**
      * Форматирует карты на руках для отображения.
      *
      * @return Строковое представление карт на руках + их вес.
      */
     @Override
     public String toString() {
-        return cards + " => " + calculateScore();
+        return cards + " => " + Calculate.calculateScore(this);
     }
 
 }
