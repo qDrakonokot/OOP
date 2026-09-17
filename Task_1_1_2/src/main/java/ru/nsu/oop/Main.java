@@ -13,7 +13,7 @@ public class Main {
     /**
      * Инициализирует консольный интерфейс, движок и запускает игру.
      */
-    static void main(String[] args) {
+    public static void main(String[] args) {
         GameView view = new ConsoleView();
         GameRound gameRound = new GameRound(view);
 

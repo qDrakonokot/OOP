@@ -1,6 +1,7 @@
 package ru.nsu.oop.game;
 
 import ru.nsu.oop.actor.Dealer;
+import ru.nsu.oop.actor.Participant;
 import ru.nsu.oop.actor.Player;
 import ru.nsu.oop.model.Card;
 import ru.nsu.oop.model.Deck;
@@ -15,8 +16,8 @@ public class GameRound {
 
     private final GameView view;
     private Deck deck;
-    private Player player;
-    private Dealer dealer;
+    private Participant player;
+    private Participant dealer;
 
     /**
      * Создает объект раунда с привязкой к конкретному интерфейсу.
