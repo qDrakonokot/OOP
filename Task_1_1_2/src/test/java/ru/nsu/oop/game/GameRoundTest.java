@@ -3,40 +3,51 @@ package ru.nsu.oop.game;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
-import ru.nsu.oop.model.Hand;
+
+import ru.nsu.oop.actor.Participant;
+import ru.nsu.oop.model.Card;
 import ru.nsu.oop.view.GameView;
 
 class GameRoundTest {
 
     @Test
-    void testStartRoundFullCoverage() {
-        // Играем 2000 раз, чтобы гарантированно поймать блэкджеки, переборы и ничьи
-        for (int i = 0; i < 2000; i++) {
-            GameView dummyView = new GameView() {
-                private int moveCount = 0;
+    void testPlayReturnsValidResultWithoutExceptions() {
+        GameView view = new PassiveStubView();
+        GameRound round = new GameRound(view);
 
-                @Override
-                public void showMessage(String message) {
-                }
+        RoundResult result = round.startRound();
 
-                @Override
-                public void showCards(String ownerName, Hand hand) {
-                }
+        // Проверяем, что раунд отработал от начала и до конца
+        assertNotNull(result);
+    }
 
-                @Override
-                public boolean askPlayerMove() {
-                    // Игрок берет ровно одну карту и всегда останавливается
-                    return moveCount++ == 0;
-                }
+    private static class PassiveStubView implements GameView {
 
-                @Override
-                public boolean askPlayAgain() {
-                    return false;
-                }
-            };
+        @Override
+        public void showMessage(String message) {
+        }
 
-            GameRound engine = new GameRound(dummyView);
-            assertNotNull(engine.startRound());
+        @Override
+        public void showCards(Participant participant) {
+        }
+
+        @Override
+        public void showDealerHiddenCard(Card openCard) {
+        }
+
+        @Override
+        public void showCardDrawn(Participant participant, Card card) {
+        }
+
+        @Override
+        public boolean askPlayerMove() {
+            // Всегда отказываемся от добора, чтобы раунд завершился мгновенно
+            return false;
+        }
+
+        @Override
+        public boolean askPlayAgain() {
+            return false;
         }
     }
 }

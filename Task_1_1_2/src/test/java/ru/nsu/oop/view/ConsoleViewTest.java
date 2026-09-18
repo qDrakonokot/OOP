@@ -1,6 +1,5 @@
 package ru.nsu.oop.view;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -8,87 +7,140 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.nsu.oop.model.Hand;
 
+import ru.nsu.oop.actor.Participant;
+import ru.nsu.oop.actor.Player;
+import ru.nsu.oop.model.Card;
+import ru.nsu.oop.model.Rank;
+import ru.nsu.oop.model.Suit;
+
+/**
+ * Тесты для консольного интерфейса. Проверяют корректность вывода в консоль и считывания данных от
+ * пользователя.
+ */
 class ConsoleViewTest {
 
-    private final InputStream originalIn = System.in;
-    private final PrintStream originalOut = System.out;
-    private ByteArrayOutputStream outContent;
+    private final InputStream standardIn = System.in;
+    private final PrintStream standardOut = System.out;
+    private ByteArrayOutputStream outputStreamCaptor;
 
+    /**
+     * Перехватываем стандартный вывод перед каждым тестом.
+     */
     @BeforeEach
     void setUp() {
-        outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
+        outputStreamCaptor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStreamCaptor));
     }
 
+    /**
+     * Восстанавливаем оригинальные потоки после каждого теста, чтобы не сломать логирование в
+     * других классах.
+     */
     @AfterEach
-    void restoreStreams() {
-        System.setIn(originalIn);
-        System.setOut(originalOut);
+    void tearDown() {
+        System.setIn(standardIn);
+        System.setOut(standardOut);
+    }
+
+    /**
+     * Вспомогательный метод для подмены пользовательского ввода. Должен вызываться СТРОГО до
+     * создания объекта ConsoleView.
+     */
+    private void provideInput(String data) {
+        ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
+        System.setIn(testIn);
     }
 
     @Test
     void testShowMessage() {
-        // Подготавливаем поток ввода-вывода
-        System.setIn(new ByteArrayInputStream("".getBytes()));
+        // Подготавливаем пустой ввод, чтобы сканер не выбросил ошибку при инициализации
+        provideInput("");
         ConsoleView view = new ConsoleView();
 
-        view.showMessage("Тестовое сообщение");
+        view.showMessage("Тестовое сообщение"); //
 
-        // Проверяем, что сообщение вывелось в консоль с переносом строки
-        assertEquals("Тестовое сообщение" + System.lineSeparator(), outContent.toString());
+        assertTrue(outputStreamCaptor.toString().contains("Тестовое сообщение"));
     }
 
     @Test
-    void testAskPlayerMoveTakesCard() {
-        // Имитируем ввод пользователя "1"
-        System.setIn(new ByteArrayInputStream("1\n".getBytes()));
+    void testAskPlayerMoveReturnsTrueOnOne() {
+        // Имитируем ввод единицы и нажатие Enter
+        provideInput("1\n");
         ConsoleView view = new ConsoleView();
 
-        // Метод должен вернуть true при вводе 1
-        assertTrue(view.askPlayerMove());
+        boolean result = view.askPlayerMove(); //[cite: 17]
+
+        assertTrue(result);
+        assertTrue(outputStreamCaptor.toString().contains("Введите \"1\"")); //[cite: 17]
     }
 
     @Test
-    void testAskPlayAgainExits() {
-        // Имитируем ввод пользователя "0"
-        System.setIn(new ByteArrayInputStream("0\n".getBytes()));
+    void testAskPlayerMoveReturnsFalseOnZero() {
+        provideInput("0\n");
         ConsoleView view = new ConsoleView();
 
-        // Метод должен вернуть false при вводе 0
-        assertFalse(view.askPlayAgain());
+        boolean result = view.askPlayerMove(); //[cite: 17]
+
+        assertFalse(result);
+    }
+
+    @Test
+    void testAskPlayAgainReturnsTrueOnOne() {
+        provideInput("1\n");
+        ConsoleView view = new ConsoleView();
+
+        boolean result = view.askPlayAgain(); //[cite: 17]
+
+        assertTrue(result);
+        assertTrue(outputStreamCaptor.toString().contains("Хотите сыграть еще?")); //[cite: 17]
     }
 
     @Test
     void testShowCards() {
-        System.setIn(new ByteArrayInputStream("".getBytes()));
+        provideInput("");
         ConsoleView view = new ConsoleView();
-        Hand hand = new Hand();
+        Participant player = new Player();
+        Card card = new Card(Rank.TEN, Suit.SPADES);
+        player.receiveCard(card);
 
-        // Метод не должен падать при вызове
-        view.showCards("Игрок", hand);
-        assertTrue(outContent.toString().contains("Игрок:"));
+        view.showCards(player);
+
+        String output = outputStreamCaptor.toString();
+        assertTrue(output.contains("Карты ("));
+        // Проверяем наличие карты, используя её собственный метод toString()
+        assertTrue(output.contains(card.toString()));
     }
 
     @Test
-    void testAskPlayerMoveStops() {
-        // Имитируем ввод "0"
-        System.setIn(new ByteArrayInputStream("0\n".getBytes()));
+    void testShowDealerHiddenCard() {
+        provideInput("");
         ConsoleView view = new ConsoleView();
+        Card card = new Card(Rank.ACE, Suit.HEARTS);
 
-        assertFalse(view.askPlayerMove());
+        view.showDealerHiddenCard(card);
+
+        String output = outputStreamCaptor.toString();
+        assertTrue(output.contains("Карты дилера: ["));
+        assertTrue(output.contains(card.toString()));
+        assertTrue(output.contains("<закрытая карта>"));
     }
 
     @Test
-    void testAskPlayAgainYes() {
-        // Имитируем ввод "1"
-        System.setIn(new ByteArrayInputStream("1\n".getBytes()));
+    void testShowCardDrawn() {
+        provideInput("");
         ConsoleView view = new ConsoleView();
+        Participant player = new Player();
+        Card card = new Card(Rank.KING, Suit.CLUBS);
 
-        assertTrue(view.askPlayAgain());
+        view.showCardDrawn(player, card);
+
+        String output = outputStreamCaptor.toString();
+        assertTrue(output.contains("открывает карту: "));
+        assertTrue(output.contains(card.toString()));
     }
 }

@@ -1,69 +1,57 @@
 package ru.nsu.oop.actor;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
-import ru.nsu.oop.model.Hand;
+
+import ru.nsu.oop.model.Card;
 import ru.nsu.oop.view.GameView;
 
 class PlayerTest {
 
     @Test
-    void testPlayerName() {
+    void testMakeDecisionReturnsTrue() {
         Player player = new Player();
-        assertEquals("Вы", player.getName());
+        GameView view = new StubView(true);
+
+        assertTrue(player.makeDecision(view));
     }
 
     @Test
-    void testMakeDecisionDelegatesToView() {
+    void testMakeDecisionReturnsFalse() {
         Player player = new Player();
+        GameView view = new StubView(false);
 
-        // Создаем заглушку view, которая имитирует ввод "1" (взять карту)
-        GameView alwaysTrueView = new GameView() {
-            @Override
-            public void showMessage(String message) {
-            }
-
-            @Override
-            public void showCards(String owner, Hand hand) {
-            }
-
-            @Override
-            public boolean askPlayerMove() {
-                return true;
-            }
-
-            @Override
-            public boolean askPlayAgain() {
-                return false;
-            }
-        };
-
-        // Создаем заглушку view, которая имитирует ввод "0" (остановиться)
-        GameView alwaysFalseView = new GameView() {
-            @Override
-            public void showMessage(String message) {
-            }
-
-            @Override
-            public void showCards(String owner, Hand hand) {
-            }
-
-            @Override
-            public boolean askPlayerMove() {
-                return false;
-            }
-
-            @Override
-            public boolean askPlayAgain() {
-                return false;
-            }
-        };
-
-        // Метод должен вернуть ровно то, что ему ответил интерфейс
-        assertTrue(player.makeDecision(alwaysTrueView));
-        assertFalse(player.makeDecision(alwaysFalseView));
+        assertFalse(player.makeDecision(view));
     }
+
+    private record StubView(boolean responseToMove) implements GameView {
+
+        @Override
+            public void showMessage(String message) {
+            }
+
+            @Override
+            public void showCards(Participant participant) {
+            }
+
+            @Override
+            public void showDealerHiddenCard(Card openCard) {
+            }
+
+            @Override
+            public void showCardDrawn(Participant participant, Card card) {
+            }
+
+            @Override
+            public boolean askPlayerMove() {
+                return responseToMove;
+            }
+
+            @Override
+            public boolean askPlayAgain() {
+                return false;
+            }
+        }
 }

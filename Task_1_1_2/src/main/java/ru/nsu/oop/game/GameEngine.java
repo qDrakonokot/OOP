@@ -7,23 +7,43 @@ import ru.nsu.oop.view.GameView;
  */
 public class GameEngine {
 
+    private final GameView view;
+
     /**
-     * Запускает бесконечный цикл игры. Управляет очками и текущим раундом.
+     * Конструктор с внедрением зависимости.
      *
-     * @param view      Объект пользовательского интерфейса.
-     * @param gameRound Объект одного раунда.
+     * @param view Интерфейс для взаимодействия с пользователем.
      */
-    public static void gameStart(GameView view, GameRound gameRound) {
+    public GameEngine(GameView view) {
+        this.view = view;
+    }
+
+    /**
+     * Фабричный метод для создания раунда. Выделен специально для переопределения в тестах.
+     *
+     * @return Созданный раунд.
+     */
+    protected GameRound createRound() {
+        return new GameRound(view);
+    }
+
+    /**
+     * Полностью управляет игрой. На каждой итерации цикла создает новый объект раунда.
+     */
+    public void gameStart() {
         view.showMessage("Добро пожаловать в Блэкджек!");
 
-        int round = 1;
+        int currentRound = 1;
         int playerWins = 0;
         int dealerWins = 0;
 
         while (true) {
-            view.showMessage("\nРаунд " + round);
+            view.showMessage("\nРаунд " + currentRound);
 
-            RoundResult result = gameRound.startRound();
+            GameRound round = createRound();
+            RoundResult result = round.startRound();
+
+            announceRoundResult(result);
 
             if (result == RoundResult.PLAYER_WINS) {
                 playerWins += 1;
@@ -38,7 +58,16 @@ public class GameEngine {
                 view.showMessage("Игра окончена. Итоговый счет " + playerWins + ":" + dealerWins);
                 break;
             }
-            round += 1;
+
+            currentRound += 1;
+        }
+    }
+
+    private void announceRoundResult(RoundResult result) {
+        switch (result) {
+            case DEALER_WINS -> view.showMessage("Победил дилер!");
+            case PLAYER_WINS -> view.showMessage("Вы выиграли раунд!");
+            case DRAW -> view.showMessage("Ничья!");
         }
     }
 }
