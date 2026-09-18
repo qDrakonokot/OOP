@@ -104,6 +104,10 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="ru/nsu/oop/view/ConsoleView.html#%3Cinit%3E()" class="member-name-link">ConsoleView()</a> - Constructor for class ru.nsu.oop.view.<a href="ru/nsu/oop/view/ConsoleView.html" title="class in ru.nsu.oop.view">ConsoleView</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="ru/nsu/oop/game/GameEngine.html#createRound()" class="member-name-link">createRound()</a> - Method in class ru.nsu.oop.game.<a href="ru/nsu/oop/game/GameEngine.html" title="class in ru.nsu.oop.game">GameEngine</a></dt>
+<dd>
+<div class="block">Фабричный метод для создания раунда.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:D">D</h2>
 <dl class="index">
@@ -156,8 +160,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Класс реализующий основной движок игры.</div>
 </dd>
-<dt><a href="ru/nsu/oop/game/GameEngine.html#%3Cinit%3E()" class="member-name-link">GameEngine()</a> - Constructor for class ru.nsu.oop.game.<a href="ru/nsu/oop/game/GameEngine.html" title="class in ru.nsu.oop.game">GameEngine</a></dt>
-<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/oop/game/GameEngine.html#%3Cinit%3E(ru.nsu.oop.view.GameView)" class="member-name-link">GameEngine(GameView)</a> - Constructor for class ru.nsu.oop.game.<a href="ru/nsu/oop/game/GameEngine.html" title="class in ru.nsu.oop.game">GameEngine</a></dt>
+<dd>
+<div class="block">Конструктор с внедрением зависимости.</div>
+</dd>
 <dt><a href="ru/nsu/oop/game/GameRound.html" class="type-name-link" title="class in ru.nsu.oop.game">GameRound</a> - Class in <a href="ru/nsu/oop/game/package-summary.html">ru.nsu.oop.game</a></dt>
 <dd>
 <div class="block">Один раунд игры.</div>
@@ -166,9 +172,9 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Создает объект раунда с привязкой к конкретному интерфейсу.</div>
 </dd>
-<dt><a href="ru/nsu/oop/game/GameEngine.html#gameStart(ru.nsu.oop.view.GameView,ru.nsu.oop.game.GameRound)" class="member-name-link">gameStart(GameView, GameRound)</a> - Static method in class ru.nsu.oop.game.<a href="ru/nsu/oop/game/GameEngine.html" title="class in ru.nsu.oop.game">GameEngine</a></dt>
+<dt><a href="ru/nsu/oop/game/GameEngine.html#gameStart()" class="member-name-link">gameStart()</a> - Method in class ru.nsu.oop.game.<a href="ru/nsu/oop/game/GameEngine.html" title="class in ru.nsu.oop.game">GameEngine</a></dt>
 <dd>
-<div class="block">Запускает бесконечный цикл игры.</div>
+<div class="block">Полностью управляет игрой.</div>
 </dd>
 <dt><a href="ru/nsu/oop/view/GameView.html" class="type-name-link" title="interface in ru.nsu.oop.view">GameView</a> - Interface in <a href="ru/nsu/oop/view/package-summary.html">ru.nsu.oop.view</a></dt>
 <dd>
@@ -230,10 +236,6 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:M">M</h2>
 <dl class="index">
-<dt><a href="ru/nsu/oop/Main.html#main(java.lang.String%5B%5D)" class="member-name-link">main(String[])</a> - Static method in class ru.nsu.oop.<a href="ru/nsu/oop/Main.html" title="class in ru.nsu.oop">Main</a></dt>
-<dd>
-<div class="block">Инициализирует консольный интерфейс, движок и запускает игру.</div>
-</dd>
 <dt><a href="ru/nsu/oop/Main.html" class="type-name-link" title="class in ru.nsu.oop">Main</a> - Class in <a href="ru/nsu/oop/package-summary.html">ru.nsu.oop</a></dt>
 <dd>
 <div class="block">Точка входа в приложение Блэкджек.</div>
@@ -313,11 +315,23 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="ru/nsu/oop/model/Rank.html#SEVEN" class="member-name-link">SEVEN</a> - Enum constant in enum class ru.nsu.oop.model.<a href="ru/nsu/oop/model/Rank.html" title="enum class in ru.nsu.oop.model">Rank</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="ru/nsu/oop/view/ConsoleView.html#showCards(java.lang.String,ru.nsu.oop.model.Hand)" class="member-name-link">showCards(String, Hand)</a> - Method in class ru.nsu.oop.view.<a href="ru/nsu/oop/view/ConsoleView.html" title="class in ru.nsu.oop.view">ConsoleView</a></dt>
+<dt><a href="ru/nsu/oop/view/ConsoleView.html#showCardDrawn(ru.nsu.oop.actor.Participant,ru.nsu.oop.model.Card)" class="member-name-link">showCardDrawn(Participant, Card)</a> - Method in class ru.nsu.oop.view.<a href="ru/nsu/oop/view/ConsoleView.html" title="class in ru.nsu.oop.view">ConsoleView</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="ru/nsu/oop/view/GameView.html#showCards(java.lang.String,ru.nsu.oop.model.Hand)" class="member-name-link">showCards(String, Hand)</a> - Method in interface ru.nsu.oop.view.<a href="ru/nsu/oop/view/GameView.html" title="interface in ru.nsu.oop.view">GameView</a></dt>
+<dt><a href="ru/nsu/oop/view/GameView.html#showCardDrawn(ru.nsu.oop.actor.Participant,ru.nsu.oop.model.Card)" class="member-name-link">showCardDrawn(Participant, Card)</a> - Method in interface ru.nsu.oop.view.<a href="ru/nsu/oop/view/GameView.html" title="interface in ru.nsu.oop.view">GameView</a></dt>
 <dd>
-<div class="block">Выводит текущие карты участника.</div>
+<div class="block">Показывает открытую карту участника.</div>
+</dd>
+<dt><a href="ru/nsu/oop/view/ConsoleView.html#showCards(ru.nsu.oop.actor.Participant)" class="member-name-link">showCards(Participant)</a> - Method in class ru.nsu.oop.view.<a href="ru/nsu/oop/view/ConsoleView.html" title="class in ru.nsu.oop.view">ConsoleView</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/oop/view/GameView.html#showCards(ru.nsu.oop.actor.Participant)" class="member-name-link">showCards(Participant)</a> - Method in interface ru.nsu.oop.view.<a href="ru/nsu/oop/view/GameView.html" title="interface in ru.nsu.oop.view">GameView</a></dt>
+<dd>
+<div class="block">Выводит карты участника.</div>
+</dd>
+<dt><a href="ru/nsu/oop/view/ConsoleView.html#showDealerHiddenCard(ru.nsu.oop.model.Card)" class="member-name-link">showDealerHiddenCard(Card)</a> - Method in class ru.nsu.oop.view.<a href="ru/nsu/oop/view/ConsoleView.html" title="class in ru.nsu.oop.view">ConsoleView</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/oop/view/GameView.html#showDealerHiddenCard(ru.nsu.oop.model.Card)" class="member-name-link">showDealerHiddenCard(Card)</a> - Method in interface ru.nsu.oop.view.<a href="ru/nsu/oop/view/GameView.html" title="interface in ru.nsu.oop.view">GameView</a></dt>
+<dd>
+<div class="block">Выводит карты дилера в ходе игры, как описано в условии задачи.</div>
 </dd>
 <dt><a href="ru/nsu/oop/view/ConsoleView.html#showMessage(java.lang.String)" class="member-name-link">showMessage(String)</a> - Method in class ru.nsu.oop.view.<a href="ru/nsu/oop/view/ConsoleView.html" title="class in ru.nsu.oop.view">ConsoleView</a></dt>
 <dd>&nbsp;</dd>

@@ -122,10 +122,20 @@ implements <a href="GameView.html" title="interface in ru.nsu.oop.view">GameView
 <div class="block">Спросить пользователя о решении брать карту.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#showCards(java.lang.String,ru.nsu.oop.model.Hand)" class="member-name-link">showCards</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ownerName,
- <a href="../model/Hand.html" title="class in ru.nsu.oop.model">Hand</a>&nbsp;hand)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#showCardDrawn(ru.nsu.oop.actor.Participant,ru.nsu.oop.model.Card)" class="member-name-link">showCardDrawn</a><wbr>(<a href="../actor/Participant.html" title="class in ru.nsu.oop.actor">Participant</a>&nbsp;participant,
+ <a href="../model/Card.html" title="class in ru.nsu.oop.model">Card</a>&nbsp;card)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Выводит текущие карты участника.</div>
+<div class="block">Показывает открытую карту участника.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#showCards(ru.nsu.oop.actor.Participant)" class="member-name-link">showCards</a><wbr>(<a href="../actor/Participant.html" title="class in ru.nsu.oop.actor">Participant</a>&nbsp;participant)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Выводит карты участника.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#showDealerHiddenCard(ru.nsu.oop.model.Card)" class="member-name-link">showDealerHiddenCard</a><wbr>(<a href="../model/Card.html" title="class in ru.nsu.oop.model">Card</a>&nbsp;openCard)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Выводит карты дилера в ходе игры, как описано в условии задачи.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#showMessage(java.lang.String)" class="member-name-link">showMessage</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
@@ -178,22 +188,6 @@ implements <a href="GameView.html" title="interface in ru.nsu.oop.view">GameView
 </section>
 </li>
 <li>
-<section class="detail" id="showCards(java.lang.String,ru.nsu.oop.model.Hand)">
-<h3>showCards</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">showCards</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ownerName,
- <a href="../model/Hand.html" title="class in ru.nsu.oop.model">Hand</a>&nbsp;hand)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GameView.html#showCards(java.lang.String,ru.nsu.oop.model.Hand)">GameView</a></code></span></div>
-<div class="block">Выводит текущие карты участника.</div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="GameView.html#showCards(java.lang.String,ru.nsu.oop.model.Hand)">showCards</a></code>&nbsp;in interface&nbsp;<code><a href="GameView.html" title="interface in ru.nsu.oop.view">GameView</a></code></dd>
-<dt>Parameters:</dt>
-<dd><code>ownerName</code> - Имя владельца карт (например, "Ваши карты").</dd>
-<dd><code>hand</code> - Объект руки, содержащий карты.</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="askPlayerMove()">
 <h3>askPlayerMove</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">askPlayerMove</span>()</div>
@@ -218,6 +212,50 @@ implements <a href="GameView.html" title="interface in ru.nsu.oop.view">GameView
 <dd><code><a href="GameView.html#askPlayAgain()">askPlayAgain</a></code>&nbsp;in interface&nbsp;<code><a href="GameView.html" title="interface in ru.nsu.oop.view">GameView</a></code></dd>
 <dt>Returns:</dt>
 <dd>Решение пользователя о начале нового раунда.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="showCards(ru.nsu.oop.actor.Participant)">
+<h3>showCards</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">showCards</span><wbr><span class="parameters">(<a href="../actor/Participant.html" title="class in ru.nsu.oop.actor">Participant</a>&nbsp;participant)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GameView.html#showCards(ru.nsu.oop.actor.Participant)">GameView</a></code></span></div>
+<div class="block">Выводит карты участника.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="GameView.html#showCards(ru.nsu.oop.actor.Participant)">showCards</a></code>&nbsp;in interface&nbsp;<code><a href="GameView.html" title="interface in ru.nsu.oop.view">GameView</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>participant</code> - участник.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="showDealerHiddenCard(ru.nsu.oop.model.Card)">
+<h3>showDealerHiddenCard</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">showDealerHiddenCard</span><wbr><span class="parameters">(<a href="../model/Card.html" title="class in ru.nsu.oop.model">Card</a>&nbsp;openCard)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GameView.html#showDealerHiddenCard(ru.nsu.oop.model.Card)">GameView</a></code></span></div>
+<div class="block">Выводит карты дилера в ходе игры, как описано в условии задачи.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="GameView.html#showDealerHiddenCard(ru.nsu.oop.model.Card)">showDealerHiddenCard</a></code>&nbsp;in interface&nbsp;<code><a href="GameView.html" title="interface in ru.nsu.oop.view">GameView</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>openCard</code> - карта для показа.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="showCardDrawn(ru.nsu.oop.actor.Participant,ru.nsu.oop.model.Card)">
+<h3>showCardDrawn</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">showCardDrawn</span><wbr><span class="parameters">(<a href="../actor/Participant.html" title="class in ru.nsu.oop.actor">Participant</a>&nbsp;participant,
+ <a href="../model/Card.html" title="class in ru.nsu.oop.model">Card</a>&nbsp;card)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GameView.html#showCardDrawn(ru.nsu.oop.actor.Participant,ru.nsu.oop.model.Card)">GameView</a></code></span></div>
+<div class="block">Показывает открытую карту участника.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="GameView.html#showCardDrawn(ru.nsu.oop.actor.Participant,ru.nsu.oop.model.Card)">showCardDrawn</a></code>&nbsp;in interface&nbsp;<code><a href="GameView.html" title="interface in ru.nsu.oop.view">GameView</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>participant</code> - участник.</dd>
+<dd><code>card</code> - только что открытая карта для показа.</dd>
 </dl>
 </section>
 </li>
