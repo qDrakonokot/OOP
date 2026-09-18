@@ -3,7 +3,6 @@ package ru.nsu.oop.game;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
-
 import ru.nsu.oop.actor.Participant;
 import ru.nsu.oop.model.Card;
 import ru.nsu.oop.view.GameView;

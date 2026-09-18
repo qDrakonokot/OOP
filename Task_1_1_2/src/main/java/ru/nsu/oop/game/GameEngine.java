@@ -51,8 +51,8 @@ public class GameEngine {
                 dealerWins += 1;
             }
 
-            view.showMessage("Счет " + playerWins + ":" + dealerWins + " в " +
-                (playerWins >= dealerWins ? "вашу пользу" : "пользу дилера"));
+            view.showMessage("Счет " + playerWins + ":" + dealerWins + " в "
+               + (playerWins >= dealerWins ? "вашу пользу" : "пользу дилера"));
 
             if (!view.askPlayAgain()) {
                 view.showMessage("Игра окончена. Итоговый счет " + playerWins + ":" + dealerWins);
@@ -68,6 +68,7 @@ public class GameEngine {
             case DEALER_WINS -> view.showMessage("Победил дилер!");
             case PLAYER_WINS -> view.showMessage("Вы выиграли раунд!");
             case DRAW -> view.showMessage("Ничья!");
+            default -> throw new IllegalArgumentException("Unknown value");
         }
     }
 }

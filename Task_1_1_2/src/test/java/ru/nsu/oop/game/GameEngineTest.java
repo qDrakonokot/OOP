@@ -4,9 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.jupiter.api.Test;
-
 import ru.nsu.oop.actor.Participant;
 import ru.nsu.oop.model.Card;
 import ru.nsu.oop.view.GameView;
