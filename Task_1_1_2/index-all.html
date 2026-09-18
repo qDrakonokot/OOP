@@ -56,7 +56,7 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="ru/nsu/oop/model/GameConstants.html#ACE_VALUE" class="member-name-link">ACE_VALUE</a> - Static variable in class ru.nsu.oop.model.<a href="ru/nsu/oop/model/GameConstants.html" title="class in ru.nsu.oop.model">GameConstants</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="ru/nsu/oop/model/GameConstants.html#ACE_VALUE_FOR_REBALANCE_OVERSCORE" class="member-name-link">ACE_VALUE_FOR_REBALANCE_OVERSCORE</a> - Static variable in class ru.nsu.oop.model.<a href="ru/nsu/oop/model/GameConstants.html" title="class in ru.nsu.oop.model">GameConstants</a></dt>
+<dt><a href="ru/nsu/oop/model/GameConstants.html#ACE_VALUE_DECREMENT_ON_OVERSCORE" class="member-name-link">ACE_VALUE_DECREMENT_ON_OVERSCORE</a> - Static variable in class ru.nsu.oop.model.<a href="ru/nsu/oop/model/GameConstants.html" title="class in ru.nsu.oop.model">GameConstants</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="ru/nsu/oop/model/Hand.html#addCard(ru.nsu.oop.model.Card)" class="member-name-link">addCard(Card)</a> - Method in class ru.nsu.oop.model.<a href="ru/nsu/oop/model/Hand.html" title="class in ru.nsu.oop.model">Hand</a></dt>
 <dd>
@@ -82,13 +82,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:C">C</h2>
 <dl class="index">
-<dt><a href="ru/nsu/oop/model/Calculate.html" class="type-name-link" title="class in ru.nsu.oop.model">Calculate</a> - Class in <a href="ru/nsu/oop/model/package-summary.html">ru.nsu.oop.model</a></dt>
-<dd>
-<div class="block">Класс вычисления очков в игре.</div>
-</dd>
-<dt><a href="ru/nsu/oop/model/Calculate.html#%3Cinit%3E()" class="member-name-link">Calculate()</a> - Constructor for class ru.nsu.oop.model.<a href="ru/nsu/oop/model/Calculate.html" title="class in ru.nsu.oop.model">Calculate</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="ru/nsu/oop/model/Calculate.html#calculateScore(ru.nsu.oop.model.Hand)" class="member-name-link">calculateScore(Hand)</a> - Static method in class ru.nsu.oop.model.<a href="ru/nsu/oop/model/Calculate.html" title="class in ru.nsu.oop.model">Calculate</a></dt>
+<dt><a href="ru/nsu/oop/model/ScoreCalculator.html#calculateScore(ru.nsu.oop.model.Hand)" class="member-name-link">calculateScore(Hand)</a> - Static method in class ru.nsu.oop.model.<a href="ru/nsu/oop/model/ScoreCalculator.html" title="class in ru.nsu.oop.model">ScoreCalculator</a></dt>
 <dd>
 <div class="block">Вычисляет итоговую сумму очков, динамически обрабатывая Тузы (превращает 11 очков в 1 при
  переборе за 21).</div>
@@ -311,6 +305,12 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:S">S</h2>
 <dl class="index">
+<dt><a href="ru/nsu/oop/model/ScoreCalculator.html" class="type-name-link" title="class in ru.nsu.oop.model">ScoreCalculator</a> - Class in <a href="ru/nsu/oop/model/package-summary.html">ru.nsu.oop.model</a></dt>
+<dd>
+<div class="block">Класс вычисления очков в игре.</div>
+</dd>
+<dt><a href="ru/nsu/oop/model/ScoreCalculator.html#%3Cinit%3E()" class="member-name-link">ScoreCalculator()</a> - Constructor for class ru.nsu.oop.model.<a href="ru/nsu/oop/model/ScoreCalculator.html" title="class in ru.nsu.oop.model">ScoreCalculator</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="ru/nsu/oop/model/Rank.html#SEVEN" class="member-name-link">SEVEN</a> - Enum constant in enum class ru.nsu.oop.model.<a href="ru/nsu/oop/model/Rank.html" title="enum class in ru.nsu.oop.model">Rank</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="ru/nsu/oop/view/ConsoleView.html#showCards(java.lang.String,ru.nsu.oop.model.Hand)" class="member-name-link">showCards(String, Hand)</a> - Method in class ru.nsu.oop.view.<a href="ru/nsu/oop/view/ConsoleView.html" title="class in ru.nsu.oop.view">ConsoleView</a></dt>
@@ -331,7 +331,7 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="ru/nsu/oop/game/GameRound.html#startRound()" class="member-name-link">startRound()</a> - Method in class ru.nsu.oop.game.<a href="ru/nsu/oop/game/GameRound.html" title="class in ru.nsu.oop.game">GameRound</a></dt>
 <dd>
-<div class="block">Запускает полный цикл одного раунда: раздачу, ходы участников и подсчет итогов.</div>
+<div class="block">Запускает полный цикл одного раунда.</div>
 </dd>
 <dt><a href="ru/nsu/oop/model/Suit.html" class="type-name-link" title="enum class in ru.nsu.oop.model">Suit</a> - Enum Class in <a href="ru/nsu/oop/model/package-summary.html">ru.nsu.oop.model</a></dt>
 <dd>
