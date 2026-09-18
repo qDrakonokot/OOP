@@ -7,6 +7,8 @@ import ru.nsu.oop.view.GameView;
  */
 public class Dealer extends Participant {
 
+    private static final int DEALER_SCORE_LIMIT = 17;
+
     public Dealer() {
         super("Дилер");
     }
@@ -19,7 +21,6 @@ public class Dealer extends Participant {
      */
     @Override
     public boolean makeDecision(GameView view) {
-        final int DEALER_SCORE_LIMIT = 17;
         return getScore() < DEALER_SCORE_LIMIT;
     }
 }

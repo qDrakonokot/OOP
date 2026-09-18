@@ -14,7 +14,12 @@ import ru.nsu.oop.view.GameView;
  */
 public class GameRound {
 
+    private static final int CARDS_TO_DEAL = 2;
+
     private final GameView view;
+    private Deck deck;
+    private Participant player;
+    private Participant dealer;
 
     /**
      * Создает объект раунда с привязкой к конкретному интерфейсу.
@@ -26,25 +31,53 @@ public class GameRound {
     }
 
     /**
-     * Запускает полный цикл одного раунда: раздачу, ходы участников и подсчет итогов.
+     * Запускает полный цикл одного раунда. Управляет раздачей, ходами участников и подсчетом
+     * итогов.
      *
      * @return Результат завершенного раунда.
      */
     public RoundResult startRound() {
-        final int PLAYERS_CARDS_COUNT_TO_PICK_UP = 2;
-        Deck deck = new Deck();
-        Participant player = new Player();
-        Participant dealer = new Dealer();
 
-        for (int i = 0; i < PLAYERS_CARDS_COUNT_TO_PICK_UP; i++) {
+        initParticipantsAndDeck();
+        dealInitialCards();
+        showInitialCards();
+
+        RoundResult blackjackResult = checkInitialBlackjack();
+        if (blackjackResult != null) {
+            return blackjackResult;
+        }
+
+        if (isPlayerBusted()) {
+            return RoundResult.DEALER_WINS;
+        }
+
+        if (isDealerBusted()) {
+            return RoundResult.PLAYER_WINS;
+        }
+
+        return determineWinner();
+    }
+
+    private void initParticipantsAndDeck() {
+        this.deck = new Deck();
+        this.player = new Player();
+        this.dealer = new Dealer();
+    }
+
+    private void dealInitialCards() {
+        for (int i = 0; i < CARDS_TO_DEAL; i++) {
             player.receiveCard(deck.draw());
             dealer.receiveCard(deck.draw());
         }
+    }
 
+    private void showInitialCards() {
         view.showCards("Ваши карты", player.getHand());
         view.showMessage(
             "Карты дилера: [" + dealer.getHand().getCards().get(0) + ", <закрытая карта>]");
+    }
 
+    private RoundResult checkInitialBlackjack() {
         if (player.getScore() == GameConstants.BLACK_JACK) {
             view.showMessage("Блэкджек! Вы выиграли раунд!");
             return RoundResult.PLAYER_WINS;
@@ -53,7 +86,10 @@ public class GameRound {
             view.showMessage("У Дилера блэкджек! Вы проиграли.");
             return RoundResult.DEALER_WINS;
         }
+        return null;
+    }
 
+    private boolean isPlayerBusted() {
         while (player.getScore() < GameConstants.BLACK_JACK && player.makeDecision(view)) {
             Card drawn = deck.draw();
             player.receiveCard(drawn);
@@ -62,10 +98,13 @@ public class GameRound {
 
             if (player.getScore() > GameConstants.BLACK_JACK) {
                 view.showMessage("Перебор! Вы проиграли раунд.");
-                return RoundResult.DEALER_WINS;
+                return true;
             }
         }
+        return false;
+    }
 
+    private boolean isDealerBusted() {
         view.showCards("Ход дилера. Карты дилера", dealer.getHand());
         while (dealer.makeDecision(view)) {
             Card drawn = deck.draw();
@@ -75,20 +114,23 @@ public class GameRound {
 
             if (dealer.getScore() > GameConstants.BLACK_JACK) {
                 view.showMessage("У Дилера перебор! Вы выиграли раунд.");
-                return RoundResult.PLAYER_WINS;
+                return true;
             }
         }
+        return false;
+    }
 
+    private RoundResult determineWinner() {
         if (dealer.getScore() > player.getScore()) {
             view.showMessage("Победил дилер!");
             return RoundResult.DEALER_WINS;
-        } else if (player.getScore() > dealer.getScore()) {
+        }
+        if (player.getScore() > dealer.getScore()) {
             view.showMessage("Вы выиграли раунд!");
             return RoundResult.PLAYER_WINS;
-        } else {
-            view.showMessage("Ничья!");
-            return RoundResult.DRAW;
         }
+        view.showMessage("Ничья!");
+        return RoundResult.DRAW;
     }
 
 }

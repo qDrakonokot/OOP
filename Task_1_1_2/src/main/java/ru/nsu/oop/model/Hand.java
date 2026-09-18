@@ -36,7 +36,7 @@ public class Hand {
      */
     @Override
     public String toString() {
-        return cards + " => " + Calculate.calculateScore(this);
+        return cards + " => " + ScoreCalculator.calculateScore(this);
     }
 
 }

@@ -1,8 +1,8 @@
 package ru.nsu.oop.actor;
 
-import ru.nsu.oop.model.Calculate;
 import ru.nsu.oop.model.Card;
 import ru.nsu.oop.model.Hand;
+import ru.nsu.oop.model.ScoreCalculator;
 import ru.nsu.oop.view.GameView;
 
 /**
@@ -46,7 +46,7 @@ public abstract class Participant {
      * @return Текущий счет участника.
      */
     public int getScore() {
-        return Calculate.calculateScore(hand);
+        return ScoreCalculator.calculateScore(hand);
     }
 
     /**
