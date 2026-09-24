@@ -1,4 +1,4 @@
 package ru.nsu.oop.math;
 
-public class Eval {
+public class Derivation {
 }
