@@ -1,13 +1,13 @@
 package ru.nsu.oop.expression.bricks;
 
 import java.util.Map;
-import ru.nsu.oop.view.Output;
+import ru.nsu.oop.output.Output;
 
 public abstract class Expression {
 
     protected abstract int calculate(Map<String, Integer> variablesValues);
 
-    public abstract Expression derivate(String variableName);
+    public abstract Expression derivative(String variableName);
 
     protected abstract String asString();
 

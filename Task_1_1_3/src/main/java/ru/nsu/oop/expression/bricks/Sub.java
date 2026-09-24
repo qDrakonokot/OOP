@@ -3,6 +3,7 @@ package ru.nsu.oop.expression.bricks;
 import java.util.Map;
 
 public final class Sub extends Expression {
+
     private final Expression left;
     private final Expression right;
 
@@ -22,7 +23,7 @@ public final class Sub extends Expression {
     }
 
     @Override
-    public Expression derivate(String variableName) {
-        return null;
+    public Expression derivative(String variableName) {
+        return new Sub(left.derivative(variableName), right.derivative(variableName));
     }
 }

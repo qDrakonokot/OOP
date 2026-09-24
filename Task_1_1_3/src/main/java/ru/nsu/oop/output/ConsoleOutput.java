@@ -1,4 +1,4 @@
-package ru.nsu.oop.view;
+package ru.nsu.oop.output;
 
 public class ConsoleOutput implements Output {
 

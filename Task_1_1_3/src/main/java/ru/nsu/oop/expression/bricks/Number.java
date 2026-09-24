@@ -3,6 +3,7 @@ package ru.nsu.oop.expression.bricks;
 import java.util.Map;
 
 public final class Number extends Expression {
+
     private final int value;
 
     public Number(int value) {
@@ -21,7 +22,7 @@ public final class Number extends Expression {
     }
 
     @Override
-    public Expression derivate(String variableName) {
-        return null;
+    public Expression derivative(String variableName) {
+        return new Number(0);
     }
 }
