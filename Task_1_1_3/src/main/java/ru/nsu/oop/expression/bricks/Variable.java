@@ -17,7 +17,7 @@ public final class Variable extends Expression {
     }
 
     @Override
-    protected String asString() {
+    public String toString() {
         return name;
     }
 

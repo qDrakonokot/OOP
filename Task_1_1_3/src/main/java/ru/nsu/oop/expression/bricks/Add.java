@@ -18,8 +18,8 @@ public final class Add extends Expression {
     }
 
     @Override
-    protected String asString() {
-        return "(" + left.asString() + "+" + right.asString() + ")";
+    public String toString() {
+        return "(" + left.toString() + "+" + right.toString() + ")";
     }
 
     @Override

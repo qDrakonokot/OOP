@@ -9,11 +9,11 @@ public abstract class Expression {
 
     public abstract Expression derivative(String variableName);
 
-    protected abstract String asString();
-
+    @Override
+    public abstract String toString();
 
     public final void print(Output output) {
-        output.write(asString());
+        output.write(this.toString());
     }
 
     public final int eval(String variablesValues) {
