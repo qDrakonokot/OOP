@@ -1,6 +1,8 @@
 package ru.nsu.oop.expression.bricks;
 
 import java.util.Map;
+
+import ru.nsu.oop.expression.operations.VariableParser;
 import ru.nsu.oop.output.Output;
 
 public abstract class Expression {
@@ -17,7 +19,8 @@ public abstract class Expression {
     }
 
     public final int eval(String variablesValues) {
-        return 67;
+        Map<String, Integer> variablesValuesMap = VariableParser.parse(variablesValues);
+        return calculate(variablesValuesMap);
     }
 
 
