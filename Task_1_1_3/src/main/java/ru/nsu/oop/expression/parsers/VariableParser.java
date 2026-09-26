@@ -1,4 +1,4 @@
-package ru.nsu.oop.expression.operations;
+package ru.nsu.oop.expression.parsers;
 
 import java.util.Collections;
 import java.util.HashMap;

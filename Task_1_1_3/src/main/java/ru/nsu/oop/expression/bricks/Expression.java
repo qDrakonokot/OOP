@@ -2,7 +2,7 @@ package ru.nsu.oop.expression.bricks;
 
 import java.util.Map;
 
-import ru.nsu.oop.expression.operations.VariableParser;
+import ru.nsu.oop.expression.parsers.VariableParser;
 import ru.nsu.oop.output.ConsoleOutput;
 import ru.nsu.oop.output.Output;
 

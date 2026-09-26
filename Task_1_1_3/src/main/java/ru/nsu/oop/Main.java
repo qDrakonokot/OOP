@@ -1,7 +1,7 @@
 package ru.nsu.oop;
 
 import ru.nsu.oop.expression.bricks.Expression;
-import ru.nsu.oop.expression.operations.ExpressionParser;
+import ru.nsu.oop.expression.parsers.ExpressionParser;
 
 /**
  * Мейн.

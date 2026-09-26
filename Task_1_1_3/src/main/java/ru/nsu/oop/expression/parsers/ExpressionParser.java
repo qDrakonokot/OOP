@@ -1,4 +1,4 @@
-package ru.nsu.oop.expression.operations;
+package ru.nsu.oop.expression.parsers;
 
 import ru.nsu.oop.expression.bricks.Add;
 import ru.nsu.oop.expression.bricks.Div;
@@ -41,15 +41,26 @@ public final class ExpressionParser {
     }
 
     private static Expression parseInternal(String expression) {
+
+        if (expression.isEmpty()) {
+            throw new IllegalArgumentException("Encountered empty expression during parsing");
+        }
+
         if (expression.charAt(0) != BRACKET_OPEN) {
             return parseLeaf(expression);
+        }
+
+        if (expression.charAt(expression.length() - 1) != BRACKET_CLOSE) {
+            throw new IllegalArgumentException(
+                "Missing closing bracket in expression: " + expression);
         }
 
         String innerExpression = expression.substring(1, expression.length() - 1);
 
         int operatorIndex = findMainOperatorIndex(innerExpression);
         if (operatorIndex == -1) {
-            throw new IllegalArgumentException("Invalid expression format: " + expression);
+            throw new IllegalArgumentException(
+                "Invalid expression format (no main operator found): " + expression);
         }
 
         char operator = innerExpression.charAt(operatorIndex);
