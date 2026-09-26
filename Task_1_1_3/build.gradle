@@ -30,7 +30,7 @@ jacocoTestReport {
         classDirectories.setFrom(files(classDirectories.files.collect {
             fileTree(dir: it, exclude: [
                     'ru/nsu/oop/Main.class',
-                    'ru/nsu/oop/output/ConsoleOutput.java',
+                    'ru/nsu/oop/output/ConsoleOutput.class',
             ])
         }))
     }

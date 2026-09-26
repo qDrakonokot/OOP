@@ -35,4 +35,6 @@ class VariableTest {
         Variable var = new Variable("x");
         assertEquals("0", var.derivative("y").toString());
     }
+
+
 }

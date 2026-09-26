@@ -42,4 +42,26 @@ class ExpressionTest {
             this.writtenText = text;
         }
     }
+
+    @Test
+    void print_noArgs_writesToSystemOut() {
+        // Arrange
+        Expression expr = new Number(99);
+
+        // Перехватываем System.out
+        java.io.ByteArrayOutputStream outContent = new java.io.ByteArrayOutputStream();
+        java.io.PrintStream originalOut = System.out;
+        System.setOut(new java.io.PrintStream(outContent));
+
+        try {
+            // Act
+            expr.print();
+
+            // Assert (проверяем, что в консоль ушло "99" + перенос строки)
+            assertEquals("99" + System.lineSeparator(), outContent.toString());
+        } finally {
+            // Обязательно возвращаем System.out на место, чтобы не сломать другие тесты!
+            System.setOut(originalOut);
+        }
+    }
 }

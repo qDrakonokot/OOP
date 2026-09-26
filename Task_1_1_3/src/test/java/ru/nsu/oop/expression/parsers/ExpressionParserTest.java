@@ -32,4 +32,31 @@ class ExpressionParserTest {
         String input = "(3+2"; // Нет закрывающей скобки
         assertThrows(IllegalArgumentException.class, () -> ExpressionParser.parse(input));
     }
+
+    @Test
+    void parse_nullOrEmpty_throwsException() {
+        assertThrows(IllegalArgumentException.class, () -> ExpressionParser.parse(null));
+        assertThrows(IllegalArgumentException.class, () -> ExpressionParser.parse("   "));
+    }
+
+    @Test
+    void parse_unknownOperator_throwsException() {
+        // Оператор ^ мы не поддерживаем
+        String input = "(3^2)";
+        assertThrows(IllegalArgumentException.class, () -> ExpressionParser.parse(input));
+    }
+
+    @Test
+    void parse_noMainOperator_throwsException() {
+        // Внутри скобок нет оператора
+        String input = "(42)";
+        assertThrows(IllegalArgumentException.class, () -> ExpressionParser.parse(input));
+    }
+
+    @Test
+    void parse_emptySubExpression_throwsException() {
+        // После плюса ничего нет
+        String input = "(3+)";
+        assertThrows(IllegalArgumentException.class, () -> ExpressionParser.parse(input));
+    }
 }

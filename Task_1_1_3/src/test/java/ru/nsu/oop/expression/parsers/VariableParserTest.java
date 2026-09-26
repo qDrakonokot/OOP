@@ -39,4 +39,16 @@ class VariableParserTest {
         // Act & Assert
         assertThrows(IllegalArgumentException.class, () -> VariableParser.parse(input));
     }
+
+    @Test
+    void parse_stringWithEmptyBlocks_ignoresThem() {
+        // Две точки с запятой подряд и пробелы в конце
+        String input = "x = 10;; y = 20;  ";
+
+        Map<String, Integer> result = VariableParser.parse(input);
+
+        assertEquals(2, result.size());
+        assertEquals(10, result.get("x"));
+        assertEquals(20, result.get("y"));
+    }
 }
