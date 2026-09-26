@@ -3,6 +3,7 @@ package ru.nsu.oop.expression.bricks;
 import java.util.Map;
 
 import ru.nsu.oop.expression.operations.VariableParser;
+import ru.nsu.oop.output.ConsoleOutput;
 import ru.nsu.oop.output.Output;
 
 public abstract class Expression {
@@ -18,10 +19,14 @@ public abstract class Expression {
         output.write(this.toString());
     }
 
+    public final void print() {
+        // По умолчанию выводим в консоль (требования задачи).
+        print(new ConsoleOutput());
+    }
+
     public final int eval(String variablesValues) {
         Map<String, Integer> variablesValuesMap = VariableParser.parse(variablesValues);
         return calculate(variablesValuesMap);
     }
-
 
 }

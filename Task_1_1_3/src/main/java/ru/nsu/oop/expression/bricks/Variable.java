@@ -13,7 +13,12 @@ public final class Variable extends Expression {
 
     @Override
     protected int calculate(Map<String, Integer> variablesValues) {
-        return variablesValues.get(name);
+        Integer value = variablesValues.get(name);
+        if (value == null) {
+            throw new IllegalArgumentException("Variable '"
+                + name + "' is not defined in the context.");
+        }
+        return value;
     }
 
     @Override
