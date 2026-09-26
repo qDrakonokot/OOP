@@ -3,6 +3,9 @@ package ru.nsu.oop.expression.bricks;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Класс реализующий лист, представляющий переменную, в AST.
+ */
 public final class Variable extends Expression {
 
     private final String name;

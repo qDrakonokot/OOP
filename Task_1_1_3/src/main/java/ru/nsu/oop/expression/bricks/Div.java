@@ -2,6 +2,9 @@ package ru.nsu.oop.expression.bricks;
 
 import java.util.Map;
 
+/**
+ * Класс реализующий узел деления в AST.
+ */
 public final class Div extends Expression {
 
     private final Expression left;

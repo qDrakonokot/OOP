@@ -4,12 +4,21 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Класс парсера для строк означивающих переменные.
+ */
 public final class VariableParser {
 
     private VariableParser() {
 
     }
 
+    /**
+     * Метод парсера строк означивающих переменные.
+     *
+     * @param variablesValuesString Строка означивающая переменные.
+     * @return Мапа вида (имя переменной: значение).
+     */
     public static Map<String, Integer> parse(String variablesValuesString) {
         if (variablesValuesString == null || variablesValuesString.isBlank()) {
             return Collections.emptyMap();

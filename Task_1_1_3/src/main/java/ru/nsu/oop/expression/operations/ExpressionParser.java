@@ -8,6 +8,9 @@ import ru.nsu.oop.expression.bricks.Number;
 import ru.nsu.oop.expression.bricks.Sub;
 import ru.nsu.oop.expression.bricks.Variable;
 
+/**
+ * Класс реализующий парсер для выражения.
+ */
 public final class ExpressionParser {
 
     private static final char BRACKET_OPEN = '(';
@@ -22,6 +25,12 @@ public final class ExpressionParser {
 
     }
 
+    /**
+     * Метод парсинга выражения.
+     *
+     * @param input строка представляющая выражение.
+     * @return AST для этого выражения.
+     */
     public static Expression parse(String input) {
         if (input == null || input.isBlank()) {
             throw new IllegalArgumentException("Expression cannot be null or empty");

@@ -2,6 +2,9 @@ package ru.nsu.oop.expression.bricks;
 
 import java.util.Map;
 
+/**
+ * Класс реализующий лист, представляющий число, в AST.
+ */
 public final class Number extends Expression {
 
     private final int value;

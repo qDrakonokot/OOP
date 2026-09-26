@@ -2,6 +2,9 @@ package ru.nsu.oop.expression.bricks;
 
 import java.util.Map;
 
+/**
+ * Класс реализующий узел умножения в AST.
+ */
 public final class Mul extends Expression {
 
     private final Expression left;

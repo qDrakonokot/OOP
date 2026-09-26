@@ -3,9 +3,17 @@ package ru.nsu.oop;
 import ru.nsu.oop.expression.bricks.Expression;
 import ru.nsu.oop.expression.operations.ExpressionParser;
 
+/**
+ * Мейн.
+ */
 public class Main {
 
-    static void main(String[] args) {
+    /**
+     * Метод мейн.
+     *
+     * @param args Аргументы мейна (опять не используются).
+     */
+    public static void main(String[] args) {
 
         String input = "(3+(2*x))";
         Expression expr = ExpressionParser.parse(input);

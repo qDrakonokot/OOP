@@ -2,6 +2,9 @@ package ru.nsu.oop.expression.bricks;
 
 import java.util.Map;
 
+/**
+ * Класс реализующий узел вычитания в AST.
+ */
 public final class Sub extends Expression {
 
     private final Expression left;
