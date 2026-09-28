@@ -2,6 +2,7 @@ package ru.nsu.oop.expression.parsers;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,18 +27,18 @@ public final class VariableParser {
 
         Map<String, Integer> variablesValuesMap = new HashMap<>();
 
-        String[] pairs = variablesValuesString.split(";");
+        List<String> pairs = List.of(variablesValuesString.split(";"));
         for (String pair : pairs) {
             if (pair.isBlank()) {
                 continue;
             }
 
-            String[] keyValue = pair.split("=");
-            if (keyValue.length != 2) {
+            List<String> keyValue = List.of(pair.split("="));
+            if (keyValue.size() != 2) {
                 throw new IllegalArgumentException("Invalid variable assignment format: " + pair);
             }
-            String variableName = keyValue[0].trim();
-            int variableValue = Integer.parseInt(keyValue[1].trim());
+            String variableName = keyValue.get(0).trim();
+            int variableValue = Integer.parseInt(keyValue.get(1).trim());
 
             variablesValuesMap.put(variableName, variableValue);
         }

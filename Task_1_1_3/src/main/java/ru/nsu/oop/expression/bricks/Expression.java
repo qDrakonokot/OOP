@@ -28,14 +28,6 @@ public abstract class Expression {
     public abstract Expression derivative(String variableName);
 
     /**
-     * Преобразует выражение в строку.
-     *
-     * @return строковое представление выражения.
-     */
-    @Override
-    public abstract String toString();
-
-    /**
      * Архитектурно правильный print, не нарушающий Dip.
      *
      * @param output Реализация интерфейса вывода.

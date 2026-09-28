@@ -1,5 +1,6 @@
 package ru.nsu.oop.expression.parsers;
 
+import java.util.Set;
 import ru.nsu.oop.expression.bricks.Add;
 import ru.nsu.oop.expression.bricks.Div;
 import ru.nsu.oop.expression.bricks.Expression;
@@ -13,13 +14,14 @@ import ru.nsu.oop.expression.bricks.Variable;
  */
 public final class ExpressionParser {
 
-    private static final char BRACKET_OPEN = '(';
-    private static final char BRACKET_CLOSE = ')';
-    private static final char OP_ADD = '+';
-    private static final char OP_SUB = '-';
-    private static final char OP_MUL = '*';
-    private static final char OP_DIV = '/';
+    private static final String BRACKET_OPEN = "(";
+    private static final String BRACKET_CLOSE = ")";
+    private static final String OP_ADD = "+";
+    private static final String OP_SUB = "-";
+    private static final String OP_MUL = "*";
+    private static final String OP_DIV = "/";
 
+    private static final Set<String> OPERATORS = Set.of(OP_ADD, OP_SUB, OP_MUL, OP_DIV);
 
     private ExpressionParser() {
 
@@ -46,16 +48,17 @@ public final class ExpressionParser {
             throw new IllegalArgumentException("Encountered empty expression during parsing");
         }
 
-        if (expression.charAt(0) != BRACKET_OPEN) {
+        if (!expression.startsWith(BRACKET_OPEN)) {
             return parseLeaf(expression);
         }
 
-        if (expression.charAt(expression.length() - 1) != BRACKET_CLOSE) {
+        if (!expression.endsWith(BRACKET_CLOSE)) {
             throw new IllegalArgumentException(
                 "Missing closing bracket in expression: " + expression);
         }
 
-        String innerExpression = expression.substring(1, expression.length() - 1);
+        String innerExpression = expression.substring(BRACKET_OPEN.length(),
+            expression.length() - BRACKET_CLOSE.length());
 
         int operatorIndex = findMainOperatorIndex(innerExpression);
         if (operatorIndex == -1) {
@@ -63,7 +66,7 @@ public final class ExpressionParser {
                 "Invalid expression format (no main operator found): " + expression);
         }
 
-        char operator = innerExpression.charAt(operatorIndex);
+        String operator = innerExpression.substring(operatorIndex, operatorIndex + 1);
         String leftPart = innerExpression.substring(0, operatorIndex);
         String rightPart = innerExpression.substring(operatorIndex + 1);
 
@@ -77,21 +80,21 @@ public final class ExpressionParser {
         int bracketBalance = 0;
 
         for (int i = 0; i < expression.length(); i++) {
-            char currentChar = expression.charAt(i);
+            String currentSymbol = expression.substring(i, i + 1);
 
-            if (currentChar == BRACKET_OPEN) {
+            if (currentSymbol.equals(BRACKET_OPEN)) {
                 bracketBalance++;
-            } else if (currentChar == BRACKET_CLOSE) {
+            } else if (currentSymbol.equals(BRACKET_CLOSE)) {
                 bracketBalance--;
-            } else if (bracketBalance == 0 && isOperator(currentChar)) {
+            } else if (bracketBalance == 0 && isOperator(currentSymbol)) {
                 return i;
             }
         }
         return -1;
     }
 
-    private static boolean isOperator(char c) {
-        return c == OP_ADD || c == OP_SUB || c == OP_MUL || c == OP_DIV;
+    private static boolean isOperator(String symbol) {
+        return OPERATORS.contains(symbol);
     }
 
     private static Expression parseLeaf(String leaf) {
@@ -104,7 +107,7 @@ public final class ExpressionParser {
     }
 
     private static Expression createOperationNode(
-        char operator,
+        String operator,
         Expression left,
         Expression right
     ) {
