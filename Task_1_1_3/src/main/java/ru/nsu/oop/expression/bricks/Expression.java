@@ -3,8 +3,6 @@ package ru.nsu.oop.expression.bricks;
 import java.util.Map;
 
 import ru.nsu.oop.expression.parsers.VariableParser;
-import ru.nsu.oop.output.ConsoleOutput;
-import ru.nsu.oop.output.Output;
 
 /**
  * Базовый класс для всех узлов AST арифметического выражения.
@@ -26,23 +24,6 @@ public abstract class Expression {
      * @return Новое выражение производной.
      */
     public abstract Expression derivative(String variableName);
-
-    /**
-     * Архитектурно правильный print, не нарушающий Dip.
-     *
-     * @param output Реализация интерфейса вывода.
-     */
-    public final void print(Output output) {
-        output.write(this.toString());
-    }
-
-    /**
-     * Перегруженный print из условия задачи. По умолчанию выводит в консоль.
-     */
-    public final void print() {
-        // По умолчанию выводим в консоль (требования задачи).
-        print(new ConsoleOutput());
-    }
 
     /**
      * Внешний API для вычисления значения выражения.
