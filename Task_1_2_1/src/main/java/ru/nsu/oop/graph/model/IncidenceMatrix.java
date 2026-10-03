@@ -15,6 +15,10 @@ import java.util.Map;
  */
 public class IncidenceMatrix<T> extends AbstractGraph<T> {
 
+    // enum тут будет выглядеть хуже, поэтому оставил просто константы
+    private final static int INCIDENCE_EMPTY = 0;
+    private final static int INCIDENCE_TAIL = -1;
+    private final static int INCIDENCE_HEAD = 1;
     private final List<List<Integer>> incMatrix;
     private final Map<T, Integer> vertexToIndex;
     private final List<T> indexToVertex;
@@ -33,7 +37,7 @@ public class IncidenceMatrix<T> extends AbstractGraph<T> {
             indexToVertex.add(vertex);
             vertexToIndex.put(vertex, newIndex);
 
-            List<Integer> newRow = new ArrayList<>(Collections.nCopies(edgesCnt, 0));
+            List<Integer> newRow = new ArrayList<>(Collections.nCopies(edgesCnt, INCIDENCE_EMPTY));
             incMatrix.add(newRow);
         }
     }
@@ -55,7 +59,7 @@ public class IncidenceMatrix<T> extends AbstractGraph<T> {
 
         boolean hasEdge = false;
         for (int i = 0; i < edgesCnt; ++i) {
-            if (fromEdges.get(i).equals(-1) && toEdges.get(i).equals(1)) {
+            if (fromEdges.get(i).equals(INCIDENCE_TAIL) && toEdges.get(i).equals(INCIDENCE_HEAD)) {
                 hasEdge = true;
                 break;
             }
@@ -63,11 +67,11 @@ public class IncidenceMatrix<T> extends AbstractGraph<T> {
 
         if (!hasEdge) {
             for (List<Integer> row : incMatrix) {
-                row.add(0);
+                row.add(INCIDENCE_EMPTY);
             }
 
-            incMatrix.get(fromIndex).set(edgesCnt, -1);
-            incMatrix.get(toIndex).set(edgesCnt, 1);
+            incMatrix.get(fromIndex).set(edgesCnt, INCIDENCE_TAIL);
+            incMatrix.get(toIndex).set(edgesCnt, INCIDENCE_HEAD);
             edgesCnt++;
         }
     }
@@ -82,10 +86,10 @@ public class IncidenceMatrix<T> extends AbstractGraph<T> {
         List<Integer> fromRow = incMatrix.get(vertexIndex);
         List<T> neighbours = new ArrayList<>();
         for (int i = 0; i < edgesCnt; ++i) {
-            if (fromRow.get(i).equals(-1)) {
+            if (fromRow.get(i).equals(INCIDENCE_TAIL)) {
                 for (int j = 0; j < incMatrix.size(); ++j) {
                     List<Integer> toRow = incMatrix.get(j);
-                    if (toRow.get(i).equals(1)) {
+                    if (toRow.get(i).equals(INCIDENCE_HEAD)) {
                         neighbours.add(indexToVertex.get(j));
                         break;
                     }
@@ -114,7 +118,8 @@ public class IncidenceMatrix<T> extends AbstractGraph<T> {
         List<Integer> toRow = incMatrix.get(toIndex);
 
         for (int edgeIndex = 0; edgeIndex < edgesCnt; edgeIndex++) {
-            if (fromRow.get(edgeIndex).equals(-1) && toRow.get(edgeIndex).equals(1)) {
+            if (fromRow.get(edgeIndex).equals(INCIDENCE_TAIL) && toRow.get(edgeIndex)
+                .equals(INCIDENCE_HEAD)) {
                 for (List<Integer> row : incMatrix) {
                     row.remove(edgeIndex);
                 }
@@ -133,7 +138,7 @@ public class IncidenceMatrix<T> extends AbstractGraph<T> {
 
         List<Integer> targetRow = incMatrix.get(vIndex);
         for (int edgeIndex = edgesCnt - 1; edgeIndex >= 0; edgeIndex--) {
-            if (!targetRow.get(edgeIndex).equals(0)) {
+            if (!targetRow.get(edgeIndex).equals(INCIDENCE_EMPTY)) {
                 for (List<Integer> row : incMatrix) {
                     row.remove(edgeIndex);
                 }

@@ -51,11 +51,5 @@ public class Main {
         boolean areEqual = projectGraph.equals(matrixGraph);
         System.out.println("Равны ли они логически? -> " + areEqual);
 
-        System.out.println("\n4. Чтение из файла:");
-        Graph<Integer> fileGraph = new AdjacencyMatrix<>();
-        GraphReader.populateGraph(
-            "/home/drakonokot/Coding/java/OOP/Task_1_2_1/src/main/java/ru/nsu/oop/graph.txt",
-            fileGraph, Integer::parseInt);
-        System.out.println(fileGraph);
     }
 }
