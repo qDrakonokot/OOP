@@ -6,7 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * Реализация направленного графа на основе матрицы смежности (Adjacency Matrix). Использует паттерн
+ * Index Mapping для связи объектов типа T с индексами двумерного массива. Оптимальна для плотных
+ * графов и быстрой проверки наличия ребра за O(1).
+ *
+ * @param <T> тип данных вершин
+ */
 public class AdjacencyMatrix<T> extends AbstractGraph<T> {
 
     private final List<List<Boolean>> adjMatrix;

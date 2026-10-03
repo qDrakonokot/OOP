@@ -7,6 +7,9 @@ import java.util.Scanner;
 import java.util.function.Function;
 import ru.nsu.oop.graph.model.Graph;
 
+/**
+ * Утилитный класс для чтения структуры графа из текстовых файлов.
+ */
 public final class GraphReader {
 
     private GraphReader() {

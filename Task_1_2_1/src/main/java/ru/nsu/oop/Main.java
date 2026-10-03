@@ -8,8 +8,14 @@ import ru.nsu.oop.graph.model.IncidenceMatrix;
 import ru.nsu.oop.graph.sort.DfsTopoSort;
 import ru.nsu.oop.graph.utils.GraphReader;
 
+/**
+ * Мэйн
+ */
 public class Main {
 
+    /**
+     * Примеры работы графов в мэйне.
+     */
     public static void main() {
         System.out.println("=== ДЕМОНСТРАЦИЯ РАБОТЫ ГРАФОВ ===");
 

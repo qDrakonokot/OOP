@@ -7,11 +7,23 @@ import java.util.List;
 import java.util.Map;
 import ru.nsu.oop.graph.model.Graph;
 
+/**
+ * Утилитный класс, предоставляющий алгоритмы сортировки графов.
+ */
 public final class DfsTopoSort {
 
     private DfsTopoSort() {
     }
 
+    /**
+     * Выполняет топологическую сортировку направленного ациклического графа (DAG) с использованием
+     * алгоритма поиска в глубину (DFS).
+     *
+     * @param graph граф для сортировки (любая реализация интерфейса {@link Graph})
+     * @param <T>   тип вершин графа
+     * @return список вершин, отсортированных в топологическом порядке
+     * @throws IllegalStateException если в графе обнаружен цикл (сортировка невозможна)
+     */
     public static <T> List<T> TopoSort(Graph<T> graph) {
         Map<T, State> states = new HashMap<>();
         List<T> result = new ArrayList<>();

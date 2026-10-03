@@ -6,6 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Реализация направленного графа на основе матрицы инцидентности (Incidence Matrix). Строки матрицы
+ * представляют вершины, а столбцы — направленные ребра. Связи обозначаются как -1 (исходящее ребро)
+ * и 1 (входящее ребро).
+ *
+ * @param <T> тип данных вершин
+ */
 public class IncidenceMatrix<T> extends AbstractGraph<T> {
 
     private final List<List<Integer>> incMatrix;

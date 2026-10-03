@@ -6,6 +6,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Реализация направленного графа на основе списка смежности (Adjacency List). Оптимальна для
+ * разреженных графов и частых операций добавления/удаления вершин.
+ *
+ * @param <T> тип данных вершин
+ */
 public class AdjacencyList<T> extends AbstractGraph<T> {
 
     private final Map<T, List<T>> adjList;
