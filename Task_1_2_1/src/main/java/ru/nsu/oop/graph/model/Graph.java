@@ -12,4 +12,7 @@ public interface Graph<T> {
 
     List<T> getVertexesList();
 
+    void deleteVertex(T vertex);
+
+    void deleteEdge(T from, T to);
 }

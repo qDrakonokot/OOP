@@ -8,36 +8,61 @@ import java.util.Map;
 
 public class AdjacencyList<T> extends AbstractGraph<T> {
 
-    private final Map<T, List<T>> adjacencyList = new HashMap<>();
+    private final Map<T, List<T>> adjList;
 
-    public AdjacencyList(Map<T, List<T>> map) {
-
+    public AdjacencyList() {
+        adjList = new HashMap<>();
     }
 
     @Override
     public void addVertex(T vertex) {
-        adjacencyList.putIfAbsent(vertex, new ArrayList<T>());
+        adjList.putIfAbsent(vertex, new ArrayList<>());
     }
 
     @Override
     public void addEdge(T from, T to) {
+        if (from.equals(to)) {
+            throw new IllegalArgumentException("Self-loops forbidden");
+        }
+
         addVertex(from);
         addVertex(to);
 
-        adjacencyList.get(from).add(to);
+        List<T> neighbours = adjList.get(from);
+        if (!neighbours.contains(to)) {
+            neighbours.add(to);
+        }
     }
 
     @Override
     public List<T> getNeighbours(T vertex) {
-        List<T> neighbours = adjacencyList.getOrDefault(vertex, Collections.emptyList());
+        List<T> neighbours = adjList.getOrDefault(vertex, Collections.emptyList());
 
         return Collections.unmodifiableList(neighbours);
     }
 
     @Override
+
     public List<T> getVertexesList() {
-        return new ArrayList<>(adjacencyList.keySet());
+        return new ArrayList<>(adjList.keySet());
     }
 
+    @Override
+    public void deleteEdge(T from, T to) {
+        if (adjList.containsKey(from)) {
+            adjList.get(from).remove(to);
+        }
+    }
 
+    @Override
+    public void deleteVertex(T vertex) {
+        if (!adjList.containsKey(vertex)) {
+            return;
+        }
+        adjList.remove(vertex);
+
+        for (List<T> neighbours : adjList.values()) {
+            neighbours.remove(vertex);
+        }
+    }
 }

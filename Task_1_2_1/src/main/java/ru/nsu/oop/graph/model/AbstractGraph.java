@@ -9,8 +9,12 @@ public abstract class AbstractGraph<T> implements Graph<T> {
 
     @Override
     public boolean equals(Object object) {
-        if (this == object) return true;
-        if (!(object instanceof Graph<?>)) return false;
+        if (this == object) {
+            return true;
+        }
+        if (!(object instanceof Graph<?>)) {
+            return false;
+        }
 
         @SuppressWarnings("unchecked")
         Graph<T> other = (Graph<T>) object;
@@ -18,13 +22,17 @@ public abstract class AbstractGraph<T> implements Graph<T> {
         Set<T> thisVertexes = new HashSet<>(this.getVertexesList());
         Set<T> otherVertexes = new HashSet<>(other.getVertexesList());
 
-        if (!thisVertexes.equals(otherVertexes)) return false;
+        if (!thisVertexes.equals(otherVertexes)) {
+            return false;
+        }
 
         for (T vertex : thisVertexes) {
             Set<T> thisNeighbours = new HashSet<>(this.getNeighbours(vertex));
             Set<T> otherNeighbours = new HashSet<>(other.getNeighbours(vertex));
 
-            if (!thisNeighbours.equals(otherNeighbours)) return false;
+            if (!thisNeighbours.equals(otherNeighbours)) {
+                return false;
+            }
         }
 
         return true;
