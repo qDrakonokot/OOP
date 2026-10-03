@@ -2,14 +2,12 @@ package ru.nsu.oop;
 
 import java.util.List;
 import ru.nsu.oop.graph.model.AdjacencyList;
-import ru.nsu.oop.graph.model.AdjacencyMatrix;
 import ru.nsu.oop.graph.model.Graph;
 import ru.nsu.oop.graph.model.IncidenceMatrix;
 import ru.nsu.oop.graph.sort.DfsTopoSort;
-import ru.nsu.oop.graph.utils.GraphReader;
 
 /**
- * Мэйн
+ * Мэйн.
  */
 public class Main {
 
@@ -31,7 +29,7 @@ public class Main {
         System.out.println(projectGraph);
 
         System.out.println("\n2. Топологическая сортировка (Порядок выполнения задач):");
-        List<String> sortedTasks = DfsTopoSort.TopoSort(projectGraph);
+        List<String> sortedTasks = DfsTopoSort.topoSort(projectGraph);
         for (int i = 0; i < sortedTasks.size(); i++) {
             System.out.println((i + 1) + ". " + sortedTasks.get(i));
         }

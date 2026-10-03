@@ -12,7 +12,7 @@ import ru.nsu.oop.graph.model.Graph;
 class DfsTopoSortTest {
 
     @Test
-    void sort_validDAG_returnsCorrectTopologicalOrder() {
+    void sort_validDag_returnsCorrectTopologicalOrder() {
         // Arrange: Создаем DAG (Направленный ациклический граф)
         // A -> B, A -> C, B -> D, C -> D
         Graph<String> graph = new AdjacencyList<>();
@@ -22,7 +22,7 @@ class DfsTopoSortTest {
         graph.addEdge("C", "D");
 
         // Act
-        List<String> sorted = DfsTopoSort.TopoSort(graph);
+        List<String> sorted = DfsTopoSort.topoSort(graph);
 
         // Assert
         assertEquals(4, sorted.size());
@@ -42,7 +42,7 @@ class DfsTopoSortTest {
         graph.addEdge("X", "Y");
 
         // Act
-        List<String> sorted = DfsTopoSort.TopoSort(graph);
+        List<String> sorted = DfsTopoSort.topoSort(graph);
 
         // Assert
         assertEquals(4, sorted.size());
@@ -59,13 +59,13 @@ class DfsTopoSortTest {
         graph.addEdge("C", "A");
 
         // Act & Assert
-        assertThrows(IllegalStateException.class, () -> DfsTopoSort.TopoSort(graph));
+        assertThrows(IllegalStateException.class, () -> DfsTopoSort.topoSort(graph));
     }
 
     @Test
     void sort_emptyGraph_returnsEmptyList() {
         Graph<String> graph = new AdjacencyList<>();
-        List<String> sorted = DfsTopoSort.TopoSort(graph);
+        List<String> sorted = DfsTopoSort.topoSort(graph);
         assertTrue(sorted.isEmpty());
     }
 }

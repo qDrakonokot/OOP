@@ -16,9 +16,9 @@ import java.util.Map;
 public class IncidenceMatrix<T> extends AbstractGraph<T> {
 
     // enum тут будет выглядеть хуже, поэтому оставил просто константы
-    private final static int INCIDENCE_EMPTY = 0;
-    private final static int INCIDENCE_TAIL = -1;
-    private final static int INCIDENCE_HEAD = 1;
+    private static final int INCIDENCE_EMPTY = 0;
+    private static final int INCIDENCE_TAIL = -1;
+    private static final int INCIDENCE_HEAD = 1;
     private final List<List<Integer>> incMatrix;
     private final Map<T, Integer> vertexToIndex;
     private final List<T> indexToVertex;
@@ -131,12 +131,12 @@ public class IncidenceMatrix<T> extends AbstractGraph<T> {
 
     @Override
     public void deleteVertex(T vertex) {
-        Integer vIndex = vertexToIndex.get(vertex);
-        if (vIndex == null) {
+        Integer vertexIndex = vertexToIndex.get(vertex);
+        if (vertexIndex == null) {
             return;
         }
 
-        List<Integer> targetRow = incMatrix.get(vIndex);
+        List<Integer> targetRow = incMatrix.get(vertexIndex);
         for (int edgeIndex = edgesCnt - 1; edgeIndex >= 0; edgeIndex--) {
             if (!targetRow.get(edgeIndex).equals(INCIDENCE_EMPTY)) {
                 for (List<Integer> row : incMatrix) {
@@ -146,11 +146,11 @@ public class IncidenceMatrix<T> extends AbstractGraph<T> {
             }
         }
 
-        incMatrix.remove((int) vIndex);
-        indexToVertex.remove((int) vIndex);
+        incMatrix.remove((int) vertexIndex);
+        indexToVertex.remove((int) vertexIndex);
         vertexToIndex.remove(vertex);
 
-        for (int i = vIndex; i < indexToVertex.size(); i++) {
+        for (int i = vertexIndex; i < indexToVertex.size(); i++) {
             vertexToIndex.put(indexToVertex.get(i), i);
         }
     }

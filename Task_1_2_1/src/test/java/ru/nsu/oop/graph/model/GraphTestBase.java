@@ -10,7 +10,9 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-// Абстрактный класс. JUnit не будет запускать его напрямую.
+/**
+ * Абстрактный класс. JUnit не будет запускать его напрямую.
+ */
 public abstract class GraphTestBase {
 
     protected Graph<String> graph;

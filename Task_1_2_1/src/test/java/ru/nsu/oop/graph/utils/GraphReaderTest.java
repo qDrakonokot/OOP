@@ -50,7 +50,7 @@ class GraphReaderTest {
     void populateGraph_invalidFormat_throwsException() throws IOException {
         // Arrange: Создаем файл с кривым форматом (3 вершины в строке)
         Path tempFile = tempDir.resolve("invalid_graph.txt");
-        Files.write(tempFile, Arrays.asList("A B C"));
+        Files.write(tempFile, List.of("A B C"));
 
         Graph<String> graph = new AdjacencyList<>();
 

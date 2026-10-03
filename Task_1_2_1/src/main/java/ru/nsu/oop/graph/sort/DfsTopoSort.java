@@ -24,7 +24,7 @@ public final class DfsTopoSort {
      * @return список вершин, отсортированных в топологическом порядке
      * @throws IllegalStateException если в графе обнаружен цикл (сортировка невозможна)
      */
-    public static <T> List<T> TopoSort(Graph<T> graph) {
+    public static <T> List<T> topoSort(Graph<T> graph) {
         Map<T, State> states = new HashMap<>();
         List<T> result = new ArrayList<>();
 
