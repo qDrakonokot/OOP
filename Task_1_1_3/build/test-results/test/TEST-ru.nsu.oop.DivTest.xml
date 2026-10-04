@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.nsu.oop.DivTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2026-10-04T14:48:25.157Z" hostname="DESKTOP-1J5V28O" time="0.029">
+<testsuite name="ru.nsu.oop.DivTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2026-10-04T15:25:07.870Z" hostname="cachyos-drakonokot" time="0.031">
   <properties/>
-  <testcase name="Частное печатается в скобках" classname="ru.nsu.oop.DivTest" time="0.001"/>
-  <testcase name="[1] &quot;6&quot;, &quot;2&quot;, &quot;3&quot;" classname="ru.nsu.oop.DivTest" time="0.003"/>
+  <testcase name="Частное печатается в скобках" classname="ru.nsu.oop.DivTest" time="0.0"/>
+  <testcase name="[1] &quot;6&quot;, &quot;2&quot;, &quot;3&quot;" classname="ru.nsu.oop.DivTest" time="0.002"/>
   <testcase name="[2] &quot;-6&quot;, &quot;2&quot;, &quot;-3&quot;" classname="ru.nsu.oop.DivTest" time="0.001"/>
-  <testcase name="[3] &quot;6&quot;, &quot;-2&quot;, &quot;-3&quot;" classname="ru.nsu.oop.DivTest" time="0.001"/>
+  <testcase name="[3] &quot;6&quot;, &quot;-2&quot;, &quot;-3&quot;" classname="ru.nsu.oop.DivTest" time="0.0"/>
   <testcase name="[4] &quot;-6&quot;, &quot;-2&quot;, &quot;3&quot;" classname="ru.nsu.oop.DivTest" time="0.001"/>
   <testcase name="[5] &quot;0&quot;, &quot;7&quot;, &quot;0&quot;" classname="ru.nsu.oop.DivTest" time="0.001"/>
-  <testcase name="[6] &quot;7&quot;, &quot;1&quot;, &quot;7&quot;" classname="ru.nsu.oop.DivTest" time="0.0"/>
-  <testcase name="[7] &quot;5&quot;, &quot;2&quot;, &quot;2&quot;" classname="ru.nsu.oop.DivTest" time="0.0"/>
-  <testcase name="[8] &quot;-5&quot;, &quot;2&quot;, &quot;-2&quot;" classname="ru.nsu.oop.DivTest" time="0.0"/>
+  <testcase name="[6] &quot;7&quot;, &quot;1&quot;, &quot;7&quot;" classname="ru.nsu.oop.DivTest" time="0.001"/>
+  <testcase name="[7] &quot;5&quot;, &quot;2&quot;, &quot;2&quot;" classname="ru.nsu.oop.DivTest" time="0.001"/>
+  <testcase name="[8] &quot;-5&quot;, &quot;2&quot;, &quot;-2&quot;" classname="ru.nsu.oop.DivTest" time="0.001"/>
   <testcase name="[9] &quot;5&quot;, &quot;-2&quot;, &quot;-2&quot;" classname="ru.nsu.oop.DivTest" time="0.0"/>
   <testcase name="[10] &quot;2&quot;, &quot;5&quot;, &quot;0&quot;" classname="ru.nsu.oop.DivTest" time="0.001"/>
   <testcase name="Создание второго частного не изменяет первое" classname="ru.nsu.oop.DivTest" time="0.001"/>
-  <testcase name="[1] 0" classname="ru.nsu.oop.DivTest" time="0.005"/>
+  <testcase name="[1] 0" classname="ru.nsu.oop.DivTest" time="0.003"/>
   <testcase name="[2] 1" classname="ru.nsu.oop.DivTest" time="0.001"/>
-  <testcase name="[3] -1" classname="ru.nsu.oop.DivTest" time="0.001"/>
-  <testcase name="[4] 123" classname="ru.nsu.oop.DivTest" time="0.0"/>
-  <testcase name="Ошибка возникает и при вычислении знаменателя в ноль" classname="ru.nsu.oop.DivTest" time="0.001"/>
-  <testcase name="Вложенное деление сохраняет скобки и порядок" classname="ru.nsu.oop.DivTest" time="0.001"/>
+  <testcase name="[3] -1" classname="ru.nsu.oop.DivTest" time="0.0"/>
+  <testcase name="[4] 123" classname="ru.nsu.oop.DivTest" time="0.001"/>
+  <testcase name="Ошибка возникает и при вычислении знаменателя в ноль" classname="ru.nsu.oop.DivTest" time="0.002"/>
+  <testcase name="Вложенное деление сохраняет скобки и порядок" classname="ru.nsu.oop.DivTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.nsu.oop.ExpressionTest" tests="29" skipped="0" failures="0" errors="0" timestamp="2026-10-04T14:48:25.186Z" hostname="DESKTOP-1J5V28O" time="0.039">
+<testsuite name="ru.nsu.oop.ExpressionTest" tests="29" skipped="0" failures="0" errors="0" timestamp="2026-10-04T15:25:07.902Z" hostname="cachyos-drakonokot" time="0.041">
   <properties/>
   <testcase name="[1] &quot;x=abc&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
-  <testcase name="[2] &quot;x=1.5&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
-  <testcase name="[3] &quot;x=2147483648&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <testcase name="[2] &quot;x=1.5&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
+  <testcase name="[3] &quot;x=2147483648&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
   <testcase name="[4] &quot;x=-2147483649&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
   <testcase name="Одно выражение можно вычислять с разными строками значений" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
   <testcase name="Все четыре операции работают в одном выражении" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
   <testcase name="Строка без значения нужной переменной завершается ошибкой" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
-  <testcase name="Многобуквенные имена читаются из строки присваиваний" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
-  <testcase name="[1] &quot;x&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.003"/>
+  <testcase name="Многобуквенные имена читаются из строки присваиваний" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <testcase name="[1] &quot;x&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
   <testcase name="[2] &quot;x=&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
-  <testcase name="[3] &quot;x=2;y&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <testcase name="[3] &quot;x=2;y&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
   <testcase name="Строковое вычисление константы допускает лишние присваивания" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
   <testcase name="Вычисление не меняет ни таблицу, ни выражение" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
-  <testcase name="[1] 5, &quot;5&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
-  <testcase name="[2] -5, &quot;-5&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
-  <testcase name="[3] velocity, &quot;velocity&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
+  <testcase name="[1] 5, &quot;5&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.002"/>
+  <testcase name="[2] -5, &quot;-5&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <testcase name="[3] velocity, &quot;velocity&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
   <testcase name="[4] (1+2), &quot;(1+2)&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
   <testcase name="[5] (1-2), &quot;(1-2)&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
   <testcase name="[6] (1*2), &quot;(1*2)&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
   <testcase name="[7] (1/2), &quot;(1/2)&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
-  <testcase name="[8] (3+(2*x)), &quot;(3+(2*x))&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <testcase name="[8] (3+(2*x)), &quot;(3+(2*x))&quot;" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
   <testcase name="[1] &quot;x = 10; y = 13&quot;, 23" classname="ru.nsu.oop.ExpressionTest" time="0.002"/>
-  <testcase name="[2] &quot;x=10&quot;, 23" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <testcase name="[2] &quot;x=10&quot;, 23" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
   <testcase name="[3] &quot;  x  =  10  ;  y  =  13  &quot;, 23" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
-  <testcase name="[4] &quot;y=13;x=10&quot;, 23" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
-  <testcase name="[5] &quot;x=-4;y=0&quot;, -5" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
-  <testcase name="[6] &quot;x=0&quot;, 3" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
+  <testcase name="[4] &quot;y=13;x=10&quot;, 23" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <testcase name="[5] &quot;x=-4;y=0&quot;, -5" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <testcase name="[6] &quot;x=0&quot;, 3" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
   <testcase name="[7] &quot;x=+4&quot;, 11" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
   <testcase name="[8] &quot;\tx\t=\t10\n; y=13&quot;, 23" classname="ru.nsu.oop.ExpressionTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

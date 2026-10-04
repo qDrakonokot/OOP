@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.nsu.oop.VariableTest" tests="21" skipped="0" failures="0" errors="0" timestamp="2026-10-04T14:48:25.286Z" hostname="DESKTOP-1J5V28O" time="0.022">
+<testsuite name="ru.nsu.oop.VariableTest" tests="21" skipped="0" failures="0" errors="0" timestamp="2026-10-04T15:25:08.103Z" hostname="cachyos-drakonokot" time="0.014">
   <properties/>
   <testcase name="Вычисление переменной без значения завершается ошибкой" classname="ru.nsu.oop.VariableTest" time="0.001"/>
   <testcase name="[1] &quot;x&quot;" classname="ru.nsu.oop.VariableTest" time="0.001"/>
   <testcase name="[2] &quot;y&quot;" classname="ru.nsu.oop.VariableTest" time="0.0"/>
-  <testcase name="[3] &quot;velocity&quot;" classname="ru.nsu.oop.VariableTest" time="0.0"/>
+  <testcase name="[3] &quot;velocity&quot;" classname="ru.nsu.oop.VariableTest" time="0.001"/>
   <testcase name="[4] &quot;acceleration&quot;" classname="ru.nsu.oop.VariableTest" time="0.0"/>
   <testcase name="[5] &quot;X&quot;" classname="ru.nsu.oop.VariableTest" time="0.0"/>
   <testcase name="[6] &quot;temperature&quot;" classname="ru.nsu.oop.VariableTest" time="0.0"/>
@@ -13,11 +13,11 @@
   <testcase name="[2] 1" classname="ru.nsu.oop.VariableTest" time="0.0"/>
   <testcase name="[3] -1" classname="ru.nsu.oop.VariableTest" time="0.0"/>
   <testcase name="[4] 15" classname="ru.nsu.oop.VariableTest" time="0.0"/>
-  <testcase name="[5] -25" classname="ru.nsu.oop.VariableTest" time="0.0"/>
+  <testcase name="[5] -25" classname="ru.nsu.oop.VariableTest" time="0.001"/>
   <testcase name="[6] 2147483647" classname="ru.nsu.oop.VariableTest" time="0.0"/>
   <testcase name="[7] -2147483648" classname="ru.nsu.oop.VariableTest" time="0.0"/>
   <testcase name="Имена сравниваются по содержимому, а не по ссылкам" classname="ru.nsu.oop.VariableTest" time="0.0"/>
-  <testcase name="[1] &quot;x&quot;, &quot;x&quot;, &quot;1&quot;" classname="ru.nsu.oop.VariableTest" time="0.002"/>
+  <testcase name="[1] &quot;x&quot;, &quot;x&quot;, &quot;1&quot;" classname="ru.nsu.oop.VariableTest" time="0.001"/>
   <testcase name="[2] &quot;x&quot;, &quot;y&quot;, &quot;0&quot;" classname="ru.nsu.oop.VariableTest" time="0.0"/>
   <testcase name="[3] &quot;velocity&quot;, &quot;velocity&quot;, &quot;1&quot;" classname="ru.nsu.oop.VariableTest" time="0.001"/>
   <testcase name="[4] &quot;velocity&quot;, &quot;x&quot;, &quot;0&quot;" classname="ru.nsu.oop.VariableTest" time="0.001"/>
