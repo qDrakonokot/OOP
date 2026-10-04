@@ -19,19 +19,3 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
-jacocoTestReport {
-    reports {
-        xml.required = true
-    }
-    dependsOn test
-
-    afterEvaluate {
-        classDirectories.setFrom(files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: [
-                    'ru/nsu/oop/Main.class',
-                    'ru/nsu/oop/output/ConsoleOutput.class',
-            ])
-        }))
-    }
-}
