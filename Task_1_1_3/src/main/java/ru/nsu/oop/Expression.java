@@ -3,15 +3,29 @@ package ru.nsu.oop;
 import java.util.HashMap;
 import java.util.Map;
 
+/** Представляет выражение, которое можно вычислять и дифференцировать. */
 public abstract class Expression {
     public abstract String toString();
 
+    /** Выводит выражение в стандартный поток вывода. */
     public void print() {
         System.out.println(toString());
     }
 
+    /**
+     * Вычисляет символьную производную, сохраняя исходное выражение.
+     *
+     * @param variableName имя переменной, по которой вычисляется производная
+     * @return производная в виде нового выражения
+     */
     public abstract Expression derivative(String variableName);
 
+    /**
+     * Вычисляет значение по присваиваниям вида {@code x = 10; y = 13}.
+     *
+     * @param assignments присваивания переменным, разделённые точкой с запятой
+     * @return целочисленное значение выражения
+     */
     public int eval(String assignments) {
         Map<String, Integer> variables = new HashMap<>();
         for (String assignment : assignments.split(";")) {
@@ -22,5 +36,11 @@ public abstract class Expression {
         return this.eval(variables);
     }
 
+    /**
+     * Вычисляет выражение с заданными значениями переменных.
+     *
+     * @param variables соответствие имён переменных их целочисленным значениям
+     * @return целочисленное значение выражения
+     */
     public abstract int eval(Map<String, Integer> variables);
 }

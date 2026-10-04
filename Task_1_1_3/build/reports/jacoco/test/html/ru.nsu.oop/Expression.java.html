@@ -3,25 +3,45 @@
 import java.util.HashMap;
 import java.util.Map;
 
-<span class="fc" id="L6">public abstract class Expression {</span>
+/** Представляет выражение, которое можно вычислять и дифференцировать. */
+<span class="fc" id="L7">public abstract class Expression {</span>
     public abstract String toString();
 
+    /** Выводит выражение в стандартный поток вывода. */
     public void print() {
-<span class="fc" id="L10">        System.out.println(toString());</span>
-<span class="fc" id="L11">    }</span>
+<span class="fc" id="L12">        System.out.println(toString());</span>
+<span class="fc" id="L13">    }</span>
 
+    /**
+     * Вычисляет символьную производную, сохраняя исходное выражение.
+     *
+     * @param variableName имя переменной, по которой вычисляется производная
+     * @return производная в виде нового выражения
+     */
     public abstract Expression derivative(String variableName);
 
+    /**
+     * Вычисляет значение по присваиваниям вида {@code x = 10; y = 13}.
+     *
+     * @param assignments присваивания переменным, разделённые точкой с запятой
+     * @return целочисленное значение выражения
+     */
     public int eval(String assignments) {
-<span class="fc" id="L16">        Map&lt;String, Integer&gt; variables = new HashMap&lt;&gt;();</span>
-<span class="fc bfc" id="L17" title="All 2 branches covered.">        for (String assignment : assignments.split(&quot;;&quot;)) {</span>
-<span class="fc" id="L18">            String name = assignment.split(&quot;=&quot;)[0].trim();</span>
-<span class="fc" id="L19">            int value = Integer.parseInt(assignment.split(&quot;=&quot;)[1].trim());</span>
-<span class="fc" id="L20">            variables.put(name, value);</span>
+<span class="fc" id="L30">        Map&lt;String, Integer&gt; variables = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        for (String assignment : assignments.split(&quot;;&quot;)) {</span>
+<span class="fc" id="L32">            String name = assignment.split(&quot;=&quot;)[0].trim();</span>
+<span class="fc" id="L33">            int value = Integer.parseInt(assignment.split(&quot;=&quot;)[1].trim());</span>
+<span class="fc" id="L34">            variables.put(name, value);</span>
         }
-<span class="fc" id="L22">        return this.eval(variables);</span>
+<span class="fc" id="L36">        return this.eval(variables);</span>
     }
 
+    /**
+     * Вычисляет выражение с заданными значениями переменных.
+     *
+     * @param variables соответствие имён переменных их целочисленным значениям
+     * @return целочисленное значение выражения
+     */
     public abstract int eval(Map&lt;String, Integer&gt; variables);
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,6 +1,12 @@
 package ru.nsu.oop;
 
+/** Показывает создание, вывод и вычисление выражений. */
 public class Main {
+    /**
+     * Запускает примеры работы с выражениями.
+     *
+     * @param args аргументы, переданные программе
+     */
     public static void main(String[] args) {
         Expression a = new Number(5);
         a.print();

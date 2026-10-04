@@ -81,8 +81,8 @@ class DerivativeTest {
     @MethodSource("originalExpressionCases")
     @DisplayName("Дифференцирование сохраняет исходное выражение и создаёт новый корень")
     void leavesOriginalUnchanged(Expression original, int expectedValue) {
-        Map<String, Integer> variables = Map.of("x", 4, "y", 2);
-        String before = original.toString();
+        final Map<String, Integer> variables = Map.of("x", 4, "y", 2);
+        final String before = original.toString();
         Expression firstDerivative = original.derivative("x");
         Expression secondDerivative = original.derivative("y");
         assertNotSame(original, firstDerivative);
@@ -115,7 +115,7 @@ class DerivativeTest {
                 new Mul(new Number(3), x)), new Number(7));
         Expression first = polynomial.derivative("x");
         Expression second = first.derivative("x");
-        Expression third = second.derivative("x");
+        final Expression third = second.derivative("x");
         assertEquals(35, polynomial.eval(Map.of("x", 4)));
         assertEquals(11, first.eval(Map.of("x", 4)));
         assertEquals(2, second.eval(Map.of("x", 4)));

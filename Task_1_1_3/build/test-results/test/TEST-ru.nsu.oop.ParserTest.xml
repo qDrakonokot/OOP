@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.nsu.oop.ParserTest" tests="119" skipped="0" failures="0" errors="0" timestamp="2026-10-04T15:25:07.991Z" hostname="cachyos-drakonokot" time="0.103">
+<testsuite name="ru.nsu.oop.ParserTest" tests="119" skipped="0" failures="0" errors="0" timestamp="2026-10-04T16:00:06.270Z" hostname="DESKTOP-1J5V28O" time="0.158">
   <properties/>
-  <testcase name="Некорректный знак числа: [&quot;-&quot;]" classname="ru.nsu.oop.ParserTest" time="0.003"/>
-  <testcase name="Некорректный знак числа: [&quot;--5&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Некорректный знак числа: [&quot;-&quot;]" classname="ru.nsu.oop.ParserTest" time="0.004"/>
+  <testcase name="Некорректный знак числа: [&quot;--5&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Некорректный знак числа: [&quot;-+5&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="Разобранное дерево можно повторно вычислять и дифференцировать" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="Лишний хвост: &quot;123abc&quot;" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="Лишний хвост: &quot;-5abc&quot;" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Разобранное дерево можно повторно вычислять и дифференцировать" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Лишний хвост: &quot;123abc&quot;" classname="ru.nsu.oop.ParserTest" time="0.002"/>
+  <testcase name="Лишний хвост: &quot;-5abc&quot;" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Лишний хвост: &quot;x1&quot;" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Лишний хвост: &quot;(5+2)abc&quot;" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Лишний хвост: &quot;(5+2)abc&quot;" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Лишний хвост: &quot;(5-2)abc&quot;" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Лишний хвост: &quot;(5*2)abc&quot;" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Лишний хвост: &quot;(5/2)abc&quot;" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Лишний хвост: &quot;(5/2)abc&quot;" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Лишний хвост: &quot;(5+2))&quot;" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Лишний хвост: &quot;1+2&quot;" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Лишний хвост: &quot;xy+z&quot;" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Лишний хвост: &quot;123 456&quot;" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Лишний хвост: &quot;xy+z&quot;" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Лишний хвост: &quot;123 456&quot;" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Недопустимое выражение: [&quot;&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Недопустимое выражение: [&quot; &quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Недопустимое выражение: [&quot;\t&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Недопустимое выражение: [&quot;$&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Недопустимое выражение: [&quot;@&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Недопустимое выражение: [&quot;@&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Недопустимое выражение: [&quot;)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Недопустимое выражение: [&quot;+&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Недопустимое выражение: [&quot;*&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Недопустимое выражение: [&quot;*&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Недопустимое выражение: [&quot;/&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Недопустимое выражение: [&quot;=&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Недопустимое выражение: [&quot;(&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Недопустимое выражение: [&quot;(+2)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Недопустимое выражение: [&quot;(5)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="Недопустимое выражение: [&quot;(5%2)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="Недопустимое выражение: [&quot;(5^2)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Недопустимое выражение: [&quot;(5%2)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Недопустимое выражение: [&quot;(5^2)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Недопустимое выражение: [&quot;(5=2)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="Недопустимое выражение: [&quot;(5a2)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Недопустимое выражение: [&quot;(5&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Недопустимое выражение: [&quot;(5+)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Недопустимое выражение: [&quot;(5a2)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Недопустимое выражение: [&quot;(5&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Недопустимое выражение: [&quot;(5+)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Недопустимое выражение: [&quot;(5-)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Недопустимое выражение: [&quot;(5*)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Недопустимое выражение: [&quot;(5/)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="Недопустимое выражение: [&quot;(5+@)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Недопустимое выражение: [&quot;(5-@)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Недопустимое выражение: [&quot;(5*@)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Недопустимое выражение: [&quot;(5/)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Недопустимое выражение: [&quot;(5+@)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Недопустимое выражение: [&quot;(5-@)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Недопустимое выражение: [&quot;(5*@)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Недопустимое выражение: [&quot;(5/@)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Недопустимое выражение: [&quot;(5+2]&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="Недопустимое выражение: [&quot;(5-2]&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Недопустимое выражение: [&quot;(5*2]&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Недопустимое выражение: [&quot;(5-2]&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Недопустимое выражение: [&quot;(5*2]&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Недопустимое выражение: [&quot;(5/2]&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Недопустимое выражение: [&quot;(5+2a)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Недопустимое выражение: [&quot;(5-2a)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Недопустимое выражение: [&quot;(5*2a)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Недопустимое выражение: [&quot;(5/2a)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Недопустимое выражение: [&quot;-x&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Недопустимое выражение: [&quot;2147483648&quot;]" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Недопустимое выражение: [&quot;(5*2a)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Недопустимое выражение: [&quot;(5/2a)&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Недопустимое выражение: [&quot;-x&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Недопустимое выражение: [&quot;2147483648&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Недопустимое выражение: [&quot;-2147483649&quot;]" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="&quot;(5+2)&quot; = 7" classname="ru.nsu.oop.ParserTest" time="0.003"/>
+  <testcase name="&quot;(5+2)&quot; = 7" classname="ru.nsu.oop.ParserTest" time="0.004"/>
   <testcase name="&quot;(5-2)&quot; = 3" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;(5*2)&quot; = 10" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="&quot;(5/2)&quot; = 2" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="&quot;(5/2)&quot; = 2" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;(5+-2)&quot; = 3" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;(5--2)&quot; = 7" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;(5*-2)&quot; = -10" classname="ru.nsu.oop.ParserTest" time="0.0"/>
@@ -64,41 +64,41 @@
   <testcase name="&quot;(-5+2)&quot; = -3" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;(-5-2)&quot; = -7" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;(-5*2)&quot; = -10" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="&quot;(-5/2)&quot; = -2" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="&quot;(-5/2)&quot; = -2" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;(-5+-2)&quot; = -7" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;(-5--2)&quot; = -3" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;(-5*-2)&quot; = 10" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;(-5/-2)&quot; = 2" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="&quot;(0+0)&quot; = 0" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="&quot;(0+0)&quot; = 0" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="&quot;(0-5)&quot; = -5" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="&quot;(0*5)&quot; = 0" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="&quot;(0*5)&quot; = 0" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;(0/5)&quot; = 0" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;((1+2)+(3+4))&quot; = 10" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;((9-3)-(4-1))&quot; = 3" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;((2*3)*(4*5))&quot; = 120" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;((24/3)/(8/4))&quot; = 4" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="&quot;(5+(2*5))&quot; = 15" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="&quot;((2+3)*(7-4))&quot; = 15" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="&quot;(((10-2)*(3+1))/2)&quot; = 16" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="&quot;(5+(2*5))&quot; = 15" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="&quot;((2+3)*(7-4))&quot; = 15" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="&quot;(((10-2)*(3+1))/2)&quot; = 16" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;((20/(2+3))+(8-1))&quot; = 11" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;((1+2)-(3*4))&quot; = -9" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="&quot;((8/3)+(1*2))&quot; = 4" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="&quot;(((1+2)+3)+4)&quot; = 10" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="&quot;(1+(2+(3+4)))&quot; = 10" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="&quot;((8/3)+(1*2))&quot; = 4" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="&quot;(((1+2)+3)+4)&quot; = 10" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="&quot;(1+(2+(3+4)))&quot; = 10" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Variable(&quot;x&quot;)" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="Variable(&quot;X&quot;)" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Variable(&quot;X&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="Variable(&quot;y&quot;)" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="Variable(&quot;velocity&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Variable(&quot;alphaBeta&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Variable(&quot;xyz&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Variable(&quot;velocity&quot;)" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Variable(&quot;alphaBeta&quot;)" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Variable(&quot;xyz&quot;)" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Variable(&quot;abcDEF&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Нет закрывающей скобки: &quot;(5+2&quot;" classname="ru.nsu.oop.ParserTest" time="0.002"/>
-  <testcase name="Нет закрывающей скобки: &quot;(5-2&quot;" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Нет закрывающей скобки: &quot;(5*2&quot;" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Нет закрывающей скобки: &quot;(5+2&quot;" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Нет закрывающей скобки: &quot;(5-2&quot;" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Нет закрывающей скобки: &quot;(5*2&quot;" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="Нет закрывающей скобки: &quot;(5/2&quot;" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="Нет закрывающей скобки: &quot;(1+(2*3)&quot;" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="&quot;0&quot; -&gt; Number(&quot;0&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="&quot;7&quot; -&gt; Number(&quot;7&quot;)" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Нет закрывающей скобки: &quot;(1+(2*3)&quot;" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="&quot;0&quot; -&gt; Number(&quot;0&quot;)" classname="ru.nsu.oop.ParserTest" time="0.003"/>
+  <testcase name="&quot;7&quot; -&gt; Number(&quot;7&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;42&quot; -&gt; Number(&quot;42&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;123456789&quot; -&gt; Number(&quot;123456789&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;2147483647&quot; -&gt; Number(&quot;2147483647&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
@@ -107,19 +107,19 @@
   <testcase name="&quot;-12&quot; -&gt; Number(&quot;-12&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;-2147483647&quot; -&gt; Number(&quot;-2147483647&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;00&quot; -&gt; Number(&quot;0&quot;)" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="&quot;007&quot; -&gt; Number(&quot;7&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="&quot;007&quot; -&gt; Number(&quot;7&quot;)" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <testcase name="&quot;-0&quot; -&gt; Number(&quot;0&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;-007&quot; -&gt; Number(&quot;-7&quot;)" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="&quot;(x+y)&quot; = 15" classname="ru.nsu.oop.ParserTest" time="0.002"/>
-  <testcase name="&quot;(velocity/2)&quot; = 4" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="&quot;(x+y)&quot; = 15" classname="ru.nsu.oop.ParserTest" time="0.006"/>
+  <testcase name="&quot;(velocity/2)&quot; = 4" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;(3+(2*x))&quot; = 23" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="&quot;((x*y)+(x-y))&quot; = 55" classname="ru.nsu.oop.ParserTest" time="0.002"/>
-  <testcase name="&quot;((x*x)+(y*y))&quot; = 125" classname="ru.nsu.oop.ParserTest" time="0.001"/>
-  <testcase name="&quot;((alpha+beta)*(gamma-delta))&quot; = 15" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="&quot;((x*y)+(x-y))&quot; = 55" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="&quot;((x*x)+(y*y))&quot; = 125" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="&quot;((alpha+beta)*(gamma-delta))&quot; = 15" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;((x+1)/(x-1))&quot; = 2" classname="ru.nsu.oop.ParserTest" time="0.0"/>
   <testcase name="&quot;(x/x)&quot; = 1" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Минимальное значение int является корректным числом" classname="ru.nsu.oop.ParserTest" time="0.0"/>
-  <testcase name="Деление на ноль возникает при вычислении, а не при разборе" classname="ru.nsu.oop.ParserTest" time="0.0"/>
+  <testcase name="Минимальное значение int является корректным числом" classname="ru.nsu.oop.ParserTest" time="0.001"/>
+  <testcase name="Деление на ноль возникает при вычислении, а не при разборе" classname="ru.nsu.oop.ParserTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

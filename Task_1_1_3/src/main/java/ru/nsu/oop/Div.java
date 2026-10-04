@@ -2,10 +2,17 @@ package ru.nsu.oop;
 
 import java.util.Map;
 
+/** Представляет частное двух выражений. */
 public class Div extends Expression {
     private final Expression left;
     private final Expression right;
 
+    /**
+     * Создаёт частное двух выражений.
+     *
+     * @param left делимое
+     * @param right делитель
+     */
     public Div(Expression left, Expression right) {
         this.left = left;
         this.right = right;

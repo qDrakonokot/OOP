@@ -1,5 +1,6 @@
 package ru.nsu.oop;
 
+/** Разбирает выражения с целыми числами, переменными и операциями в скобках. */
 public class Parser {
     private final String input;
     private int position;
@@ -9,6 +10,13 @@ public class Parser {
         this.position = 0;
     }
 
+    /**
+     * Разбирает всю строку и создаёт дерево выражения.
+     *
+     * @param input целое число, имя переменной или бинарное выражение в скобках
+     * @return корень дерева выражения
+     * @throws IllegalArgumentException если строка содержит некорректное выражение
+     */
     public static Expression parseInput(String input) {
         Parser parser = new Parser(input);
         Expression expression = parser.parseInput();
@@ -20,10 +28,12 @@ public class Parser {
     }
 
     private Expression parseInput() {
-        if (position < this.input.length() && this.input.charAt(position) >= '0' && this.input.charAt(position) <= '9') {
+        if (position < this.input.length()
+                && this.input.charAt(position) >= '0' && this.input.charAt(position) <= '9') {
             int start = position;
             position += 1;
-            while (position < this.input.length() && this.input.charAt(position) >= '0' && this.input.charAt(position) <= '9') {
+            while (position < this.input.length()
+                    && this.input.charAt(position) >= '0' && this.input.charAt(position) <= '9') {
                 position += 1;
             }
             int finish = position;
@@ -32,7 +42,7 @@ public class Parser {
 
             return new Number(number);
         } else if (position < this.input.length() && this.input.charAt(position) == '-') {
-            int start = position;
+            final int start = position;
             position += 1;
             if (position >= this.input.length() || this.input.charAt(position) < '0'
                     || this.input.charAt(position) > '9') {
@@ -40,7 +50,8 @@ public class Parser {
                         + ". После минуса ожидалась цифра!");
             }
             position += 1;
-            while (position < this.input.length() && this.input.charAt(position) >= '0' && this.input.charAt(position) <= '9') {
+            while (position < this.input.length()
+                    && this.input.charAt(position) >= '0' && this.input.charAt(position) <= '9') {
                 position += 1;
             }
             int finish = position;
@@ -48,10 +59,12 @@ public class Parser {
             int number = Integer.parseInt(this.input.substring(start, finish));
 
             return new Number(number);
-        } else if (position < this.input.length() && Character.isLetter(this.input.charAt(position))) {
+        } else if (position < this.input.length()
+                && Character.isLetter(this.input.charAt(position))) {
             int start = position;
             position += 1;
-            while (position < this.input.length() && Character.isLetter(this.input.charAt(position))) {
+            while (position < this.input.length()
+                    && Character.isLetter(this.input.charAt(position))) {
                 position += 1;
             }
             int finish = position;
@@ -71,7 +84,8 @@ public class Parser {
                 right = parseInput();
 
                 if (position >= this.input.length() || this.input.charAt(position) != ')') {
-                    throw new IllegalArgumentException("Позиция " + position + ". Не закрывающаяся скобка!");
+                    throw new IllegalArgumentException("Позиция " + position
+                            + ". Не закрывающаяся скобка!");
                 }
                 position += 1; // Читаем закрывающуюся скобку
 
@@ -82,7 +96,8 @@ public class Parser {
                 right = parseInput();
 
                 if (position >= this.input.length() || this.input.charAt(position) != ')') {
-                    throw new IllegalArgumentException("Позиция " + position + ". Не закрывающаяся скобка!");
+                    throw new IllegalArgumentException("Позиция " + position
+                            + ". Не закрывающаяся скобка!");
                 }
                 position += 1; // Читаем закрывающуюся скобку
 
@@ -93,7 +108,8 @@ public class Parser {
                 right = parseInput();
 
                 if (position >= this.input.length() || this.input.charAt(position) != ')') {
-                    throw new IllegalArgumentException("Позиция " + position + ". Не закрывающаяся скобка!");
+                    throw new IllegalArgumentException("Позиция " + position
+                            + ". Не закрывающаяся скобка!");
                 }
                 position += 1; // Читаем закрывающуюся скобку
 
@@ -104,13 +120,15 @@ public class Parser {
                 right = parseInput();
 
                 if (position >= this.input.length() || this.input.charAt(position) != ')') {
-                    throw new IllegalArgumentException("Позиция " + position + ". Не закрывающаяся скобка!");
+                    throw new IllegalArgumentException("Позиция " + position
+                            + ". Не закрывающаяся скобка!");
                 }
                 position += 1; // Читаем закрывающуюся скобку
 
                 return new Div(left, right);
             } else {
-                throw new IllegalArgumentException("Позиция " + position + ". Не распознана операция!");
+                throw new IllegalArgumentException("Позиция " + position
+                        + ". Не распознана операция!");
             }
         } else {
             throw new IllegalArgumentException("Позиция " + position + " выходит за рамки строки!");

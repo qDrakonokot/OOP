@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.nsu.oop.MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-04T15:25:07.944Z" hostname="cachyos-drakonokot" time="0.003">
+<testsuite name="ru.nsu.oop.MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-04T16:00:06.209Z" hostname="DESKTOP-1J5V28O" time="0.007">
   <properties/>
-  <testcase name="Демонстрационный Main выводит число, вложенную сумму и результат 23" classname="ru.nsu.oop.MainTest" time="0.003"/>
+  <testcase name="Демонстрационный Main выводит число, вложенную сумму и результат 23" classname="ru.nsu.oop.MainTest" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

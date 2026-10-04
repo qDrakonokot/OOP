@@ -3,10 +3,16 @@ package ru.nsu.oop;
 import java.util.HashMap;
 import java.util.Map;
 
+/** Представляет переменную с заданным именем. */
 public class Variable extends Expression {
 
     private final String name;
 
+    /**
+     * Создаёт переменную с заданным именем.
+     *
+     * @param name имя переменной
+     */
     public Variable(String name) {
         this.name = name;
     }

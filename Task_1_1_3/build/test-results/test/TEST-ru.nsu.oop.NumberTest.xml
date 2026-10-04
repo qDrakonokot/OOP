@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.nsu.oop.NumberTest" tests="21" skipped="0" failures="0" errors="0" timestamp="2026-10-04T15:25:07.965Z" hostname="cachyos-drakonokot" time="0.025">
+<testsuite name="ru.nsu.oop.NumberTest" tests="21" skipped="0" failures="0" errors="0" timestamp="2026-10-04T16:00:06.236Z" hostname="DESKTOP-1J5V28O" time="0.034">
   <properties/>
-  <testcase name="[1] 0" classname="ru.nsu.oop.NumberTest" time="0.001"/>
+  <testcase name="[1] 0" classname="ru.nsu.oop.NumberTest" time="0.004"/>
   <testcase name="[2] 1" classname="ru.nsu.oop.NumberTest" time="0.001"/>
   <testcase name="[3] -1" classname="ru.nsu.oop.NumberTest" time="0.001"/>
-  <testcase name="[4] 42" classname="ru.nsu.oop.NumberTest" time="0.0"/>
+  <testcase name="[4] 42" classname="ru.nsu.oop.NumberTest" time="0.001"/>
+  <testcase name="[5] -125" classname="ru.nsu.oop.NumberTest" time="0.001"/>
+  <testcase name="[6] 2147483647" classname="ru.nsu.oop.NumberTest" time="0.001"/>
+  <testcase name="[7] -2147483648" classname="ru.nsu.oop.NumberTest" time="0.0"/>
+  <testcase name="[1] 0" classname="ru.nsu.oop.NumberTest" time="0.001"/>
+  <testcase name="[2] 1" classname="ru.nsu.oop.NumberTest" time="0.001"/>
+  <testcase name="[3] -1" classname="ru.nsu.oop.NumberTest" time="0.0"/>
+  <testcase name="[4] 42" classname="ru.nsu.oop.NumberTest" time="0.001"/>
   <testcase name="[5] -125" classname="ru.nsu.oop.NumberTest" time="0.0"/>
   <testcase name="[6] 2147483647" classname="ru.nsu.oop.NumberTest" time="0.0"/>
-  <testcase name="[7] -2147483648" classname="ru.nsu.oop.NumberTest" time="0.0"/>
-  <testcase name="[1] 0" classname="ru.nsu.oop.NumberTest" time="0.0"/>
-  <testcase name="[2] 1" classname="ru.nsu.oop.NumberTest" time="0.0"/>
-  <testcase name="[3] -1" classname="ru.nsu.oop.NumberTest" time="0.001"/>
-  <testcase name="[4] 42" classname="ru.nsu.oop.NumberTest" time="0.0"/>
-  <testcase name="[5] -125" classname="ru.nsu.oop.NumberTest" time="0.0"/>
-  <testcase name="[6] 2147483647" classname="ru.nsu.oop.NumberTest" time="0.001"/>
   <testcase name="[7] -2147483648" classname="ru.nsu.oop.NumberTest" time="0.001"/>
   <testcase name="[1] &quot;0&quot;, &quot;0&quot;" classname="ru.nsu.oop.NumberTest" time="0.003"/>
-  <testcase name="[2] &quot;1&quot;, &quot;1&quot;" classname="ru.nsu.oop.NumberTest" time="0.0"/>
-  <testcase name="[3] &quot;-1&quot;, &quot;-1&quot;" classname="ru.nsu.oop.NumberTest" time="0.0"/>
-  <testcase name="[4] &quot;42&quot;, &quot;42&quot;" classname="ru.nsu.oop.NumberTest" time="0.0"/>
-  <testcase name="[5] &quot;-125&quot;, &quot;-125&quot;" classname="ru.nsu.oop.NumberTest" time="0.0"/>
-  <testcase name="[6] &quot;2147483647&quot;, &quot;2147483647&quot;" classname="ru.nsu.oop.NumberTest" time="0.0"/>
+  <testcase name="[2] &quot;1&quot;, &quot;1&quot;" classname="ru.nsu.oop.NumberTest" time="0.001"/>
+  <testcase name="[3] &quot;-1&quot;, &quot;-1&quot;" classname="ru.nsu.oop.NumberTest" time="0.001"/>
+  <testcase name="[4] &quot;42&quot;, &quot;42&quot;" classname="ru.nsu.oop.NumberTest" time="0.001"/>
+  <testcase name="[5] &quot;-125&quot;, &quot;-125&quot;" classname="ru.nsu.oop.NumberTest" time="0.001"/>
+  <testcase name="[6] &quot;2147483647&quot;, &quot;2147483647&quot;" classname="ru.nsu.oop.NumberTest" time="0.001"/>
   <testcase name="[7] &quot;-2147483648&quot;, &quot;-2147483648&quot;" classname="ru.nsu.oop.NumberTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

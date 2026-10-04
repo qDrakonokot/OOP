@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.nsu.oop.DerivativeTest" tests="41" skipped="0" failures="0" errors="0" timestamp="2026-10-04T15:25:07.793Z" hostname="cachyos-drakonokot" time="0.076">
+<testsuite name="ru.nsu.oop.DerivativeTest" tests="41" skipped="0" failures="0" errors="0" timestamp="2026-10-04T16:00:06.032Z" hostname="DESKTOP-1J5V28O" time="0.092">
   <properties/>
   <testcase name="[1] 7, &quot;0&quot;" classname="ru.nsu.oop.DerivativeTest" time="0.002"/>
   <testcase name="[2] x, &quot;1&quot;" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
@@ -7,40 +7,40 @@
   <testcase name="[4] (x+5), &quot;(1+0)&quot;" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
   <testcase name="[5] (x-5), &quot;(1-0)&quot;" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
   <testcase name="[6] (2*x), &quot;((0*x)+(2*1))&quot;" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
-  <testcase name="[7] (x/2), &quot;(((1*2)-(x*0))/(2*2))&quot;" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
+  <testcase name="[7] (x/2), &quot;(((1*2)-(x*0))/(2*2))&quot;" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
   <testcase name="[8] (3+(2*x)), &quot;(0+((0*x)+(2*1)))&quot;" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
-  <testcase name="[1] 5, 5" classname="ru.nsu.oop.DerivativeTest" time="0.003"/>
-  <testcase name="[2] x, 4" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
+  <testcase name="[1] 5, 5" classname="ru.nsu.oop.DerivativeTest" time="0.007"/>
+  <testcase name="[2] x, 4" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
   <testcase name="[3] (x+y), 6" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
-  <testcase name="[4] (x-y), 2" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
-  <testcase name="[5] (x*y), 8" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
+  <testcase name="[4] (x-y), 2" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
+  <testcase name="[5] (x*y), 8" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
   <testcase name="[6] (x/y), 2" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
   <testcase name="[7] (3+(2*x)), 11" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
   <testcase name="Можно вычислить вторую и третью производные многочлена" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
-  <testcase name="[1] (x+y), &quot;x&quot;, {y=-3, x=4}, 1" classname="ru.nsu.oop.DerivativeTest" time="0.004"/>
+  <testcase name="[1] (x+y), &quot;x&quot;, {y=-3, x=4}, 1" classname="ru.nsu.oop.DerivativeTest" time="0.007"/>
   <testcase name="[2] (x+y), &quot;y&quot;, {y=-3, x=4}, 1" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
-  <testcase name="[3] (x+y), &quot;z&quot;, {y=-3, x=4}, 0" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
+  <testcase name="[3] (x+y), &quot;z&quot;, {y=-3, x=4}, 0" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
   <testcase name="[4] (x-y), &quot;x&quot;, {y=-3, x=4}, 1" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
   <testcase name="[5] (x-y), &quot;y&quot;, {y=-3, x=4}, -1" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
   <testcase name="[6] (x-y), &quot;z&quot;, {y=-3, x=4}, 0" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
   <testcase name="[7] (7-x), &quot;x&quot;, {y=-3, x=4}, -1" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
-  <testcase name="[8] (x*y), &quot;x&quot;, {y=-3, x=4}, -3" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
+  <testcase name="[8] (x*y), &quot;x&quot;, {y=-3, x=4}, -3" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
   <testcase name="[9] (x*y), &quot;y&quot;, {y=-3, x=4}, 4" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
   <testcase name="[10] (x*y), &quot;z&quot;, {y=-3, x=4}, 0" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
   <testcase name="[11] (x*x), &quot;x&quot;, {y=-3, x=4}, 8" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
   <testcase name="[12] (2*x), &quot;x&quot;, {y=-3, x=4}, 2" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
   <testcase name="[13] (0*x), &quot;x&quot;, {y=-3, x=4}, 0" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
-  <testcase name="[14] (x/1), &quot;x&quot;, {y=-3, x=4}, 1" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
-  <testcase name="[15] (0/2), &quot;x&quot;, {y=-3, x=4}, 0" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
+  <testcase name="[14] (x/1), &quot;x&quot;, {y=-3, x=4}, 1" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
+  <testcase name="[15] (0/2), &quot;x&quot;, {y=-3, x=4}, 0" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
   <testcase name="[16] (8/x), &quot;x&quot;, {x=1}, -8" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
-  <testcase name="[17] (8/x), &quot;x&quot;, {x=2}, -2" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
-  <testcase name="[18] (x/y), &quot;x&quot;, {y=1, x=12}, 1" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
-  <testcase name="[19] (x/y), &quot;y&quot;, {y=2, x=12}, -3" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
-  <testcase name="[20] (x/y), &quot;z&quot;, {y=2, x=12}, 0" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
+  <testcase name="[17] (8/x), &quot;x&quot;, {x=2}, -2" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
+  <testcase name="[18] (x/y), &quot;x&quot;, {y=1, x=12}, 1" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
+  <testcase name="[19] (x/y), &quot;y&quot;, {y=2, x=12}, -3" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
+  <testcase name="[20] (x/y), &quot;z&quot;, {y=2, x=12}, 0" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
   <testcase name="[21] ((x*x)/x), &quot;x&quot;, {x=3}, 1" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
   <testcase name="[22] ((x+3)*(x-1)), &quot;x&quot;, {x=4}, 10" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
-  <testcase name="[23] (3+(2*x)), &quot;x&quot;, {y=-3, x=4}, 2" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
-  <testcase name="[24] (velocity*velocity), &quot;velocity&quot;, {velocity=5}, 10" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
+  <testcase name="[23] (3+(2*x)), &quot;x&quot;, {y=-3, x=4}, 2" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
+  <testcase name="[24] (velocity*velocity), &quot;velocity&quot;, {velocity=5}, 10" classname="ru.nsu.oop.DerivativeTest" time="0.001"/>
   <testcase name="[25] (6/2), &quot;x&quot;, {}, 0" classname="ru.nsu.oop.DerivativeTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

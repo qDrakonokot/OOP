@@ -2,26 +2,32 @@
 
 import java.util.Map;
 
+/** Представляет целочисленную константу в выражении. */
 public class Number extends Expression {
     private final int value;
 
-<span class="fc" id="L8">    public Number(int value) {</span>
-<span class="fc" id="L9">        this.value = value;</span>
-<span class="fc" id="L10">    }</span>
+    /**
+     * Создаёт целочисленную константу.
+     *
+     * @param value значение константы
+     */
+<span class="fc" id="L14">    public Number(int value) {</span>
+<span class="fc" id="L15">        this.value = value;</span>
+<span class="fc" id="L16">    }</span>
 
     @Override
     public String toString() {
-<span class="fc" id="L14">        return Integer.toString(this.value);</span>
+<span class="fc" id="L20">        return Integer.toString(this.value);</span>
     }
 
     @Override
     public Expression derivative(String variableName) {
-<span class="fc" id="L19">        return new Number(0);</span>
+<span class="fc" id="L25">        return new Number(0);</span>
     }
 
     @Override
     public int eval(Map&lt;String, Integer&gt; variables) {
-<span class="fc" id="L24">        return value;</span>
+<span class="fc" id="L30">        return value;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

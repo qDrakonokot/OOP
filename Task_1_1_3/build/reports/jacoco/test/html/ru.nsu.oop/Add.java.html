@@ -2,28 +2,35 @@
 
 import java.util.Map;
 
+/** Представляет сумму двух выражений. */
 public class Add extends Expression {
     private final Expression left;
     private final Expression right;
 
-<span class="fc" id="L9">    public Add(Expression left, Expression right) {</span>
-<span class="fc" id="L10">        this.left = left;</span>
-<span class="fc" id="L11">        this.right = right;</span>
-<span class="fc" id="L12">    }</span>
+    /**
+     * Создаёт сумму двух выражений.
+     *
+     * @param left левый операнд
+     * @param right правый операнд
+     */
+<span class="fc" id="L16">    public Add(Expression left, Expression right) {</span>
+<span class="fc" id="L17">        this.left = left;</span>
+<span class="fc" id="L18">        this.right = right;</span>
+<span class="fc" id="L19">    }</span>
 
     @Override
     public String toString() {
-<span class="fc" id="L16">        return &quot;(&quot; + left + &quot;+&quot; + right + &quot;)&quot;;</span>
+<span class="fc" id="L23">        return &quot;(&quot; + left + &quot;+&quot; + right + &quot;)&quot;;</span>
     }
 
     @Override
     public Expression derivative(String variableName) {
-<span class="fc" id="L21">        return new Add(left.derivative(variableName), right.derivative(variableName));</span>
+<span class="fc" id="L28">        return new Add(left.derivative(variableName), right.derivative(variableName));</span>
     }
 
     @Override
     public int eval(Map&lt;String, Integer&gt; variables) {
-<span class="fc" id="L26">        return left.eval(variables) + right.eval(variables);</span>
+<span class="fc" id="L33">        return left.eval(variables) + right.eval(variables);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

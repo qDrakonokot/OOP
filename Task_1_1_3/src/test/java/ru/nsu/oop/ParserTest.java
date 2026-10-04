@@ -14,7 +14,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-/** Tests for integers, letter-only names and fully parenthesized expressions. */
+/** Проверки чисел, имён из букв и выражений с полными скобками. */
 class ParserTest {
     @ParameterizedTest(name = "{0} -> Number({1})")
     @CsvSource({
