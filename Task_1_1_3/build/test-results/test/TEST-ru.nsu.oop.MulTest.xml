@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.oop.MulTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2026-10-04T14:48:25.235Z" hostname="DESKTOP-1J5V28O" time="0.012">
+  <properties/>
+  <testcase name="[1] &quot;0&quot;, &quot;0&quot;, &quot;0&quot;" classname="ru.nsu.oop.MulTest" time="0.0"/>
+  <testcase name="[2] &quot;3&quot;, &quot;2&quot;, &quot;6&quot;" classname="ru.nsu.oop.MulTest" time="0.0"/>
+  <testcase name="[3] &quot;-3&quot;, &quot;2&quot;, &quot;-6&quot;" classname="ru.nsu.oop.MulTest" time="0.0"/>
+  <testcase name="[4] &quot;3&quot;, &quot;-2&quot;, &quot;-6&quot;" classname="ru.nsu.oop.MulTest" time="0.0"/>
+  <testcase name="[5] &quot;-3&quot;, &quot;-2&quot;, &quot;6&quot;" classname="ru.nsu.oop.MulTest" time="0.001"/>
+  <testcase name="[6] &quot;0&quot;, &quot;7&quot;, &quot;0&quot;" classname="ru.nsu.oop.MulTest" time="0.001"/>
+  <testcase name="[7] &quot;7&quot;, &quot;0&quot;, &quot;0&quot;" classname="ru.nsu.oop.MulTest" time="0.0"/>
+  <testcase name="[8] &quot;1&quot;, &quot;-7&quot;, &quot;-7&quot;" classname="ru.nsu.oop.MulTest" time="0.0"/>
+  <testcase name="[9] &quot;-1&quot;, &quot;-7&quot;, &quot;7&quot;" classname="ru.nsu.oop.MulTest" time="0.0"/>
+  <testcase name="Произведение вычисляет вложенные выражения" classname="ru.nsu.oop.MulTest" time="0.0"/>
+  <testcase name="Создание второго произведения не изменяет первое" classname="ru.nsu.oop.MulTest" time="0.001"/>
+  <testcase name="Произведение печатается в скобках" classname="ru.nsu.oop.MulTest" time="0.0"/>
+  <testcase name="Произведение переменных использует переданные значения" classname="ru.nsu.oop.MulTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

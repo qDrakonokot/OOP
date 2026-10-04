@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Expression.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_1_1_3</a> &gt; <a href="index.source.html" class="el_package">ru.nsu.oop</a> &gt; <span class="el_source">Expression.java</span></div><h1>Expression.java</h1><pre class="source lang-java linenums">package ru.nsu.oop;
+
+import java.util.HashMap;
+import java.util.Map;
+
+<span class="fc" id="L6">public abstract class Expression {</span>
+    public abstract String toString();
+
+    public void print() {
+<span class="fc" id="L10">        System.out.println(toString());</span>
+<span class="fc" id="L11">    }</span>
+
+    public abstract Expression derivative(String variableName);
+
+    public int eval(String assignments) {
+<span class="fc" id="L16">        Map&lt;String, Integer&gt; variables = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        for (String assignment : assignments.split(&quot;;&quot;)) {</span>
+<span class="fc" id="L18">            String name = assignment.split(&quot;=&quot;)[0].trim();</span>
+<span class="fc" id="L19">            int value = Integer.parseInt(assignment.split(&quot;=&quot;)[1].trim());</span>
+<span class="fc" id="L20">            variables.put(name, value);</span>
+        }
+<span class="fc" id="L22">        return this.eval(variables);</span>
+    }
+
+    public abstract int eval(Map&lt;String, Integer&gt; variables);
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
