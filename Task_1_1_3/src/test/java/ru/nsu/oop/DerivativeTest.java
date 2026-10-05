@@ -10,13 +10,20 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import ru.nsu.oop.expression.Add;
+import ru.nsu.oop.expression.Div;
+import ru.nsu.oop.expression.Expression;
+import ru.nsu.oop.expression.Mul;
+import ru.nsu.oop.expression.Number;
+import ru.nsu.oop.expression.Sub;
+import ru.nsu.oop.expression.Variable;
 
 class DerivativeTest {
     @ParameterizedTest
     @MethodSource("derivativeValueCases")
     @DisplayName("Значение производной соответствует математическому правилу")
     void evaluatesDerivative(Expression expression, String variableName,
-            Map<String, Integer> variables, int expected) {
+                             Map<String, Integer> variables, int expected) {
         assertEquals(expected, expression.derivative(variableName).eval(variables));
     }
 

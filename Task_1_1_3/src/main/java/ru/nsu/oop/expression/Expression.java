@@ -1,4 +1,4 @@
-package ru.nsu.oop;
+package ru.nsu.oop.expression;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,12 +22,16 @@ public abstract class Expression {
 
     /**
      * Вычисляет значение по присваиваниям вида {@code x = 10; y = 13}.
+     * Пустая строка задаёт пустой набор значений переменных.
      *
      * @param assignments присваивания переменным, разделённые точкой с запятой
      * @return целочисленное значение выражения
      */
     public int eval(String assignments) {
         Map<String, Integer> variables = new HashMap<>();
+        if (assignments.isBlank()) {
+            return this.eval(variables);
+        }
         for (String assignment : assignments.split(";")) {
             String name = assignment.split("=")[0].trim();
             int value = Integer.parseInt(assignment.split("=")[1].trim());

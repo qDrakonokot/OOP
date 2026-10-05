@@ -1,21 +1,23 @@
 package ru.nsu.oop;
 
-/** Показывает создание, вывод и вычисление выражений. */
+import ru.nsu.oop.console.ConsoleInput;
+import ru.nsu.oop.console.ConsoleView;
+import ru.nsu.oop.expression.Expression;
+import ru.nsu.oop.parser.Parser;
+
+/** Читает выражение и значения переменных, затем выводит результат вычисления. */
 public class Main {
     /**
-     * Запускает примеры работы с выражениями.
+     * Запускает ввод и вычисление выражения.
      *
-     * @param args аргументы, переданные программе
+     * @param args аргументы командной строки
      */
     public static void main(String[] args) {
-        Expression a = new Number(5);
-        a.print();
-
-        Expression b = new Add(new Number(1), new Add(new Number(3), new Number(2)));
-        b.print();
-
-        Expression e = new Add(new Number(3), new Mul(new Number(2), new Variable("x")));
-        int result = e.eval("x = 10; y = 13");
-        System.out.println(result);
+        ConsoleInput input = new ConsoleInput();
+        String command = input.readCommand();
+        String assignments = input.readCommand();
+        Expression expression = Parser.parseInput(command);
+        ConsoleView view = new ConsoleView();
+        view.printResult(expression.eval(assignments));
     }
 }

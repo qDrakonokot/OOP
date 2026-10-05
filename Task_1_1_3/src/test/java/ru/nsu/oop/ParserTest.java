@@ -13,6 +13,14 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import ru.nsu.oop.expression.Add;
+import ru.nsu.oop.expression.Div;
+import ru.nsu.oop.expression.Expression;
+import ru.nsu.oop.expression.Mul;
+import ru.nsu.oop.expression.Number;
+import ru.nsu.oop.expression.Sub;
+import ru.nsu.oop.expression.Variable;
+import ru.nsu.oop.parser.Parser;
 
 /** Проверки чисел, имён из букв и выражений с полными скобками. */
 class ParserTest {

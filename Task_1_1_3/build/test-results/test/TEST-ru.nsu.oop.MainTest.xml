@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.nsu.oop.MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-04T16:00:06.209Z" hostname="DESKTOP-1J5V28O" time="0.007">
+<testsuite name="ru.nsu.oop.MainTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-05T17:39:27.541Z" hostname="DESKTOP-1J5V28O" time="0.314">
   <properties/>
-  <testcase name="Демонстрационный Main выводит число, вложенную сумму и результат 23" classname="ru.nsu.oop.MainTest" time="0.006"/>
+  <testcase name="[1] &quot;5&quot;, &quot;&quot;, &quot;5&quot;" classname="ru.nsu.oop.MainTest" time="0.124"/>
+  <testcase name="[2] &quot;(5+2)&quot;, &quot;&quot;, &quot;7&quot;" classname="ru.nsu.oop.MainTest" time="0.003"/>
+  <testcase name="[3] &quot;((x*2)+-3)&quot;, &quot;x = 5&quot;, &quot;7&quot;" classname="ru.nsu.oop.MainTest" time="0.004"/>
+  <testcase name="[4] &quot;-2147483648&quot;, &quot;&quot;, &quot;-2147483648&quot;" classname="ru.nsu.oop.MainTest" time="0.003"/>
+  <testcase name="[5] &quot;(x+y)&quot;, &quot;x = 5; y = 13&quot;, &quot;18&quot;" classname="ru.nsu.oop.MainTest" time="0.001"/>
+  <testcase name="[6] &quot;(5*2)&quot;, &quot;   &quot;, &quot;10&quot;" classname="ru.nsu.oop.MainTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,0 +1,7 @@
+# Результаты сборки и локальный кэш Gradle.
+build/
+.gradle/
+
+# Настройки IntelliJ IDEA.
+.idea/
+*.iml

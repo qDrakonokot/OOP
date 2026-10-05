@@ -9,6 +9,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import ru.nsu.oop.expression.Div;
+import ru.nsu.oop.expression.Expression;
+import ru.nsu.oop.expression.Number;
+import ru.nsu.oop.expression.Sub;
+import ru.nsu.oop.expression.Variable;
 
 class DivTest {
     @ParameterizedTest

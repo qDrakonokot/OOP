@@ -8,6 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import ru.nsu.oop.expression.Expression;
+import ru.nsu.oop.expression.Number;
 
 class NumberTest {
     @ParameterizedTest
@@ -17,14 +19,14 @@ class NumberTest {
     })
     @DisplayName("Число печатается без скобок, включая границы int")
     void formatsInteger(int value, String expected) {
-        assertEquals(expected, new Number(value).toString());
+        assertEquals(expected, new ru.nsu.oop.expression.Number(value).toString());
     }
 
     @ParameterizedTest
     @ValueSource(ints = {0, 1, -1, 42, -125, Integer.MAX_VALUE, Integer.MIN_VALUE})
     @DisplayName("Значение константы не зависит от таблицы переменных")
     void evaluatesWithoutVariables(int value) {
-        Expression expression = new Number(value);
+        Expression expression = new ru.nsu.oop.expression.Number(value);
         assertEquals(value, expression.eval(Map.of()));
         assertEquals(value, expression.eval(Map.of("x", 999)));
     }

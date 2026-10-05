@@ -1,6 +1,5 @@
-package ru.nsu.oop;
+package ru.nsu.oop.expression;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /** Представляет переменную с заданным именем. */

@@ -1,11 +1,18 @@
-package ru.nsu.oop;
+package ru.nsu.oop.expression;
 
 import java.util.Map;
 
+/** Представляет разность двух выражений. */
 public class Sub extends Expression {
     private final Expression left;
     private final Expression right;
 
+    /**
+     * Создаёт разность двух выражений.
+     *
+     * @param left левый операнд
+     * @param right правый операнд
+     */
     public Sub(Expression left, Expression right) {
         this.left = left;
         this.right = right;

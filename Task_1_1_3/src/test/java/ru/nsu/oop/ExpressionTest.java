@@ -14,6 +14,13 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import ru.nsu.oop.expression.Add;
+import ru.nsu.oop.expression.Div;
+import ru.nsu.oop.expression.Expression;
+import ru.nsu.oop.expression.Mul;
+import ru.nsu.oop.expression.Number;
+import ru.nsu.oop.expression.Sub;
+import ru.nsu.oop.expression.Variable;
 
 class ExpressionTest {
     @ParameterizedTest
@@ -48,6 +55,22 @@ class ExpressionTest {
     @DisplayName("Строковое вычисление константы допускает лишние присваивания")
     void evaluatesConstantWithUnusedAssignments() {
         assertEquals(17, new Number(17).eval("x=4;y=-2"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", " ", "\t", "\n", " \t\n "})
+    @DisplayName("Константы вычисляются с пустым означиванием или одними пробелами")
+    void evaluatesConstantsWithEmptyAssignments(String assignments) {
+        Expression expression = new Add(new Number(5), new Number(2));
+        assertEquals(5, new Number(5).eval(assignments));
+        assertEquals(7, expression.eval(assignments));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", " ", "\t", "\n", " \t\n "})
+    @DisplayName("Пустое означивание не задаёт значение переменной")
+    void rejectsEmptyAssignmentsWhenVariableIsRequired(String assignments) {
+        assertThrows(RuntimeException.class, () -> new Variable("x").eval(assignments));
     }
 
     @Test
