@@ -26,12 +26,12 @@ public abstract class AbstractGraph<T> implements Graph<T> {
         if (this == object) {
             return true;
         }
-        if (!(object instanceof Graph<?>)) {
+        if (!(object instanceof AbstractGraph<?>)) {
             return false;
         }
 
         @SuppressWarnings("unchecked")
-        Graph<T> other = (Graph<T>) object;
+        AbstractGraph<T> other = (AbstractGraph<T>) object;
 
         Set<T> thisVertexes = new HashSet<>(this.getVertexesList());
         Set<T> otherVertexes = new HashSet<>(other.getVertexesList());
@@ -65,7 +65,7 @@ public abstract class AbstractGraph<T> implements Graph<T> {
             int vertexHash = vertex.hashCode();
             int neighboursHash = new HashSet<>(this.getNeighbours(vertex)).hashCode();
 
-            hash += (vertexHash ^ neighboursHash);
+            hash += 31 * vertexHash + neighboursHash;
         }
 
         return hash;

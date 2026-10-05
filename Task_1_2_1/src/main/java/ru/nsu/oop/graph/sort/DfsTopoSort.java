@@ -44,11 +44,11 @@ public final class DfsTopoSort {
         List<T> neighbours = graph.getNeighbours(vertex);
 
         for (T neighbour : neighbours) {
-            if (states.containsKey(neighbour)) {
-                if (states.get(neighbour).equals(State.GRAY)) {
-                    throw new IllegalStateException("Graph contains a cycle!");
-                }
-            } else {
+            State state = states.get(neighbour);
+
+            if (state == State.GRAY) {
+                throw new IllegalStateException("Graph contains a cycle!");
+            } else if (state == null) {
                 dfs(graph, neighbour, states, result);
             }
         }

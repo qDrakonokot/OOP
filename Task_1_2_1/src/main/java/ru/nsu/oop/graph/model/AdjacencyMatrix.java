@@ -76,7 +76,7 @@ public class AdjacencyMatrix<T> extends AbstractGraph<T> {
 
     @Override
     public List<T> getVertexesList() {
-        return Collections.unmodifiableList(indexToVertex);
+        return List.copyOf(indexToVertex);
     }
 
     @Override
