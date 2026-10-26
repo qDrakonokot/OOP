@@ -1,13 +1,13 @@
 package ru.nsu.oop;
 
-import ru.nsu.oop.substring.Finder;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import ru.nsu.oop.substring.Finder;
 
 public class Main {
+
     public static void main(String[] args) {
         System.out.println("=== ДЕМОНСТРАЦИЯ ПОИСКА ПОДСТРОКИ ===\n");
 
@@ -40,7 +40,8 @@ public class Main {
             }
 
         } catch (IOException e) {
-            System.err.println("Произошла критическая ошибка при работе с файлом: " + e.getMessage());
+            System.err.println(
+                "Произошла критическая ошибка при работе с файлом: " + e.getMessage());
         } finally {
             try {
                 Files.deleteIfExists(Path.of(filename));
