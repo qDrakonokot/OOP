@@ -1,14 +1,14 @@
 package ru.nsu.oop;
 
+import java.util.List;
 import ru.nsu.oop.model.ControlType;
 import ru.nsu.oop.model.Grade;
 import ru.nsu.oop.model.Record;
 import ru.nsu.oop.model.RecordBook;
 import ru.nsu.oop.service.RecordBookAnalyzer;
 
-import java.util.List;
-
 public class Main {
+
     public static void main(String[] args) {
         System.out.println("=== ДЕМОНСТРАЦИЯ ЭЛЕКТРОННОЙ ЗАЧЕТНОЙ КНИЖКИ ===\n");
 
@@ -49,9 +49,10 @@ public class Main {
         System.out.println("\n--- Итоги 8-го семестра (Выпуск) ---");
         printStats(book);
     }
-    
+
     private static void printStats(RecordBook book) {
-        System.out.printf("Средний балл за все время: %.2f%n", RecordBookAnalyzer.calculateAverageGrade(book));
+        System.out.printf("Средний балл за все время: %.2f%n",
+            RecordBookAnalyzer.calculateAverageGrade(book));
         System.out.println("Форма обучения: " + (book.isPaidEducation() ? "Платная" : "Бюджет"));
         System.out.println("Повышенная стипендия в этом семестре: " +
             (RecordBookAnalyzer.canGetIncreasedStudentship(book) ? "ДА" : "НЕТ"));

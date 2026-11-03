@@ -9,12 +9,23 @@ import ru.nsu.oop.model.Grade;
 import ru.nsu.oop.model.Record;
 import ru.nsu.oop.model.RecordBook;
 
+/**
+ * Утилитный сервис для анализа успеваемости студента. Содержит бизнес-правила для расчета
+ * стипендий, дипломов и переводов.
+ */
 public final class RecordBookAnalyzer {
 
     private RecordBookAnalyzer() {
 
     }
 
+    /**
+     * Вычисляет текущий средний балл за все время обучения. Учитываются только оценки, имеющие
+     * числовой эквивалент (экзамены, диф. зачеты, ВКР). Обычные зачеты игнорируются.
+     *
+     * @param book зачетная книжка студента
+     * @return средний балл, либо 0.0, если нет ни одной числовой оценки
+     */
     public static double calculateAverageGrade(RecordBook book) {
         int totalGrade = 0;
         int gradesCnt = 0;
@@ -32,6 +43,14 @@ public final class RecordBookAnalyzer {
         return gradesCnt == 0 ? 0.0 : (double) totalGrade / gradesCnt;
     }
 
+    /**
+     * Проверяет возможность получения повышенной стипендии в текущем семестре. Правило: все
+     * экзамены и диф. зачеты за ПРЕДЫДУЩИЙ семестр должны быть сданы на "Отлично", а все обычные
+     * зачеты должны быть сданы ("Зачет").
+     *
+     * @param book зачетная книжка студента
+     * @return true, если студент имеет право на повышенную стипендию
+     */
     public static boolean canGetIncreasedStudentship(RecordBook book) {
         int previousSemester = book.getCurrentSemester() - 1;
         if (previousSemester < 1) {
@@ -43,13 +62,22 @@ public final class RecordBookAnalyzer {
                 return false;
             } else if (record.controlType() != ControlType.CREDIT
                 && record.grade() != Grade.EXCELLENT) {
-                    return false;
+                return false;
             }
         }
 
         return true;
     }
 
+    /**
+     * Прогнозирует возможность получения диплома с отличием ("красного" диплома). Правила: 1.
+     * Отсутствие итоговых оценок "Удовлетворительно" и ниже. 2. Не менее 75% итоговых оценок
+     * (последняя оценка по каждому предмету) — "Отлично". 3. Квалификационная работа (ВКР) защищена
+     * на "Отлично" (если защита уже состоялась).
+     *
+     * @param book зачетная книжка студента
+     * @return true, если студент сохраняет шансы на красный диплом
+     */
     public static boolean canGetRedDiploma(RecordBook book) {
         Collection<Grade> diplomaGrades = getDiplomaGrades(book);
         if (diplomaGrades.isEmpty()) {
@@ -84,6 +112,14 @@ public final class RecordBookAnalyzer {
         return true;
     }
 
+    /**
+     * Проверяет возможность перевода студента с платного обучения на бюджетное. Правило: отсутствие
+     * оценок "Удовлетворительно" и ниже (включая незачеты) за последние ДВЕ экзаменационные
+     * сессии.
+     *
+     * @param book зачетная книжка студента
+     * @return true, если студент имеет право подать заявление на перевод
+     */
     public static boolean canTransferToBudget(RecordBook book) {
         if (!book.isPaidEducation()) {
             return false;
@@ -100,7 +136,7 @@ public final class RecordBookAnalyzer {
                 }
                 if (record.controlType() != ControlType.CREDIT
                     && record.grade().getNumericValue() <= Grade.SATISFACTORY.getNumericValue()) {
-                        return false;
+                    return false;
                 }
             }
         }
