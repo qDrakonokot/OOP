@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.oop.model","l":"ControlType"},{"p":"ru.nsu.oop.model","l":"Grade"},{"p":"ru.nsu.oop","l":"Main"},{"p":"ru.nsu.oop.model","l":"Record"},{"p":"ru.nsu.oop.model","l":"RecordBook"},{"p":"ru.nsu.oop.service","l":"RecordBookAnalyzer"}];updateSearchResults();
