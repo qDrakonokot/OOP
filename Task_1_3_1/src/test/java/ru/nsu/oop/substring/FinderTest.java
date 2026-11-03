@@ -87,4 +87,64 @@ class FinderTest {
         assertThrows(IllegalArgumentException.class, () -> Finder.find("", "бра"));
         assertThrows(IllegalArgumentException.class, () -> Finder.find((String) null, "бра"));
     }
+
+    @Test
+    void find_hugeGeneratedData_doesNotThrowOutOfMemory() throws IOException {
+        // 12 сек на 1 Гб. На компе выполнялось, прикольный бенчмарк
+        // 116 сек на 10 Гб. Видно, что рост линейный
+
+        long size = 100_000_000_00L;
+        String target = "магия";
+        long targetPosition = size - target.length() - 10;
+
+        List<Integer> result = Finder.find(new HugeTextReader(size, target, targetPosition),
+            target);
+
+        assertEquals(1, result.size());
+        assertEquals((int) targetPosition, result.get(0));
+    }
+
+    private static class HugeTextReader extends java.io.Reader {
+
+        private final long totalCharsToGenerate;
+        private final String target;
+        private final long targetPosition;
+        private long charsGenerated = 0;
+
+        public HugeTextReader(long totalCharsToGenerate, String target, long targetPosition) {
+            this.totalCharsToGenerate = totalCharsToGenerate;
+            this.target = target;
+            this.targetPosition = targetPosition;
+        }
+
+        @Override
+        public int read(char[] cbuf, int off, int len) {
+            // Этот метод требует интерфейс Reader, но наш алгоритм использует read()
+            // по одному символу.
+            // Поэтому оставляем заглушку.
+            throw new UnsupportedOperationException("Use read() instead");
+        }
+
+        @Override
+        public int read() {
+            if (charsGenerated >= totalCharsToGenerate) {
+                return -1;
+            }
+
+            if (charsGenerated >= targetPosition
+                && charsGenerated < targetPosition + target.length()) {
+                int charIndex = (int) (charsGenerated - targetPosition);
+                charsGenerated++;
+                return target.charAt(charIndex);
+            }
+
+            charsGenerated++;
+            return 'a';
+        }
+
+        @Override
+        public void close() {
+
+        }
+    }
 }
