@@ -16,7 +16,7 @@ public final class RecordBookAnalyzer {
 
     }
 
-    public static double middleGrade(RecordBook book) {
+    public static double calculateAverageGrade(RecordBook book) {
         int totalGrade = 0;
         int gradesCnt = 0;
         for (int i = 1; i <= book.getCurrentSemester(); ++i) {
@@ -30,11 +30,14 @@ public final class RecordBookAnalyzer {
             }
         }
 
-        return (double) totalGrade / gradesCnt;
+        return gradesCnt == 0 ? 0.0 : (double) totalGrade / gradesCnt;
     }
 
-    public static boolean satisfiesIncreasedStudentship(RecordBook book) {
+    public static boolean canGetIncreasedStudentship(RecordBook book) {
         int previousSemester = book.getCurrentSemester() - 1;
+        if (previousSemester < 1) {
+            return false;
+        }
 
         for (var record : book.getRecordsForSemester(previousSemester)) {
             if (record.controlType() == ControlType.CREDIT && record.grade() != Grade.PASSED) {
@@ -48,13 +51,18 @@ public final class RecordBookAnalyzer {
         return true;
     }
 
-    public static boolean satisfiesRedDiploma(RecordBook book) {
+    public static boolean canGetRedDiploma(RecordBook book) {
         Collection<Grade> diplomaGrades = getDiplomaGrades(book);
+        if (diplomaGrades.isEmpty()) {
+            return false;
+        }
         int excellentGradesCnt = 0;
         int totalGradesCnt = diplomaGrades.size();
 
         for (var grade : diplomaGrades) {
-            totalGradesCnt += grade == Grade.EXCELLENT ? 1 : 0;
+            if (grade == Grade.EXCELLENT) {
+                excellentGradesCnt++;
+            }
             if (grade.getNumericValue() <= Grade.SATISFACTORY.getNumericValue()) {
                 return false;
             }
@@ -64,37 +72,33 @@ public final class RecordBookAnalyzer {
             return false;
         }
 
-        for (var record : book.getRecordsForSemester(book.getCurrentSemester())) {
-            if (record.controlType() == ControlType.VKR_DEFENSE
-                && record.grade() != Grade.EXCELLENT) {
-                    return false;
+        for (int i = 1; i <= book.getCurrentSemester(); i++) {
+            for (var record : book.getRecordsForSemester(i)) {
+                if (record.controlType() == ControlType.VKR_DEFENSE) {
+                    if (record.grade() != Grade.EXCELLENT) {
+                        return false;
+                    }
+                }
             }
         }
 
         return true;
     }
 
-    public static boolean satisfiesTransferRules(RecordBook book) {
+    public static boolean canTransferToBudget(RecordBook book) {
         if (!book.isPaidEducation()) {
-            return true;
+            return false;
         }
         int currentSemester = book.getCurrentSemester();
-        if (currentSemester <= 2) {
+        if (currentSemester < 2) {
             return false;
         }
 
-        List<Record> currentSemesterRecords = book.getRecordsForSemester(currentSemester);
-        List<Record> previousSemesterRecords = book.getRecordsForSemester(currentSemester - 1);
-
-        for (var record : currentSemesterRecords) {
-            if (record.grade().getNumericValue() <= Grade.SATISFACTORY.getNumericValue()) {
-                return false;
-            }
-        }
-
-        for (var record : previousSemesterRecords) {
-            if (record.grade().getNumericValue() <= Grade.SATISFACTORY.getNumericValue()) {
-                return false;
+        for (int i = currentSemester - 1; i <= currentSemester; i++) {
+            for (var record : book.getRecordsForSemester(i)) {
+                if (record.grade().getNumericValue() <= Grade.SATISFACTORY.getNumericValue()) {
+                    return false;
+                }
             }
         }
 
@@ -105,13 +109,10 @@ public final class RecordBookAnalyzer {
         Map<String, Grade> diplomaGrades = new HashMap<>();
 
         for (int i = 1; i <= book.getCurrentSemester(); ++i) {
-            List<Record> recordList = book.getRecordsForSemester(i);
-
-            for (var record : recordList) {
+            for (var record : book.getRecordsForSemester(i)) {
                 if (record.controlType() == ControlType.CREDIT) {
                     continue;
                 }
-
                 diplomaGrades.put(record.subjectName(), record.grade());
             }
         }
