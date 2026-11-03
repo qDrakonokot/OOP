@@ -1,7 +1,6 @@
 package ru.nsu.oop.service;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,8 +95,12 @@ public final class RecordBookAnalyzer {
 
         for (int i = currentSemester - 1; i <= currentSemester; i++) {
             for (var record : book.getRecordsForSemester(i)) {
-                if (record.grade().getNumericValue() <= Grade.SATISFACTORY.getNumericValue()) {
+                if (record.controlType() == ControlType.CREDIT && record.grade() == Grade.FAILED) {
                     return false;
+                }
+                if (record.controlType() != ControlType.CREDIT
+                    && record.grade().getNumericValue() <= Grade.SATISFACTORY.getNumericValue()) {
+                        return false;
                 }
             }
         }
