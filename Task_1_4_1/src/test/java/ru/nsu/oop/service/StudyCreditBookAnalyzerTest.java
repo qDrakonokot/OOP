@@ -1,5 +1,10 @@
 package ru.nsu.oop.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.nsu.oop.model.ControlType;
@@ -8,10 +13,6 @@ import ru.nsu.oop.model.CreditStudyRecord;
 import ru.nsu.oop.model.Grade;
 import ru.nsu.oop.model.GradedStudyRecord;
 import ru.nsu.oop.model.StudyCreditBook;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class StudyCreditBookAnalyzerTest {
 
@@ -51,8 +52,10 @@ class StudyCreditBookAnalyzerTest {
 
     @Test
     void calculateAverageGrade_multipleSemesters_calculatesAcrossAll() {
-        book.addNewSemester(1, List.of(new GradedStudyRecord("А", ControlType.EXAM, Grade.GOOD))); // 4
-        book.addNewSemester(2, List.of(new GradedStudyRecord("Б", ControlType.EXAM, Grade.SATISFACTORY))); // 3
+        book.addNewSemester(1,
+            List.of(new GradedStudyRecord("А", ControlType.EXAM, Grade.GOOD))); // 4
+        book.addNewSemester(2,
+            List.of(new GradedStudyRecord("Б", ControlType.EXAM, Grade.SATISFACTORY))); // 3
         book.updateCurrentSemester(2);
 
         assertEquals(3.5, StudyCreditBookAnalyzer.calculateAverageGrade(book), 0.001);
@@ -117,7 +120,8 @@ class StudyCreditBookAnalyzerTest {
     @Test
     void canTransferToBudget_twoPerfectSessions_returnsTrue() {
         book.addNewSemester(1, List.of(new GradedStudyRecord("А", ControlType.EXAM, Grade.GOOD)));
-        book.addNewSemester(2, List.of(new GradedStudyRecord("Б", ControlType.EXAM, Grade.EXCELLENT)));
+        book.addNewSemester(2,
+            List.of(new GradedStudyRecord("Б", ControlType.EXAM, Grade.EXCELLENT)));
         book.updateCurrentSemester(2);
 
         assertTrue(StudyCreditBookAnalyzer.canTransferToBudget(book));
@@ -125,8 +129,10 @@ class StudyCreditBookAnalyzerTest {
 
     @Test
     void canTransferToBudget_hasSatisfactoryInLastTwoSessions_returnsFalse() {
-        book.addNewSemester(1, List.of(new GradedStudyRecord("А", ControlType.EXAM, Grade.SATISFACTORY)));
-        book.addNewSemester(2, List.of(new GradedStudyRecord("Б", ControlType.EXAM, Grade.EXCELLENT)));
+        book.addNewSemester(1,
+            List.of(new GradedStudyRecord("А", ControlType.EXAM, Grade.SATISFACTORY)));
+        book.addNewSemester(2,
+            List.of(new GradedStudyRecord("Б", ControlType.EXAM, Grade.EXCELLENT)));
         book.updateCurrentSemester(2);
 
         assertFalse(StudyCreditBookAnalyzer.canTransferToBudget(book));
@@ -135,7 +141,8 @@ class StudyCreditBookAnalyzerTest {
     @Test
     void canTransferToBudget_hasFailedCredit_returnsFalse() {
         book.addNewSemester(1, List.of(new CreditStudyRecord("Физра", CreditMark.FAILED)));
-        book.addNewSemester(2, List.of(new GradedStudyRecord("Б", ControlType.EXAM, Grade.EXCELLENT)));
+        book.addNewSemester(2,
+            List.of(new GradedStudyRecord("Б", ControlType.EXAM, Grade.EXCELLENT)));
         book.updateCurrentSemester(2);
 
         assertFalse(StudyCreditBookAnalyzer.canTransferToBudget(book));
@@ -143,9 +150,12 @@ class StudyCreditBookAnalyzerTest {
 
     @Test
     void canTransferToBudget_satisfactoryWasLongAgo_returnsTrue() {
-        book.addNewSemester(1, List.of(new GradedStudyRecord("А", ControlType.EXAM, Grade.SATISFACTORY)));
-        book.addNewSemester(2, List.of(new GradedStudyRecord("Б", ControlType.EXAM, Grade.EXCELLENT)));
-        book.addNewSemester(3, List.of(new GradedStudyRecord("В", ControlType.EXAM, Grade.EXCELLENT)));
+        book.addNewSemester(1,
+            List.of(new GradedStudyRecord("А", ControlType.EXAM, Grade.SATISFACTORY)));
+        book.addNewSemester(2,
+            List.of(new GradedStudyRecord("Б", ControlType.EXAM, Grade.EXCELLENT)));
+        book.addNewSemester(3,
+            List.of(new GradedStudyRecord("В", ControlType.EXAM, Grade.EXCELLENT)));
         book.updateCurrentSemester(3);
 
         assertTrue(StudyCreditBookAnalyzer.canTransferToBudget(book));
@@ -193,8 +203,10 @@ class StudyCreditBookAnalyzerTest {
 
     @Test
     void canGetRedDiploma_overwrittenGrade_returnsTrue() {
-        book.addNewSemester(1, List.of(new GradedStudyRecord("Матан", ControlType.EXAM, Grade.SATISFACTORY)));
-        book.addNewSemester(2, List.of(new GradedStudyRecord("Матан", ControlType.EXAM, Grade.EXCELLENT)));
+        book.addNewSemester(1,
+            List.of(new GradedStudyRecord("Матан", ControlType.EXAM, Grade.SATISFACTORY)));
+        book.addNewSemester(2,
+            List.of(new GradedStudyRecord("Матан", ControlType.EXAM, Grade.EXCELLENT)));
         book.updateCurrentSemester(2);
 
         assertTrue(StudyCreditBookAnalyzer.canGetRedDiploma(book));
@@ -202,8 +214,10 @@ class StudyCreditBookAnalyzerTest {
 
     @Test
     void canGetRedDiploma_vkrDefenseNotExcellent_returnsFalse() {
-        book.addNewSemester(1, List.of(new GradedStudyRecord("А", ControlType.EXAM, Grade.EXCELLENT)));
-        book.addNewSemester(8, List.of(new GradedStudyRecord("Диплом", ControlType.VKR_DEFENSE, Grade.GOOD)));
+        book.addNewSemester(1,
+            List.of(new GradedStudyRecord("А", ControlType.EXAM, Grade.EXCELLENT)));
+        book.addNewSemester(8,
+            List.of(new GradedStudyRecord("Диплом", ControlType.VKR_DEFENSE, Grade.GOOD)));
         book.updateCurrentSemester(8);
 
         assertFalse(StudyCreditBookAnalyzer.canGetRedDiploma(book));

@@ -26,9 +26,9 @@ public final class StudyCreditBookAnalyzer {
     }
 
     /**
-     * Вычисляет текущий средний балл за все время обучения.
-     * Учитываются только записи типа {@link GradedStudyRecord} (экзамены, диф. зачеты, ВКР).
-     * Обычные зачеты ({@link CreditStudyRecord}) автоматически игнорируются.
+     * Вычисляет текущий средний балл за все время обучения. Учитываются только записи типа
+     * {@link GradedStudyRecord} (экзамены, диф. зачеты, ВКР). Обычные зачеты
+     * ({@link CreditStudyRecord}) автоматически игнорируются.
      *
      * @param book зачетная книжка студента
      * @return средний балл, либо 0.0, если нет ни одной числовой оценки
@@ -50,9 +50,9 @@ public final class StudyCreditBookAnalyzer {
     }
 
     /**
-     * Проверяет возможность получения повышенной стипендии в текущем семестре.
-     * Правило: все экзамены и диф. зачеты за ПРЕДЫДУЩИЙ семестр должны быть сданы на "Отлично",
-     * а все обычные зачеты должны быть сданы (PASSED).
+     * Проверяет возможность получения повышенной стипендии в текущем семестре. Правило: все
+     * экзамены и диф. зачеты за ПРЕДЫДУЩИЙ семестр должны быть сданы на "Отлично", а все обычные
+     * зачеты должны быть сданы (PASSED).
      *
      * @param book зачетная книжка студента
      * @return true, если студент имеет право на повышенную стипендию
@@ -64,10 +64,12 @@ public final class StudyCreditBookAnalyzer {
         }
 
         for (var studyRecord : book.getRecordsForSemester(previousSemester)) {
-            if (studyRecord instanceof CreditStudyRecord credit && credit.mark() != CreditMark.PASSED) {
+            if (studyRecord instanceof CreditStudyRecord credit
+                && credit.mark() != CreditMark.PASSED) {
                 return false;
             }
-            if (studyRecord instanceof GradedStudyRecord graded && graded.grade() != Grade.EXCELLENT) {
+            if (studyRecord instanceof GradedStudyRecord graded
+                && graded.grade() != Grade.EXCELLENT) {
                 return false;
             }
         }
@@ -76,11 +78,10 @@ public final class StudyCreditBookAnalyzer {
     }
 
     /**
-     * Прогнозирует возможность получения диплома с отличием ("красного" диплома).
-     * Правила:
-     * 1. Отсутствие итоговых оценок "Удовлетворительно" и ниже.
-     * 2. Не менее 75% итоговых оценок (последняя оценка по каждому предмету) — "Отлично".
-     * 3. Квалификационная работа (ВКР) защищена на "Отлично" (если защита уже состоялась).
+     * Прогнозирует возможность получения диплома с отличием ("красного" диплома). Правила: 1.
+     * Отсутствие итоговых оценок "Удовлетворительно" и ниже. 2. Не менее 75% итоговых оценок
+     * (последняя оценка по каждому предмету) — "Отлично". 3. Квалификационная работа (ВКР) защищена
+     * на "Отлично" (если защита уже состоялась).
      *
      * @param book зачетная книжка студента
      * @return true, если студент сохраняет шансы на красный диплом
@@ -111,7 +112,7 @@ public final class StudyCreditBookAnalyzer {
                 if (studyRecord instanceof GradedStudyRecord graded
                     && graded.controlType() == ControlType.VKR_DEFENSE
                     && graded.grade() != Grade.EXCELLENT) {
-                        return false;
+                    return false;
                 }
             }
         }
@@ -120,9 +121,9 @@ public final class StudyCreditBookAnalyzer {
     }
 
     /**
-     * Проверяет возможность перевода студента с платного обучения на бюджетное.
-     * Правило: отсутствие оценок "Удовлетворительно" и ниже (включая незачеты)
-     * за последние ДВЕ экзаменационные сессии.
+     * Проверяет возможность перевода студента с платного обучения на бюджетное. Правило: отсутствие
+     * оценок "Удовлетворительно" и ниже (включая незачеты) за последние ДВЕ экзаменационные
+     * сессии.
      *
      * @param book зачетная книжка студента
      * @return true, если студент имеет право подать заявление на перевод
@@ -140,7 +141,7 @@ public final class StudyCreditBookAnalyzer {
             for (var studyRecord : book.getRecordsForSemester(i)) {
                 if (studyRecord instanceof CreditStudyRecord credit
                     && credit.mark() == CreditMark.FAILED) {
-                        return false;
+                    return false;
                 }
                 if (studyRecord instanceof GradedStudyRecord graded
                     && graded.grade().getNumericValue() <= Grade.SATISFACTORY.getNumericValue()) {

@@ -1,5 +1,6 @@
 package ru.nsu.oop;
 
+import java.util.List;
 import ru.nsu.oop.model.ControlType;
 import ru.nsu.oop.model.CreditMark;
 import ru.nsu.oop.model.CreditStudyRecord;
@@ -7,8 +8,6 @@ import ru.nsu.oop.model.Grade;
 import ru.nsu.oop.model.GradedStudyRecord;
 import ru.nsu.oop.model.StudyCreditBook;
 import ru.nsu.oop.service.StudyCreditBookAnalyzer;
-
-import java.util.List;
 
 /**
  * Мейн с демонстрацией.
@@ -36,7 +35,8 @@ public class Main {
 
         book.updateCurrentSemester(2);
         book.addNewSemester(2, List.of(
-            new GradedStudyRecord("Математический анализ", ControlType.EXAM, Grade.EXCELLENT), // Пересдал на 5!
+            new GradedStudyRecord("Математический анализ", ControlType.EXAM,
+                Grade.EXCELLENT), // Пересдал на 5!
             new GradedStudyRecord("Программирование", ControlType.EXAM, Grade.EXCELLENT),
             new GradedStudyRecord("Английский язык", ControlType.DIFF_CREDIT, Grade.EXCELLENT)
         ));
@@ -57,7 +57,8 @@ public class Main {
     }
 
     private static void printStats(StudyCreditBook book) {
-        System.out.printf("Средний балл за все время: %.2f%n", StudyCreditBookAnalyzer.calculateAverageGrade(book));
+        System.out.printf("Средний балл за все время: %.2f%n",
+            StudyCreditBookAnalyzer.calculateAverageGrade(book));
         System.out.println("Форма обучения: " + (book.isPaidEducation() ? "Бюджет" : "Платная"));
         System.out.println("Повышенная стипендия в этом семестре: " +
             (StudyCreditBookAnalyzer.canGetIncreasedStudentship(book) ? "ДА" : "НЕТ"));
