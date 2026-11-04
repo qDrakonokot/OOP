@@ -134,9 +134,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="calculateAverageGrade(ru.nsu.oop.model.StudyCreditBook)">
 <h3>calculateAverageGrade</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">calculateAverageGrade</span><wbr><span class="parameters">(<a href="../model/StudyCreditBook.html" title="class in ru.nsu.oop.model">StudyCreditBook</a>&nbsp;book)</span></div>
-<div class="block">Вычисляет текущий средний балл за все время обучения.
- Учитываются только записи типа <a href="../model/GradedStudyRecord.html" title="class in ru.nsu.oop.model"><code>GradedStudyRecord</code></a> (экзамены, диф. зачеты, ВКР).
- Обычные зачеты (<a href="../model/CreditStudyRecord.html" title="class in ru.nsu.oop.model"><code>CreditStudyRecord</code></a>) автоматически игнорируются.</div>
+<div class="block">Вычисляет текущий средний балл за все время обучения. Учитываются только записи типа
+ <a href="../model/GradedStudyRecord.html" title="class in ru.nsu.oop.model"><code>GradedStudyRecord</code></a> (экзамены, диф. зачеты, ВКР). Обычные зачеты
+ (<a href="../model/CreditStudyRecord.html" title="class in ru.nsu.oop.model"><code>CreditStudyRecord</code></a>) автоматически игнорируются.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>book</code> - зачетная книжка студента</dd>
@@ -149,9 +149,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="canGetIncreasedStudentship(ru.nsu.oop.model.StudyCreditBook)">
 <h3>canGetIncreasedStudentship</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">canGetIncreasedStudentship</span><wbr><span class="parameters">(<a href="../model/StudyCreditBook.html" title="class in ru.nsu.oop.model">StudyCreditBook</a>&nbsp;book)</span></div>
-<div class="block">Проверяет возможность получения повышенной стипендии в текущем семестре.
- Правило: все экзамены и диф. зачеты за ПРЕДЫДУЩИЙ семестр должны быть сданы на "Отлично",
- а все обычные зачеты должны быть сданы (PASSED).</div>
+<div class="block">Проверяет возможность получения повышенной стипендии в текущем семестре. Правило: все
+ экзамены и диф. зачеты за ПРЕДЫДУЩИЙ семестр должны быть сданы на "Отлично", а все обычные
+ зачеты должны быть сданы (PASSED).</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>book</code> - зачетная книжка студента</dd>
@@ -164,11 +164,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="canGetRedDiploma(ru.nsu.oop.model.StudyCreditBook)">
 <h3>canGetRedDiploma</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">canGetRedDiploma</span><wbr><span class="parameters">(<a href="../model/StudyCreditBook.html" title="class in ru.nsu.oop.model">StudyCreditBook</a>&nbsp;book)</span></div>
-<div class="block">Прогнозирует возможность получения диплома с отличием ("красного" диплома).
- Правила:
- 1. Отсутствие итоговых оценок "Удовлетворительно" и ниже.
- 2. Не менее 75% итоговых оценок (последняя оценка по каждому предмету) — "Отлично".
- 3. Квалификационная работа (ВКР) защищена на "Отлично" (если защита уже состоялась).</div>
+<div class="block">Прогнозирует возможность получения диплома с отличием ("красного" диплома). Правила: 1.
+ Отсутствие итоговых оценок "Удовлетворительно" и ниже. 2. Не менее 75% итоговых оценок
+ (последняя оценка по каждому предмету) — "Отлично". 3. Квалификационная работа (ВКР) защищена
+ на "Отлично" (если защита уже состоялась).</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>book</code> - зачетная книжка студента</dd>
@@ -181,9 +180,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="canTransferToBudget(ru.nsu.oop.model.StudyCreditBook)">
 <h3>canTransferToBudget</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">canTransferToBudget</span><wbr><span class="parameters">(<a href="../model/StudyCreditBook.html" title="class in ru.nsu.oop.model">StudyCreditBook</a>&nbsp;book)</span></div>
-<div class="block">Проверяет возможность перевода студента с платного обучения на бюджетное.
- Правило: отсутствие оценок "Удовлетворительно" и ниже (включая незачеты)
- за последние ДВЕ экзаменационные сессии.</div>
+<div class="block">Проверяет возможность перевода студента с платного обучения на бюджетное. Правило: отсутствие
+ оценок "Удовлетворительно" и ниже (включая незачеты) за последние ДВЕ экзаменационные
+ сессии.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>book</code> - зачетная книжка студента</dd>
