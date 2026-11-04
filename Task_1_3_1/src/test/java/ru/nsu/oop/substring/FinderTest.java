@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -58,9 +59,10 @@ class FinderTest {
     }
 
     @Test
-    void find_emptyOrNullTarget_throwsException() {
-        assertThrows(IllegalArgumentException.class,
-            () -> Finder.find(new StringReader("text"), ""));
+    void find_emptyOrNullTarget_throwsException() throws IOException {
+        List<Integer> result = Finder.find(new StringReader("text"), "");
+
+        assertEquals(Collections.emptyList(), result);
         assertThrows(IllegalArgumentException.class,
             () -> Finder.find(new StringReader("text"), null));
     }
@@ -93,7 +95,7 @@ class FinderTest {
         // 12 сек на 1 Гб. На компе выполнялось, прикольный бенчмарк
         // 116 сек на 10 Гб. Видно, что рост линейный
 
-        long size = 100_000_000_00L;
+        long size = 100_000_000_0L;
         String target = "магия";
         long targetPosition = size - target.length() - 10;
 

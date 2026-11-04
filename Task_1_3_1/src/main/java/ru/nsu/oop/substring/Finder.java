@@ -3,6 +3,7 @@ package ru.nsu.oop.substring;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ public class Finder {
      * Ищет все вхождения заданной подстроки в потоке символов.
      * Алгоритм использует принцип "скользящего окна", что позволяет обрабатывать потоки данных
      * любого размера (включая файлы, превышающие объем оперативной памяти). Потребление памяти
-     * составляет O(M), где M — длина искомой подстроки.
+     * составляет O(M + K), где M — длина искомой подстроки, K- количество вхождений подстроки.
      *
      * @param reader поток символов для чтения (например, FileReader или StringReader)
      * @param target искомая подстрока
@@ -29,12 +30,14 @@ public class Finder {
      */
     public static List<Integer> find(Reader reader, String target)
         throws IOException {
-        if (target == null || target.isEmpty()) {
-            throw new IllegalArgumentException("Передана пустая подстрока для поиска");
+        if (target == null) {
+            throw new IllegalArgumentException("Передан null, вместо валидной строки");
+        } else if (target.isEmpty()) {
+            return Collections.emptyList();
         }
 
         List<Integer> result = new ArrayList<>();
-        StringBuilder window = new StringBuilder();
+        StringBuilder window = new StringBuilder(target.length());
         for (int i = 0; i < target.length(); ++i) {
             int data = reader.read();
             if (data == -1) {
