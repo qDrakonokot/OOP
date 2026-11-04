@@ -10,9 +10,9 @@ import java.util.Map;
  * об успеваемости. Не содержит бизнес-логики вычислений, отвечает только за целостность своих
  * данных.
  */
-public class RecordBook {
+public class StudyCreditBook {
 
-    private final Map<Integer, List<Record>> semestersMap;
+    private final Map<Integer, List<StudyRecord>> semestersMap;
     private int currentSemester;
     private boolean isPaidEducation;
 
@@ -22,7 +22,7 @@ public class RecordBook {
      * @param currentSemester текущий семестр обучения (начиная с 1)
      * @param isPaidEducation true, если студент обучается на коммерческой основе, иначе false
      */
-    public RecordBook(int currentSemester, boolean isPaidEducation) {
+    public StudyCreditBook(int currentSemester, boolean isPaidEducation) {
         this.semestersMap = new HashMap<>();
         this.currentSemester = currentSemester;
         this.isPaidEducation = isPaidEducation;
@@ -34,7 +34,7 @@ public class RecordBook {
      * @param semester номер семестра
      * @param records  список записей (оценок и зачетов)
      */
-    public void addNewSemester(int semester, List<Record> records) {
+    public void addNewSemester(int semester, List<StudyRecord> records) {
         semestersMap.put(semester, List.copyOf(records));
     }
 
@@ -80,8 +80,8 @@ public class RecordBook {
      * @param semester номер семестра
      * @return неизменяемый список записей, либо пустой список, если данных за семестр нет
      */
-    public List<Record> getRecordsForSemester(int semester) {
-        List<Record> records = semestersMap.get(semester);
+    public List<StudyRecord> getRecordsForSemester(int semester) {
+        List<StudyRecord> records = semestersMap.get(semester);
         return records != null ? List.copyOf(records) : Collections.emptyList();
     }
 

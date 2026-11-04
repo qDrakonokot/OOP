@@ -2,15 +2,13 @@ package ru.nsu.oop.model;
 
 
 /**
- * Перечисление возможных оценок и статусов зачетов.
+ * Перечисление возможных дифференцированных (числовых) оценок.
  */
 public enum Grade {
     EXCELLENT(5),
     GOOD(4),
     SATISFACTORY(3),
-    UNSATISFACTORY(2),
-    PASSED(0),
-    FAILED(0);
+    UNSATISFACTORY(2);
 
     private final int numericValue;
 
@@ -19,8 +17,7 @@ public enum Grade {
     }
 
     /**
-     * Возвращает числовой эквивалент оценки для расчета среднего балла. Для зачетов (PASSED/FAILED)
-     * возвращает 0.
+     * Возвращает числовой эквивалент оценки для расчета среднего балла.
      */
     public int getNumericValue() {
         return numericValue;
