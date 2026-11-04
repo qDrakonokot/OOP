@@ -83,7 +83,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public enum </span><span class="element-name type-name-label">Grade</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html" title="class or interface in java.lang" class="external-link">Enum</a>&lt;<a href="Grade.html" title="enum class in ru.nsu.oop.model">Grade</a>&gt;</span></div>
-<div class="block">Перечисление возможных оценок и статусов зачетов.</div>
+<div class="block">Перечисление возможных дифференцированных (числовых) оценок.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -106,11 +106,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code><a href="#EXCELLENT" class="member-name-link">EXCELLENT</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code><a href="#FAILED" class="member-name-link">FAILED</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code><a href="#GOOD" class="member-name-link">GOOD</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code><a href="#PASSED" class="member-name-link">PASSED</a></code></div>
+<div class="col-first odd-row-color"><code><a href="#GOOD" class="member-name-link">GOOD</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code><a href="#SATISFACTORY" class="member-name-link">SATISFACTORY</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -190,18 +186,6 @@ the order they are declared.</div>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="Grade.html" title="enum class in ru.nsu.oop.model">Grade</a></span>&nbsp;<span class="element-name">UNSATISFACTORY</span></div>
 </section>
 </li>
-<li>
-<section class="detail" id="PASSED">
-<h3>PASSED</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="Grade.html" title="enum class in ru.nsu.oop.model">Grade</a></span>&nbsp;<span class="element-name">PASSED</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="FAILED">
-<h3>FAILED</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="Grade.html" title="enum class in ru.nsu.oop.model">Grade</a></span>&nbsp;<span class="element-name">FAILED</span></div>
-</section>
-</li>
 </ul>
 </section>
 </li>
@@ -245,8 +229,7 @@ not permitted.)</div>
 <section class="detail" id="getNumericValue()">
 <h3>getNumericValue</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getNumericValue</span>()</div>
-<div class="block">Возвращает числовой эквивалент оценки для расчета среднего балла. Для зачетов (PASSED/FAILED)
- возвращает 0.</div>
+<div class="block">Возвращает числовой эквивалент оценки для расчета среднего балла.</div>
 </section>
 </li>
 </ul>

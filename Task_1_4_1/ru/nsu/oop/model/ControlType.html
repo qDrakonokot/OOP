@@ -83,7 +83,9 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public enum </span><span class="element-name type-name-label">ControlType</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html" title="class or interface in java.lang" class="external-link">Enum</a>&lt;<a href="ControlType.html" title="enum class in ru.nsu.oop.model">ControlType</a>&gt;</span></div>
-<div class="block">Перечисление форм контроля знаний, которые заносятся в зачетную книжку.</div>
+<div class="block">Перечисление форм контроля знаний, за которые выставляется дифференцированная оценка.
+ Обычные зачеты здесь отсутствуют, так как для них используется отдельная сущность
+ <a href="CreditStudyRecord.html" title="class in ru.nsu.oop.model"><code>CreditStudyRecord</code></a>.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -104,14 +106,12 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Enum Constant</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="#CREDIT" class="member-name-link">CREDIT</a></code></div>
+<div class="col-first even-row-color"><code><a href="#DIFF_CREDIT" class="member-name-link">DIFF_CREDIT</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code><a href="#DIFF_CREDIT" class="member-name-link">DIFF_CREDIT</a></code></div>
+<div class="col-first odd-row-color"><code><a href="#EXAM" class="member-name-link">EXAM</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code><a href="#EXAM" class="member-name-link">EXAM</a></code></div>
+<div class="col-first even-row-color"><code><a href="#VKR_DEFENSE" class="member-name-link">VKR_DEFENSE</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code><a href="#VKR_DEFENSE" class="member-name-link">VKR_DEFENSE</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -167,12 +167,6 @@ the order they are declared.</div>
 <section class="detail" id="DIFF_CREDIT">
 <h3>DIFF_CREDIT</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ControlType.html" title="enum class in ru.nsu.oop.model">ControlType</a></span>&nbsp;<span class="element-name">DIFF_CREDIT</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="CREDIT">
-<h3>CREDIT</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="ControlType.html" title="enum class in ru.nsu.oop.model">ControlType</a></span>&nbsp;<span class="element-name">CREDIT</span></div>
 </section>
 </li>
 <li>
